@@ -1,11 +1,9 @@
-import GameDetailViews from "../views/Detail/GameDetailView";
-import FooterViews from "../views/Home/FooterView";
+import GameDetails from "../views/Detail/GameDetail";
 
 const DetailPages = () => {
   return (
     <>
-      <GameDetailViews />
-      <FooterViews />
+      <GameDetails />
     </>
   );
 };

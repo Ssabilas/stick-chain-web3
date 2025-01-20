@@ -3,7 +3,7 @@ import { useState } from "react";
 import CardList from "../../Json/CardListView.json";
 import { encryptData } from "../../Utils/parseURL";
 
-const ListMoreViews = () => {
+const ListGameCards = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleClick = (index: any) => {
@@ -93,4 +93,4 @@ const ListMoreViews = () => {
   );
 };
 
-export default ListMoreViews;
+export default ListGameCards;

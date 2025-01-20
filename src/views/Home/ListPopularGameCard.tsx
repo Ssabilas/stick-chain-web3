@@ -6,7 +6,7 @@ import FilterTags from "../../components/Dropdown/FilterTag";
 import FilterPrices from "../../components/Dropdown/FilterPrice";
 import { encryptData } from "../../Utils/parseURL";
 
-const ListPopularViews = () => {
+const ListPopularGameCards = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleClick = (index: any) => {
@@ -67,7 +67,7 @@ const ListPopularViews = () => {
                         {content.price} ETH
                       </p>
                       <ul className="flex flex-wrap uppercase text-sm pt-1">
-                        {category.slice(0,2).map((item, categoryIndex) => (
+                        {category.slice(0, 2).map((item, categoryIndex) => (
                           <li
                             className="flex gap-1 font-semibold px-1"
                             key={categoryIndex}
@@ -76,13 +76,20 @@ const ListPopularViews = () => {
                             {item.replace(/-/g, " ")}
                           </li>
                         ))}
-                      </ul> 
+                      </ul>
                     </div>
                     <div className="flex flex-col items-center justify-center w-full gap-4 my-8">
                       <button className="w-[85%] px-4 py-2 uppercase border-2 rounded-full outline-none  hover:bg-colorAqua hover:text-colorViolet border-colorAqua text-colorAqua">
                         Add to cart <i className="ri-shopping-cart-2-fill"></i>
                       </button>
-                      <button className="w-[85%] px-4 py-2 bg-transparent hover:bg-colorWhite hover:text-colorViolet border-colorWhite uppercase border-2 rounded-full hover:border-colorWhite bg-colorPurple text-colorWhite outline-none" onClick={() => window.location.assign(`/games/${encodeURIComponent(encryptParams)}`)}>
+                      <button
+                        className="w-[85%] px-4 py-2 bg-transparent hover:bg-colorWhite hover:text-colorViolet border-colorWhite uppercase border-2 rounded-full hover:border-colorWhite bg-colorPurple text-colorWhite outline-none"
+                        onClick={() =>
+                          window.location.assign(
+                            `/games/${encodeURIComponent(encryptParams)}`
+                          )
+                        }
+                      >
                         Read More <i className="ri-arrow-right-line"></i>
                       </button>
                     </div>
@@ -96,4 +103,4 @@ const ListPopularViews = () => {
   );
 };
 
-export default ListPopularViews;
+export default ListPopularGameCards;

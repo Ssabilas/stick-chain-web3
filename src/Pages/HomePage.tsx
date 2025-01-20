@@ -1,16 +1,14 @@
 import { ReactElement } from "react";
-import HeroViews from "../views/Home/HeroView";
-import ListPopularViews from "../views/Home/ListPopularView";
-import ListMoreViews from "../views/Home/ListMoreView";
-import FooterViews from "../views/Home/FooterView";
+import HomeHeros from "../views/Home/HomeHero";
+import ListPopularGameCards from "../views/Home/ListPopularGameCard";
+import ListGameCards from "../views/Home/ListGameCard";
 
 const HomePages = (): ReactElement => {
   return (
     <>
-      <HeroViews />
-      <ListPopularViews />
-      <ListMoreViews />
-      <FooterViews />
+      <HomeHeros />
+      <ListPopularGameCards />
+      <ListGameCards />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import FooterLogo from "/assets/Nav-Logo.png";
 import { useState } from "react";
 
-const FooterViews = () => {
+const Footers = () => {
   const [language, setLanguage] = useState(false);
 
   const year = new Date();
@@ -99,4 +99,4 @@ const FooterViews = () => {
   );
 };
 
-export default FooterViews;
+export default Footers;

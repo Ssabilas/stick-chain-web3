@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 // import GradientMest from "/assets/Hero-Gradient.png";
 import HeroSliders from "../../components/Slider/HeroSlider";
 
-const HeroViews = (): ReactElement => {
+const HomeHeros = (): ReactElement => {
   return (
     <>
       <section
@@ -14,4 +14,4 @@ const HeroViews = (): ReactElement => {
   );
 };
 
-export default HeroViews;
+export default HomeHeros;
