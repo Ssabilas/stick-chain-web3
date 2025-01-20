@@ -1,0 +1,178 @@
+[
+  {
+    "id": "The Witcher 3",
+    "name": "The Witcher 3: Wild Hunt",
+    "thumbnail": "/assets/CardList/The-Witcher-Card.jpeg",
+    "category": "RPG Single-Player",
+    "price": "0,00926",
+    "popular": true
+  },
+  {
+    "id": "RDR2",
+    "name": "Red Dead Redemption 2",
+    "thumbnail": "/assets/CardList/Red-Dead-Card.jpg",
+    "category": "Action Adventure Single-Player",
+    "price": "0,01296",
+    "popular": true
+  },
+  {
+    "id": "GTAV",
+    "name": "Grand Theft Auto V",
+    "thumbnail": "/assets/CardList/GTA-Card.jpg",
+    "category": "Action Adventure Single-Player Multi-Player",
+    "price": "0,00555",
+    "popular": true
+  },
+  {
+    "id": "Celeste",
+    "name": "Celeste",
+    "thumbnail": "/assets/CardList/Celeste-Card.png",
+    "category": "Platformer Single-Player",
+    "price": "0,00370",
+    "popular": false
+  },
+  {
+    "id": "Stardrew",
+    "name": "Stardew Valley",
+    "thumbnail": "/assets/CardList/Stardrew-Card.png",
+    "category": "Simulation RPG Single-Player",
+    "price": "0,00278",
+    "popular": false
+  },
+  {
+    "id": "Dark Souls 3",
+    "name": "Dark Souls III",
+    "thumbnail": "/assets/CardList/Darksoul-Card.jpg",
+    "category": "Action RPG Single-Player",
+    "price": "0,00741",
+    "popular": true
+  },
+  {
+    "id": "Nier Automata",
+    "name": "Nier: Automata",
+    "thumbnail": "/assets/CardList/Automata-Card.jpg",
+    "category": "Action RPG Single-Player",
+    "price": "0,00694",
+    "popular": false
+  },
+  {
+    "id": "DOOM Eternal",
+    "name": "DOOM Eternal",
+    "thumbnail": "/assets/CardList/DOOM-Card.jpg",
+    "category": "First-Person Shooter Single-Player",
+    "price": "0,00833",
+    "popular": true
+  },
+  {
+    "id": "FIFA 23",
+    "name": "FIFA 23",
+    "thumbnail": "/assets/CardList/FIFA23-Card.jpg",
+    "category": "Sports Single-Player Multi-Player",
+    "price": "0,01120",
+    "popular": true
+  },
+  {
+    "id": "Fortnite",
+    "name": "Fortnite",
+    "thumbnail": "/assets/CardList/Fortnite-Card.jpg",
+    "category": "Battle Royale Multi-Player",
+    "price": "0,00000",
+    "popular": true
+  },
+  {
+    "id": "Elden Ring",
+    "name": "Elden Ring",
+    "thumbnail": "/assets/CardList/Elden-Ring-Card.jpg",
+    "category": "Action RPG",
+    "price": "0.01500 ETH",
+    "popular": true
+  },
+  {
+    "id": "Cyberpunk 2077",
+    "name": "Cyberpunk 2077",
+    "thumbnail": "/assets/CardList/Cyberpunk-Card.jpg",
+    "category": "Action RPG Single-Player",
+    "price": "0.01200 ETH",
+    "popular": true
+  },
+  {
+    "id": "Minecraft",
+    "name": "Minecraft",
+    "thumbnail": "/assets/CardList/Minecraft-Card.png",
+    "category": "Sandbox Single-Player Multi-Player",
+    "price": "0.00450 ETH",
+    "popular": true
+  },
+  {
+    "id": "Call Of Duty Warzone",
+    "name": "Call of Duty: Warzone",
+    "thumbnail": "/assets/CardList/Warzone-Card.jpg",
+    "category": "First-Person Shooter Multi-Player",
+    "price": "0.01075 ETH",
+    "popular": true
+  },
+  {
+    "id": "Graveyard Keeper",
+    "name": "Graveyard Keeper",
+    "thumbnail": "/assets/CardList/Graveyard-Keeper-Card.jpg",
+    "category": "Simulation Single-Player",
+    "price": "0,00350",
+    "popular": false
+  },
+  {
+    "id": "Pathologic 2",
+    "name": "Pathologic 2",
+    "thumbnail": "/assets/CardList/Pathologic-2-Card.jpg",
+    "category": "Survival Single-Player",
+    "price": "0,00520",
+    "popular": false
+  },
+  {
+    "id": "Sunless Sea",
+    "name": "Sunless Sea",
+    "thumbnail": "/assets/CardList/Sunless-Sea-Card.jpg",
+    "category": "Adventure Single-Player",
+    "price": "0,00475",
+    "popular": false
+  },
+  {
+    "id": "Rain World",
+    "name": "Rain World",
+    "thumbnail": "/assets/CardList/Rain-World-Card.jpg",
+    "category": "Platformer Single-Player",
+    "price": "0,00640",
+    "popular": false
+  },
+  {
+    "id": "ATOM RPG",
+    "name": "ATOM RPG",
+    "thumbnail": "/assets/CardList/ATOM-RPG-Card.jpg",
+    "category": "RPG Single-Player",
+    "price": "0,00710",
+    "popular": false
+  },
+  {
+    "id": "Tower Unite",
+    "name": "Tower Unite",
+    "thumbnail": "/assets/CardList/Tower-Unite-Card.jpg",
+    "category": "Multiplayer Single-Player",
+    "price": "0,00825",
+    "popular": false
+  },
+  {
+    "id": "Tangledeep",
+    "name": "Tangledeep",
+    "thumbnail": "/assets/CardList/Tangledeep-Card.jpg",
+    "category": "RPG Single-Player",
+    "price": "0,00410",
+    "popular": false
+  },
+  {
+    "id": "Book of Demons",
+    "name": "Book of Demons",
+    "thumbnail": "/assets/CardList/Book-of-Demons-Card.jpg",
+    "category": "Action Single-Player",
+    "price": "0,00560",
+    "popular": false
+  }
+]
