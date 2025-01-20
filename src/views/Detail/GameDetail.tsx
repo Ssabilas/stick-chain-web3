@@ -2,10 +2,9 @@ import { useParams } from "react-router-dom";
 import GameDetail from "../../Json/GameDetail.json";
 import { decryptData } from "../../Utils/parseURL";
 
-const GameDetailViews = () => {
+const GameDetails = () => {
   const { id } = useParams<{ id: string }>();
   const decryptedData = decryptData(encodeURI(id as string));
-
 
   return (
     <>
@@ -51,6 +50,7 @@ const GameDetailViews = () => {
                       cumque vel explicabo blanditiis fuga!
                     </p>
                   </div>
+                  <hr className="w-full text-colorAqua" />
                   <div className="flex w-full gap-32 mt-4">
                     <div className="w-full">
                       <h4>Current Price</h4>
@@ -58,11 +58,11 @@ const GameDetailViews = () => {
                         {detail.price} ETH
                       </p>
                     </div>
-                    <div className="flex w-full">
-                      <button className="px-12 py-1 uppercase border-2 rounded-l-full outline-none bg-colorAqua text-colorViolet border-colorAqua hover:text-colorAqua hover:bg-transparent">
+                    <div className="flex w-full font-semibold justify-center items-center">
+                      <button className="px-12 py-1 h-[40px]  uppercase border-2 rounded-l-full outline-none bg-colorAqua text-colorViolet border-colorAqua hover:text-colorAqua hover:bg-transparent animate">
                         buy now
                       </button>
-                      <button className="px-12 py-1 uppercase border-2 rounded-r-full outline-none hover:bg-transparent bg-colorPurple hover:border-colorWhite border-colorPurple text-colorWhite">
+                      <button className="px-12 py-1 h-[40px] uppercase border-2 rounded-r-full outline-none hover:bg-transparent bg-colorPurple hover:border-colorWhite border-colorPurple text-colorWhite animate">
                         <i className="ri-shopping-cart-fill"></i>
                       </button>
                     </div>
@@ -77,4 +77,4 @@ const GameDetailViews = () => {
   );
 };
 
-export default GameDetailViews;
+export default GameDetails;

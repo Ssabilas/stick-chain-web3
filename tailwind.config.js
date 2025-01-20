@@ -8,6 +8,7 @@ export default {
       'colorWhiteDark': "#999999",
       'colorWhite': '#ffffff',
       'colorAqua': '#00E5FF',
+      'colorGreen': '#00cc00',
       'colorPurple': '#372973',
       'colorGrayDark': '#303030',
       'colorGray': '#424242',
