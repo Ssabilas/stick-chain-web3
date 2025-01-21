@@ -32,7 +32,7 @@ const EwalletCards = (): ReactElement => {
           <div className="flex gap-8 px-12 py-2 bg-colorAqua rounded-xl hover:bg-colorAqua/85">
             <img src={MetamaskLogo} alt="Metamask Logo" />
             <button
-              className="text-2xl font-extrabold text-colorViolet"
+              className="text-2xl font-extrabold text-colorGray"
               onClick={connect}
             >
               METAMASK
@@ -48,10 +48,10 @@ const EwalletCards = (): ReactElement => {
               Connected
             </h2>
           </div>
-          <div className="flex justify-center items-center flex-row px-12 py-2">
+          <div className="flex flex-row items-center justify-center px-12 py-2">
             <img src={MetamaskLogo} alt="Metamask Logo" />
             <hr className="text-xl font-extrabold w-52" />
-            <i className="ri-check-double-line text-6xl text-colorGreen"></i>
+            <i className="text-6xl ri-check-double-line text-colorGreen"></i>
           </div>
         </>
       );
@@ -62,7 +62,7 @@ const EwalletCards = (): ReactElement => {
     <>
       {card && (
         <section className="left-[35%] top-52 fixed">
-          <div className="bg-colorViolet w-[600px] h-[600px] flex justify-center items-center flex-col rounded-3xl drop-shadow-md border-2 gap-8">
+          <div className="bg-gradient-to-t from-colorGrayDark to-colorGray w-[600px] h-[600px] flex justify-center items-center flex-col rounded-3xl drop-shadow-md border-2 border-colorGray gap-8">
             <i
               className="absolute z-20 text-4xl cursor-pointer right-8 top-6 ri-close-line"
               onClick={() => setCard(!card)}

@@ -6,6 +6,7 @@ export default {
       'transparent': 'transparent',
       'colorViolet': '#180d49',
       'colorWhiteDark': "#999999",
+      'colorBlack': "#0d0d0d",
       'colorWhite': '#ffffff',
       'colorAqua': '#00E5FF',
       'colorGreen': '#00cc00',

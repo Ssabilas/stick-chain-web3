@@ -32,20 +32,20 @@ const SpecDetails = () => {
   return (
     <>
       <section className="flex items-start justify-center">
-        <div className="container">
-          <div className="w-[70%] ml-20">
+        <div className="w-full">
+          <div className="w-[100%] ml-28">
             <div className="flex flex-row items-center">
-              <h2
-                className="text-2xl font-semibold cursor-pointer border-colorWhite animate"
+              <button
+                className="text-3xl font-semibold cursor-pointer border-colorWhite animate"
                 onClick={() => setSpec(!spec)}
               >
                 {spec === true
                   ? `Mininum Specification`
                   : `Maximum Specification`}{" "}
                 <i className="pr-2 ri-arrow-up-down-line"></i>
-              </h2>
+              </button>
             </div>
-            <ul className="flex items-center justify-start gap-36">
+            <ul className="flex items-center justify-start gap-24">
               <ul className="flex flex-col items-start justify-start gap-2 mt-4">
                 <TitleSpecification Title="Operation System" />
                 <TitleSpecification Title="Processor" />
