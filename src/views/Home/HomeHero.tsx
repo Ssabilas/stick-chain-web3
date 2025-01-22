@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 // import GradientMest from "/assets/Hero-Gradient.png";
-import HeroSliders from "../../components/Slider/HeroSlider";
+import HeroSliders from "../../Components/Slider/HeroSlider";
 
 const HomeHeros = (): ReactElement => {
   return (

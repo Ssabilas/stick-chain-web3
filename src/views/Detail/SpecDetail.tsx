@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { memo } from "react";
 
 interface TitleSpecInterface {
   Title: string;
@@ -26,7 +27,7 @@ const DescriptionSpecification = ({
   );
 };
 
-const SpecDetails = () => {
+const SpecDetails = memo(() => {
   const [spec, setSpec] = useState(true);
 
   return (
@@ -76,6 +77,6 @@ const SpecDetails = () => {
       </section>
     </>
   );
-};
+});
 
 export default SpecDetails;

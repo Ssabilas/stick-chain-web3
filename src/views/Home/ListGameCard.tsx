@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import CardList from "../../Json/CardListView.json";
+import CardList from "../../Json/Home/CardListView.json";
 import { encryptData } from "../../Utils/parseURL";
+import { memo } from "react";
 
-const ListGameCards = () => {
+const ListGameCards = memo(() => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleClick = (index: any) => {
@@ -55,10 +56,10 @@ const ListGameCards = () => {
                       <p className="text-xl font-semibold text-colorAqua">
                         {content.price} ETH
                       </p>
-                      <ul className="flex flex-wrap uppercase text-sm pt-1">
+                      <ul className="flex flex-wrap pt-1 text-sm uppercase">
                         {category.slice(0, 2).map((item, categoryIndex) => (
                           <li
-                            className="flex gap-1 font-semibold px-1"
+                            className="flex gap-1 px-1 font-semibold"
                             key={categoryIndex}
                           >
                             <i className="ri-gamepad-line"></i>
@@ -91,6 +92,6 @@ const ListGameCards = () => {
       </section>
     </>
   );
-};
+});
 
 export default ListGameCards;

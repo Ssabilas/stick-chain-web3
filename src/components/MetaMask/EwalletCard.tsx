@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useState, useEffect } from "react";
 import MetamaskLogo from "/assets/Metamask-Logo.png";
 import LogoBrand from "/assets/Nav-Logo.png";
 import { useSDK } from "@metamask/sdk-react";
@@ -9,6 +9,18 @@ const EwalletCards = (): ReactElement => {
   const [account, setAccount] = useState<string>();
   const { sdk, connected, chainId } = useSDK();
   const [card, setCard] = useState(true);
+
+  useEffect(() => {
+    if (card) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
+  }, [card]);
 
   const connect = async () => {
     try {
@@ -23,7 +35,7 @@ const EwalletCards = (): ReactElement => {
     if (!connected) {
       return (
         <>
-          <div className="flex gap-4">
+          <div className="flex gap-4 z-[999]">
             <h2 className="flex flex-row text-4xl font-bold uppercase">
               Connect to
             </h2>

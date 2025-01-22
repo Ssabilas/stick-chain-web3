@@ -99,3 +99,126 @@ li {
   -ms-transition: all ease-in-out 0.2s;
   -o-transition: all ease-in-out 0.2s;
 }
+
+/* Gallery Slider CSS */
+.slider {
+  background: rgb(19, 19, 19);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
+  width: 1300px;
+  position: fixed;
+  padding-top: 320px;
+  top: 2%;
+  left: 15%;
+  border-radius: 12px;
+  margin: 100px auto;
+  filter: drop-shadow(0rem 0rem 0.1rem black);
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  -webkit-filter: drop-shadow(0rem 0rem 0.1rem black);
+}
+
+.slider img {
+  margin-top: 20px;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  display: -webkit-box;
+  background-position: center;
+  object-fit: cover;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+.slider > img.pagination {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 24%;
+  height: 800px;
+  width: 1300px;
+  transition: all 0.5s;
+}
+
+.slider input[name="slide_switch"] {
+  display: none;
+}
+
+.slider label {
+  margin: 20px 0 32px 12px;
+  width: 120px;
+  height: 70px;
+  object-position: cover;
+  float: left;
+  cursor: pointer;
+  transition: all 0.5s;
+  opacity: 0.6;
+}
+
+.slider label img {
+  border-radius: 12px;
+  margin-top: 7.5rem;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  object-fit: cover;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+
+.slider input[name="slide_switch"]:checked + label {
+  border-color: #666;
+  opacity: 1;
+}
+
+.slider input[name="slide_switch"] ~ img {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.slider input[name="slide_switch"]:checked + label + img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* MoreGameSlider */
+.more-game-container {
+  width: 55%; /* Match the width of a single slide */
+  height: 500px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  white-space: nowrap; /* Prevent line breaks */
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin-inline: 20px;
+}
+
+.more-game-slider {
+  display: flex;
+  width: calc(700px * 4); /* Total width for all slides */
+}
+
+.more-game-slide {
+  flex: 0 0 100px; /* Each slide takes up 100% of the container width */
+  height: 50%;
+  scroll-snap-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+}

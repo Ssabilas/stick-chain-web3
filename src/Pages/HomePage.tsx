@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
-import HomeHeros from "../views/Home/HomeHero";
-import ListPopularGameCards from "../views/Home/ListPopularGameCard";
-import ListGameCards from "../views/Home/ListGameCard";
+import HomeHeros from "../Views/Home/HomeHero";
+import ListPopularGameCards from "../Views/Home/ListPopularGameCard";
+import ListGameCards from "../Views/Home/ListGameCard";
 
 const HomePages = (): ReactElement => {
   return (

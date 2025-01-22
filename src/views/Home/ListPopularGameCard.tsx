@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import CardList from "../../Json/CardListView.json";
-import GameCategories from "../../components/Dropdown/GameCategory";
-import FilterTags from "../../components/Dropdown/FilterTag";
-import FilterPrices from "../../components/Dropdown/FilterPrice";
+import CardList from "../../Json/Home/CardListView.json";
+import GameCategories from "../../Components/Dropdown/GameCategory";
+import FilterTags from "../../Components/Dropdown/FilterTag";
+import FilterPrices from "../../Components/Dropdown/FilterPrice";
 import { encryptData } from "../../Utils/parseURL";
+import { memo } from "react";
 
-const ListPopularGameCards = () => {
+const ListPopularGameCards = memo(() => {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleClick = (index: any) => {
@@ -66,10 +67,10 @@ const ListPopularGameCards = () => {
                       <p className="text-xl font-semibold text-colorAqua">
                         {content.price} ETH
                       </p>
-                      <ul className="flex flex-wrap uppercase text-sm pt-1">
+                      <ul className="flex flex-wrap pt-1 text-sm uppercase">
                         {category.slice(0, 2).map((item, categoryIndex) => (
                           <li
-                            className="flex gap-1 font-semibold px-1"
+                            className="flex gap-1 px-1 font-semibold"
                             key={categoryIndex}
                           >
                             <i className="ri-gamepad-line"></i>
@@ -101,6 +102,6 @@ const ListPopularGameCards = () => {
       </section>
     </>
   );
-};
+});
 
 export default ListPopularGameCards;

@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
-import GameDetail from "../../Json/GameDetail.json";
+import GameDetail from "../../Json/Detail/GameDetail.json";
 import { decryptData } from "../../Utils/parseURL";
+import { memo } from "react";
 
-const GameDetails = () => {
+const GameDetails = memo(() => {
   const { id } = useParams<{ id: string }>();
   const decryptedData = decryptData(encodeURI(id as string));
 
@@ -58,7 +59,7 @@ const GameDetails = () => {
                         {detail.price} ETH
                       </p>
                     </div>
-                    <div className="flex w-full font-semibold justify-center items-center">
+                    <div className="flex items-center justify-center w-full font-semibold">
                       <button className="px-12 py-1 h-[40px]  uppercase border-2 rounded-l-full outline-none bg-colorAqua text-colorViolet border-colorAqua hover:text-colorAqua hover:bg-transparent animate">
                         buy now
                       </button>
@@ -75,6 +76,6 @@ const GameDetails = () => {
       })}
     </>
   );
-};
+});
 
 export default GameDetails;

@@ -1,7 +1,8 @@
-import GameDetails from "../views/Detail/GameDetail";
-import SpecDetails from "../views/Detail/SpecDetail";
-import GalleryDetails from "../views/Detail/GalleryDetail";
-import MoreGameDetails from "../components/Slider/MoreGameDetail";
+import GameDetails from "../Views/Detail/GameDetail";
+import SpecDetails from "../Views/Detail/SpecDetail";
+import GalleryDetails from "../Views/Detail/GalleryDetail";
+// import MoreGameDetails from "../components/Slider/MoreGameDetail";
+import MoreGameSliders from "../Components/Slider/MoreGameSlider";
 
 const DetailPages = () => {
   return (
@@ -20,9 +21,7 @@ const DetailPages = () => {
             View Collection <i className="ri-arrow-right-line"></i>
           </button>
         </div>
-        <div className="flex items-center justify-end">
-          <MoreGameDetails />
-        </div>
+        <MoreGameSliders />
       </div>
     </>
   );

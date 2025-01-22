@@ -6,7 +6,7 @@ const NextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <i
-      className="absolute z-20 text-6xl top-[40%] cursor-pointer flex -right-16 ri-arrow-right-s-line"
+      className="absolute z-20 text-6xl top-[45%] cursor-pointer flex -right-16 ri-arrow-right-s-line"
       onClick={onClick}
     ></i>
   );
@@ -16,7 +16,7 @@ const PrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <i
-      className="absolute -left-16 z-20 text-6xl cursor-pointer flex top-[40%] ri-arrow-left-s-line"
+      className="absolute -left-16 z-20 text-6xl cursor-pointer flex top-[45%] ri-arrow-left-s-line"
       onClick={onClick}
     ></i>
   );
