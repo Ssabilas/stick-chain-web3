@@ -9,17 +9,15 @@ interface MoreGameInterface {
 const MoreGameSliders = ({ Width }: MoreGameInterface) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Function to scroll to the next slide
   const handleNext = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 600; // Scroll to the right by 600px (same as slide width)
+      containerRef.current.scrollLeft += 600;
     }
   };
 
-  // Function to scroll to the previous slide
   const handlePrev = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 600; // Scroll to the left by 600px (same as slide width)
+      containerRef.current.scrollLeft -= 600;
     }
   };
 
@@ -41,7 +39,7 @@ const MoreGameSliders = ({ Width }: MoreGameInterface) => {
             return (
               <>
                 <div
-                  className="cursor-pointer more-game-slide"
+                  className="cursor-pointer more-game-slide hover:opacity-70 animate"
                   key={index}
                   onClick={() => {
                     window.location.assign(
@@ -62,7 +60,7 @@ const MoreGameSliders = ({ Width }: MoreGameInterface) => {
                         : content.name}
                     </h2>
                     {/* ETH Text */}
-                    <ul className="flex flex-row gap-4 text-xl justify-center items-center font-semibold pt-2 pl-5">
+                    <ul className="flex flex-row items-center justify-center gap-4 pt-2 pl-5 text-xl font-semibold">
                       <li className="flex flex-row gap-2 text-colorAqua">
                         <i className="ri-eth-fill"></i>
                         {content.price}

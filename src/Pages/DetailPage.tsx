@@ -18,7 +18,7 @@ const DetailPages = () => {
         <div className="container flex items-center justify-center gap-[49%]">
           <h2 className="pl-2 text-6xl font-bold">More Games</h2>
           <button
-            className="text-xl text-colorAqua"
+            className="text-2xl text-colorAqua"
             onClick={() => window.location.assign("/games/recommendation")}
           >
             Explore More <i className="ri-arrow-right-line"></i>

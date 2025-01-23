@@ -35,12 +35,15 @@ const ListPopularGameCards = memo(() => {
             </button>
           </div>
           <div className="flex flex-wrap">
+            {/* Sorting Limited Index */}
             {CardList.filter((card) => card.popular === true)
               .slice(0, 5)
               .map((content, index) => {
                 const category = content.category.split(" ");
                 const contentID = content.id.replace(/ /g, "-").toLowerCase();
-                const encryptParams = encryptData(contentID);
+                const encryptParams = encryptData(
+                  encodeURIComponent(contentID)
+                );
 
                 return (
                   <div
@@ -86,9 +89,7 @@ const ListPopularGameCards = memo(() => {
                       <button
                         className="w-[85%] px-4 py-2 bg-transparent hover:bg-colorWhite hover:text-colorViolet border-colorWhite uppercase border-2 rounded-full hover:border-colorWhite bg-colorPurple text-colorWhite outline-none"
                         onClick={() =>
-                          window.location.assign(
-                            `/games/${encodeURIComponent(encryptParams)}`
-                          )
+                          window.location.assign(`/games/${encryptParams}`)
                         }
                       >
                         Read More <i className="ri-arrow-right-line"></i>

@@ -35,8 +35,8 @@ const EwalletCards = (): ReactElement => {
     if (!connected) {
       return (
         <>
-          <div className="flex gap-1 z-[999]">
-            <h2 className="flex flex-row justify-start items-center text-3xl font-bold uppercase">
+          <div className="flex flex-col gap-1 z-[999]">
+            <h2 className="flex flex-col justify-start items-center text-xl font-bold uppercase">
               Connect to
             </h2>
             <img src={LogoBrand} alt="Logo Brand" className="w-auto h-[40px]" />
@@ -44,7 +44,7 @@ const EwalletCards = (): ReactElement => {
           <div className="flex gap-8 px-12 py-2 bg-colorAqua rounded-xl hover:bg-colorAqua/85">
             <img src={MetamaskLogo} alt="Metamask Logo" />
             <button
-              className="text-2xl font-extrabold text-colorGray"
+              className="text-2xl font-extrabold text-colorViolet"
               onClick={connect}
             >
               METAMASK
@@ -53,6 +53,9 @@ const EwalletCards = (): ReactElement => {
         </>
       );
     } else {
+      setTimeout(() => {
+        setCard(!card);
+      }, 2000);
       return (
         <>
           <div className="flex gap-4">
@@ -73,15 +76,15 @@ const EwalletCards = (): ReactElement => {
   return (
     <>
       {card && (
-        <section className="left-[35%] top-52 fixed">
-          <div className="bg-gradient-to-t from-colorGrayDark to-colorGray w-[600px] h-[600px] flex justify-center items-center flex-col rounded-3xl drop-shadow-md border-2 border-colorGray gap-8">
+        <section className="left-0 top-0 fixed bg-colorBlack/80 flex justify-center items-center h-[100vh] w-[100vw]">
+          <div className="bg-colorViolet w-[600px] h-[600px] flex justify-center items-center flex-col rounded-3xl drop-shadow-md backdrop-blur-2xl gap-8">
             <i
-              className="absolute z-20 text-4xl cursor-pointer right-8 top-6 ri-close-line"
+              className="absolute z-20 text-4xl cursor-pointer rounded-xl hover:text-colorWhite/50 right-8 top-6 ri-close-line"
               onClick={() => setCard(!card)}
             ></i>
             <img
               src={GradientMest}
-              className="fixed top-0 w-full rounded-t-3xl"
+              className="fixed top-0 w-full rounded-t-3xl backdrop-blur-xl"
               alt="Gradient Card"
             />
             <IsAccountConnect />
