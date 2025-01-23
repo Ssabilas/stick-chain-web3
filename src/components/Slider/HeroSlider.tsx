@@ -24,7 +24,7 @@ const PrevArrow = (props: any) => {
 
 const HeroSliders = () => {
   const settings = {
-    className: "w-[1200px] center flex justify-center items-center pt-20",
+    className: "w-[1500px] center flex justify-center items-center pt-20",
     infinite: true,
     centerMode: true,
     dots: true,
@@ -40,22 +40,22 @@ const HeroSliders = () => {
     <div className="slider-container">
       <Slider {...settings}>
         <div>
-          <img src={HeroOne} className="p-4 -z-10 w-[1500px]" alt="" />
+          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
         </div>
         <div>
-          <img src={HeroOne} className="p-4" alt="" />
+          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
         </div>
         <div>
-          <img src={HeroOne} className="p-4" alt="" />
+          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
         </div>
         <div>
-          <img src={HeroOne} className="p-4" alt="" />
+          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
         </div>
         <div>
-          <img src={HeroOne} className="p-4" alt="" />
+          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
         </div>
         <div>
-          <img src={HeroOne} className="p-4" alt="" />
+          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
         </div>
       </Slider>
     </div>

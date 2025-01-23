@@ -1,6 +1,6 @@
 import { ReactElement, useState, useEffect } from "react";
 import MetamaskLogo from "/assets/Metamask-Logo.png";
-import LogoBrand from "/assets/Nav-Logo.png";
+import LogoBrand from "/assets/Logo.png";
 import { useSDK } from "@metamask/sdk-react";
 import GradientMest from "/assets/Hero-Gradient.png";
 // import WebLogo from "/assets/Web-Logo.png";
@@ -35,11 +35,11 @@ const EwalletCards = (): ReactElement => {
     if (!connected) {
       return (
         <>
-          <div className="flex gap-4 z-[999]">
-            <h2 className="flex flex-row text-4xl font-bold uppercase">
+          <div className="flex gap-1 z-[999]">
+            <h2 className="flex flex-row justify-start items-center text-3xl font-bold uppercase">
               Connect to
             </h2>
-            <img src={LogoBrand} alt="Logo Brand" />
+            <img src={LogoBrand} alt="Logo Brand" className="w-auto h-[40px]" />
           </div>
           <div className="flex gap-8 px-12 py-2 bg-colorAqua rounded-xl hover:bg-colorAqua/85">
             <img src={MetamaskLogo} alt="Metamask Logo" />

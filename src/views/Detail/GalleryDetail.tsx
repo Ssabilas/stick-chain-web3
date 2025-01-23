@@ -29,7 +29,7 @@ const GalleryDetails = memo(() => {
   return (
     <div className="w-[40%] flex flex-col justify-start items-center">
       <button
-        className="self-end pb-6 text-xl uppercase text-colorAqua hover:translate-x-1"
+        className="self-end pb-6 text-xl text-colorAqua hover:text-colorWhite animate"
         onClick={toggleGallery}
         aria-label="Toggle gallery view"
       >
@@ -52,10 +52,10 @@ const GalleryDetails = memo(() => {
               <img
                 src={images[index + 1].src}
                 loading="lazy"
-                className="w-[280px] h-[280px] object-cover rounded-xl bg-colorWhite opacity-30 hover:opacity-45"
+                className="w-[280px] h-[280px] object-cover rounded-xl bg-colorWhite opacity-30 hover:opacity-45 animate z-10"
                 alt="More gallery images"
               />
-              <h2 className="absolute text-xl">5+ More Photos</h2>
+              <h2 className="absolute text-xl -z-8">5+ More Photos</h2>
             </div>
           )}
         </div>

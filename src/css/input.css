@@ -51,25 +51,23 @@ li {
   width: 200px;
 } */
 
+/* Home Hero Slider */
+
 .slick-dots li button:before {
   color: gray !important;
   font-weight: bold !important;
   font-size: 0px !important;
   display: inline-block !important;
-  transition: all ease-in-out 0.3s;
-  width: 8px !important;
+  transition: all cubic-bezier(0.5, 0, 0.07, 1) 0.5s;
+  width: 12px !important;
   padding: 2px !important;
-  height: 5px !important;
+  height: 12px !important;
   border-radius: 12px;
   line-height: 16px !important;
   text-align: center !important;
   /*border-radius: 50%;
   */
-  background-color: lightgray !important;
-  -webkit-transition: all ease-in-out 0.3s;
-  -moz-transition: all ease-in-out 0.3s;
-  -ms-transition: all ease-in-out 0.3s;
-  -o-transition: all ease-in-out 0.3s;
+  background-color: white !important;
 }
 
 .slick-dots li.slick-active button:before {
@@ -78,14 +76,14 @@ li {
   font-size: 0px !important;
   display: inline-block !important;
   padding: 2px !important;
-  width: 18px !important;
+  width: 42px !important;
   border-radius: 12px;
-  height: 2px !important;
+  height: 12px !important;
   line-height: 16px !important;
   text-align: center !important;
   /*border-radius: 50%;
   */
-  background-color: lightgray !important;
+  background-color: white !important;
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   -ms-border-radius: 12px;
@@ -99,6 +97,8 @@ li {
   -ms-transition: all ease-in-out 0.2s;
   -o-transition: all ease-in-out 0.2s;
 }
+
+/* End Home Hero Slider */
 
 /* Gallery Slider CSS */
 .slider {
@@ -191,17 +191,20 @@ li {
   transform: scale(1);
 }
 
-/* MoreGameSlider */
+/* End Gallery Slider CSS */
+
+/* More Game Slider */
+
 .more-game-container {
-  width: 55%; /* Match the width of a single slide */
   height: 500px;
   display: flex;
   justify-content: start;
   align-items: start;
-  overflow-x: scroll;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  white-space: nowrap; /* Prevent line breaks */
+  white-space: nowrap;
+  touch-action: pan-x;
+  --webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   overflow-y: hidden;
   margin-inline: 20px;
@@ -209,7 +212,7 @@ li {
 
 .more-game-slider {
   display: flex;
-  width: calc(700px * 4); /* Total width for all slides */
+  width: calc(600px * 3); /* Total width for all slides */
 }
 
 .more-game-slide {
@@ -222,3 +225,5 @@ li {
   flex-direction: column;
   margin: auto;
 }
+
+/* End More Game Slider */

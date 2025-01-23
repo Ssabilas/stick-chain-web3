@@ -1,7 +1,7 @@
-import CryptoJS from 'crypto-js';
+import CryptoJS from "crypto-js";
 
 // Kunci rahasia untuk enkripsi (sebaiknya simpan di env file)
-const SECRET_KEY = 'my_secret_key_123';
+const SECRET_KEY = `${import.meta.env.REACT_APP_URL_KEY}`;
 
 // Fungsi untuk mengenkripsi data
 export const encryptData = (data: string): string => {
@@ -14,7 +14,7 @@ export const decryptData = (cipherText: string): string => {
     const bytes = CryptoJS.AES.decrypt(cipherText, SECRET_KEY);
     return bytes.toString(CryptoJS.enc.Utf8);
   } catch (error) {
-    console.error('Decryption failed:', error);
-    return '';
+    console.error("Decryption failed:", error);
+    return "";
   }
 };

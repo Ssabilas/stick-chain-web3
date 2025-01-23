@@ -2,7 +2,11 @@ import { useRef } from "react";
 import Image from "../../Json/Home/CardListView.json";
 import { encryptData } from "../../Utils/parseURL";
 
-const MoreGameSliders = () => {
+interface MoreGameInterface {
+  Width: number;
+}
+
+const MoreGameSliders = ({ Width }: MoreGameInterface) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Function to scroll to the next slide
@@ -27,7 +31,7 @@ const MoreGameSliders = () => {
       >
         <i className="ri-arrow-left-s-line"></i>
       </button>
-      <div className="more-game-container" ref={containerRef}>
+      <div className={`more-game-container w-[${Width}%]`} ref={containerRef}>
         <div className="more-game-slider">
           {Image.map((content, index) => {
             const gameCategory = content.category.split(" ");
@@ -58,10 +62,16 @@ const MoreGameSliders = () => {
                         : content.name}
                     </h2>
                     {/* ETH Text */}
-                    <p className="flex flex-row gap-2 pt-2 pl-5 text-xl font-semibold text-colorAqua">
-                      <i className="ri-eth-fill"></i>
-                      {content.price}
-                    </p>
+                    <ul className="flex flex-row gap-4 text-xl justify-center items-center font-semibold pt-2 pl-5">
+                      <li className="flex flex-row gap-2 text-colorAqua">
+                        <i className="ri-eth-fill"></i>
+                        {content.price}
+                      </li>
+                      <li>
+                        <i className="ri-star-fill text-colorYellow"></i>{" "}
+                        {content.rate}
+                      </li>
+                    </ul>
                     {/* Category Text */}
                     <ul className="flex flex-row gap-4 pt-2 pl-6 font-semibold">
                       {gameCategory.slice(0, 2).map((category, index) => (

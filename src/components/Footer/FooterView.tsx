@@ -1,4 +1,4 @@
-import FooterLogo from "/assets/Nav-Logo.png";
+import FooterLogo from "/assets/Logo.png";
 import { useState } from "react";
 
 const Footers = () => {
@@ -13,7 +13,7 @@ const Footers = () => {
             <img
               src={FooterLogo}
               alt="Footer Logo"
-              className="w-[180px] h-[auto]"
+              className="w-[300px] h-[auto]"
             />
             <h2 className="w-[60%]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima

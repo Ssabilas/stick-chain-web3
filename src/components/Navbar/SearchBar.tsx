@@ -1,13 +1,13 @@
 const SearchBars = () => {
   return (
     <>
-      <form action="#" className="w-[600px]">
-        <div className="bg-colorGrayDark px-5 py-2 w-full flex gap-4 rounded-xl border-2 border-colorGray">
+      <form action="#" className="w-[500px] mr-2">
+        <div className="flex w-full gap-4 px-5 py-2 border-2 border-colorGrayDark/50 bg-colorGrayDark/50 rounded-xl">
           <i className="ri-search-line"></i>
           <input
             type="text"
-            className="bg-transparent outline-none w-full"
-            placeholder="Search items, collections, and accounts"
+            className="w-full bg-transparent outline-none"
+            placeholder="Search items, collections and accounts"
           />
         </div>
       </form>

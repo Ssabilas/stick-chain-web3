@@ -2,6 +2,7 @@
   {
     "id": "The Witcher 3",
     "name": "The Witcher 3: Wild Hunt",
+    "rate": 8.5,
     "thumbnail": "/assets/CardList/The-Witcher-Card.jpeg",
     "category": "RPG Single-Player",
     "price": "0,00926",
@@ -10,6 +11,7 @@
   {
     "id": "RDR2",
     "name": "Red Dead Redemption 2",
+    "rate": 8.8,
     "thumbnail": "/assets/CardList/Red-Dead-Card.jpg",
     "category": "Action Adventure Single-Player",
     "price": "0,01296",
@@ -18,6 +20,7 @@
   {
     "id": "GTAV",
     "name": "Grand Theft Auto V",
+    "rate": 8.5,
     "thumbnail": "/assets/CardList/GTA-Card.jpg",
     "category": "Action Adventure Single-Player Multi-Player",
     "price": "0,00555",
@@ -26,6 +29,7 @@
   {
     "id": "Celeste",
     "name": "Celeste",
+    "rate": 8.3,
     "thumbnail": "/assets/CardList/Celeste-Card.png",
     "category": "Platformer Single-Player",
     "price": "0,00370",
@@ -34,6 +38,7 @@
   {
     "id": "Stardrew",
     "name": "Stardew Valley",
+    "rate": 8.4,
     "thumbnail": "/assets/CardList/Stardrew-Card.png",
     "category": "Simulation RPG Single-Player",
     "price": "0,00278",
@@ -42,6 +47,7 @@
   {
     "id": "Dark Souls 3",
     "name": "Dark Souls III",
+    "rate": 9.2,
     "thumbnail": "/assets/CardList/Darksoul-Card.jpg",
     "category": "Action RPG Single-Player",
     "price": "0,00741",
@@ -50,6 +56,7 @@
   {
     "id": "Nier Automata",
     "name": "Nier: Automata",
+    "rate": 8.6,
     "thumbnail": "/assets/CardList/Automata-Card.jpg",
     "category": "Action RPG Single-Player",
     "price": "0,00694",
@@ -58,6 +65,7 @@
   {
     "id": "DOOM Eternal",
     "name": "DOOM Eternal",
+    "rate": 9.2,
     "thumbnail": "/assets/CardList/DOOM-Card.jpg",
     "category": "First-Person Shooter Single-Player",
     "price": "0,00833",
@@ -66,6 +74,7 @@
   {
     "id": "FIFA 23",
     "name": "FIFA 23",
+    "rate": 9.5,
     "thumbnail": "/assets/CardList/FIFA23-Card.jpg",
     "category": "Sports Single-Player Multi-Player",
     "price": "0,01120",
@@ -74,6 +83,7 @@
   {
     "id": "Fortnite",
     "name": "Fortnite",
+    "rate": 8.8,
     "thumbnail": "/assets/CardList/Fortnite-Card.jpg",
     "category": "Battle Royale Multi-Player",
     "price": "0,00000",
@@ -82,6 +92,7 @@
   {
     "id": "Elden Ring",
     "name": "Elden Ring",
+    "rate": 9.5,
     "thumbnail": "/assets/CardList/Elden-Ring-Card.jpg",
     "category": "Action RPG",
     "price": "0.01500 ETH",
@@ -90,6 +101,7 @@
   {
     "id": "Cyberpunk 2077",
     "name": "Cyberpunk 2077",
+    "rate": 7.8,
     "thumbnail": "/assets/CardList/Cyberpunk-Card.jpg",
     "category": "Action RPG Single-Player",
     "price": "0.01200 ETH",
@@ -98,6 +110,7 @@
   {
     "id": "Minecraft",
     "name": "Minecraft",
+    "rate": 9.5,
     "thumbnail": "/assets/CardList/Minecraft-Card.png",
     "category": "Sandbox Single-Player Multi-Player",
     "price": "0.00450 ETH",
@@ -106,6 +119,7 @@
   {
     "id": "Call Of Duty Warzone",
     "name": "Call of Duty: Warzone",
+    "rate": 8.8,
     "thumbnail": "/assets/CardList/Warzone-Card.jpg",
     "category": "First-Person Shooter Multi-Player",
     "price": "0.01075 ETH",
@@ -114,6 +128,7 @@
   {
     "id": "Graveyard Keeper",
     "name": "Graveyard Keeper",
+    "rate": 8.5,
     "thumbnail": "/assets/CardList/Graveyard-Keeper-Card.jpg",
     "category": "Simulation Single-Player",
     "price": "0,00350",
@@ -122,6 +137,7 @@
   {
     "id": "Pathologic 2",
     "name": "Pathologic 2",
+    "rate": 7.8,
     "thumbnail": "/assets/CardList/Pathologic-2-Card.jpg",
     "category": "Survival Single-Player",
     "price": "0,00520",
@@ -130,6 +146,7 @@
   {
     "id": "Sunless Sea",
     "name": "Sunless Sea",
+    "rate": 7.5,
     "thumbnail": "/assets/CardList/Sunless-Sea-Card.jpg",
     "category": "Adventure Single-Player",
     "price": "0,00475",
@@ -138,6 +155,7 @@
   {
     "id": "Rain World",
     "name": "Rain World",
+    "rate": 6.8,
     "thumbnail": "/assets/CardList/Rain-World-Card.jpg",
     "category": "Platformer Single-Player",
     "price": "0,00640",
@@ -146,6 +164,7 @@
   {
     "id": "ATOM RPG",
     "name": "ATOM RPG",
+    "rate": 8.8,
     "thumbnail": "/assets/CardList/ATOM-RPG-Card.jpg",
     "category": "RPG Single-Player",
     "price": "0,00710",
@@ -154,6 +173,7 @@
   {
     "id": "Tower Unite",
     "name": "Tower Unite",
+    "rate": 7.8,
     "thumbnail": "/assets/CardList/Tower-Unite-Card.jpg",
     "category": "Multiplayer Single-Player",
     "price": "0,00825",
@@ -162,6 +182,7 @@
   {
     "id": "Tangledeep",
     "name": "Tangledeep",
+    "rate": 6.8,
     "thumbnail": "/assets/CardList/Tangledeep-Card.jpg",
     "category": "RPG Single-Player",
     "price": "0,00410",
@@ -170,6 +191,7 @@
   {
     "id": "Book of Demons",
     "name": "Book of Demons",
+    "rate": 7.5,
     "thumbnail": "/assets/CardList/Book-of-Demons-Card.jpg",
     "category": "Action Single-Player",
     "price": "0,00560",
