@@ -1,16 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
 import CardList from "../../Json/Home/CardListView.json";
 import { encryptData } from "../../Utils/parseURL";
-import { memo } from "react";
 
-const ListGameCards = memo(() => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
-
-  const handleClick = (index: any) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
+const ListGameCards = () => {
   return (
     <>
       <section className="flex flex-row items-center justify-start w-full h-full">
@@ -19,7 +10,7 @@ const ListGameCards = memo(() => {
             <h2 className="text-4xl font-bold">
               <span className="border-b-4 border-colorAqua">More Games</span>
             </h2>
-            <button className="px-5 py-2 text-xl text-colorAqua hover:underline underline-offset-4 animate rounded-xl">
+            <button className="px-5 py-2 text-xl text-colorAqua hover:underline underline-offset-4 rounded-xl">
               View Collection <i className="ri-arrow-right-line"></i>
             </button>
           </div>
@@ -30,9 +21,7 @@ const ListGameCards = memo(() => {
               .map((content, index) => {
                 const category = content.category.split(" ");
                 const contentID = content.id.replace(/ /g, "-").toLowerCase();
-                const encryptParams = encryptData(
-                  encodeURIComponent(contentID)
-                );
+                const encryptParams = encryptData(encodeURI(contentID));
 
                 return (
                   <div
@@ -45,14 +34,9 @@ const ListGameCards = memo(() => {
                       className="w-[300px] h-[250px] object-cover -mt-8 rounded-2xl"
                     />
                     <div className="self-start px-8 py-4">
-                      <h2
-                        className="text-2xl font-bold cursor-pointer"
-                        onClick={() => handleClick(index)}
-                      >
+                      <h2 className="text-2xl font-bold cursor-pointer">
                         {/* Limit Character Games Card Title */}
-                        {expandedIndex === index
-                          ? content.name
-                          : content.name.length > 16
+                        {content.name.length > 16
                           ? `${content.name.slice(0, 17)}...`
                           : content.name}
                       </h2>
@@ -93,6 +77,6 @@ const ListGameCards = memo(() => {
       </section>
     </>
   );
-});
+};
 
 export default ListGameCards;

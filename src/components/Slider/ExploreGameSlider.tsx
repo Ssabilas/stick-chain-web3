@@ -2,11 +2,11 @@ import { useRef } from "react";
 import Image from "../../Json/Home/CardListView.json";
 import { encryptData } from "../../Utils/parseURL";
 
-interface MoreGameInterface {
+interface ExploreGameInterface {
   Width: number;
 }
 
-const MoreGameSliders = ({ Width }: MoreGameInterface) => {
+const ExploreGameSliders = ({ Width }: ExploreGameInterface) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleNext = () => {
@@ -34,17 +34,15 @@ const MoreGameSliders = ({ Width }: MoreGameInterface) => {
           {Image.map((content, index) => {
             const gameCategory = content.category.split(" ");
             const contentID = content.id.replace(/ /g, "-").toLowerCase();
-            const encryptParams = encryptData(contentID);
+            const encryptParams = encryptData(encodeURI(contentID));
 
             return (
               <>
                 <div
-                  className="cursor-pointer more-game-slide hover:opacity-70 animate"
+                  className="cursor-pointer more-game-slide hover:opacity-70 "
                   key={index}
                   onClick={() => {
-                    window.location.assign(
-                      `/games/${encodeURIComponent(encryptParams)}`
-                    );
+                    window.location.assign(`/games/${encryptParams}`);
                   }}
                 >
                   <img
@@ -96,4 +94,4 @@ const MoreGameSliders = ({ Width }: MoreGameInterface) => {
   );
 };
 
-export default MoreGameSliders;
+export default ExploreGameSliders;

@@ -1,8 +1,7 @@
-import { ReactElement } from "react";
 // import GradientMest from "/assets/Hero-Gradient.png";
 import HeroSliders from "../../Components/Slider/HeroSlider";
 
-const HomeHeros = (): ReactElement => {
+const HomeHeros = () => {
   return (
     <>
       <section

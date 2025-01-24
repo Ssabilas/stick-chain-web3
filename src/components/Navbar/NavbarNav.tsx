@@ -60,7 +60,7 @@ const NavbarNavs = (): ReactElement => {
         </button>
         <button
           className="flex items-center justify-center px-5 py-2 font-semibold text-gray-300 text-md rounded-r-xl hover:bg-colorGrayDark hover:text-gray-200 bg-colorGrayDark/50"
-          onClick={() => window.location.assign("/games/explore")}
+          onClick={() => window.location.assign("/explore")}
         >
           Explore
         </button>

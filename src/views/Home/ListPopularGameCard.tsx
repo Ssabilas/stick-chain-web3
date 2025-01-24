@@ -1,19 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
 import CardList from "../../Json/Home/CardListView.json";
 import GameCategories from "../../Components/Dropdown/GameCategory";
 import FilterTags from "../../Components/Dropdown/FilterTag";
 import FilterPrices from "../../Components/Dropdown/FilterPrice";
 import { encryptData } from "../../Utils/parseURL";
-import { memo } from "react";
 
-const ListPopularGameCards = memo(() => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
-
-  const handleClick = (index: any) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
-
+const ListPopularGameCards = () => {
   return (
     <>
       <section className="flex flex-row items-center justify-start w-full h-full">
@@ -41,9 +32,7 @@ const ListPopularGameCards = memo(() => {
               .map((content, index) => {
                 const category = content.category.split(" ");
                 const contentID = content.id.replace(/ /g, "-").toLowerCase();
-                const encryptParams = encryptData(
-                  encodeURIComponent(contentID)
-                );
+                const encryptParams = encryptData(encodeURI(contentID));
 
                 return (
                   <div
@@ -58,12 +47,12 @@ const ListPopularGameCards = memo(() => {
                     <div className="self-start px-8 py-4">
                       <h2
                         className="text-2xl font-bold cursor-pointer"
-                        onClick={() => handleClick(index)}
+                        onClick={() =>
+                          window.location.assign(`/games/${encryptParams}`)
+                        }
                       >
                         {/* Limit Character Games Card Title */}
-                        {expandedIndex === index
-                          ? content.name
-                          : content.name.length > 16
+                        {content.name.length > 16
                           ? `${content.name.slice(0, 17)}...`
                           : `${content.name}`}
                       </h2>
@@ -103,6 +92,6 @@ const ListPopularGameCards = memo(() => {
       </section>
     </>
   );
-});
+};
 
 export default ListPopularGameCards;

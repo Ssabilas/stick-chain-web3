@@ -1,11 +1,10 @@
 import { useState } from "react";
-import MeshGradient from "/assets/Hero-Gradient.png";
-import { memo } from "react";
-import imagesData from "../../Json/Detail/MoreGameGallery.json";
+// import MeshGradient from "/assets/Hero-Gradient.png";
+import imagesData from "../../Json/Detail/ExploreGameGallery.json";
 import { useParams } from "react-router-dom";
 import { decryptData } from "../../Utils/parseURL";
 
-const MoreGameGalleries = memo(() => {
+const ExploreGameGalleries = () => {
   const { id } = useParams<{ id: string }>();
   const decryptedData = decryptData(encodeURI(id as string));
   const [selectedId, setSelectedId] = useState("id1");
@@ -26,13 +25,13 @@ const MoreGameGalleries = memo(() => {
     <>
       {display && (
         <div className="slider">
-          <img
+          {/* <img
             src={MeshGradient}
             className="absolute w-full -top-6"
             alt="Gradient"
-          />
+          /> */}
           <button
-            className="absolute text-2xl px-4 py-2 top-6 right-8 text-colorWhite z-[999] bg-colorGray hover:bg-colorGrayDark rounded-full animate"
+            className="absolute text-2xl px-4 py-2 top-6 right-8 text-colorWhite z-[999] bg-colorViolet hover:bg-colorGrayDark rounded-full "
             onClick={() => setDisplay(!display)}
           >
             <i className="ri-close-line"></i>
@@ -57,7 +56,7 @@ const MoreGameGalleries = memo(() => {
               {selectedId === image.id && (
                 <img
                   src={image.src}
-                  className="pagination absolute top-12 w-[1000px] h-[500px] left-32 right-0"
+                  className="thumb absolute top-12 w-[1000px] h-[500px] left-32 right-0"
                   alt="slide"
                 />
               )}
@@ -67,6 +66,6 @@ const MoreGameGalleries = memo(() => {
       )}
     </>
   );
-});
+};
 
-export default MoreGameGalleries;
+export default ExploreGameGalleries;

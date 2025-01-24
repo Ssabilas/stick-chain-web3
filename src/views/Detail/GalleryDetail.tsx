@@ -1,14 +1,14 @@
 // import GalleryImg from "/assets/HeroSlider/Hero-1.png";
-import MoreGameGalleries from "../../Components/Slider/MoreGameGallery";
-import { useState, memo, useCallback } from "react";
-import imagesData from "../../Json/Detail/MoreGameGallery.json";
+import ExploreGameGalleries from "../../Components/Slider/ExploreGameGallery";
+import { useState, useCallback } from "react";
+import imagesData from "../../Json/Detail/ExploreGameGallery.json";
 import { useParams } from "react-router-dom";
 import { decryptData } from "../../Utils/parseURL";
 
-const GalleryDetails = memo(() => {
+const GalleryDetails = () => {
   const [display, setDisplay] = useState(false);
   const { id } = useParams<{ id: string }>();
-  const decryptedData = decryptData(encodeURI(id as string));
+  const decryptedData = decryptData(decodeURI(id as string));
 
   const images = imagesData
     .filter(
@@ -29,7 +29,7 @@ const GalleryDetails = memo(() => {
   return (
     <div className="w-[40%] flex flex-col justify-start items-center">
       <button
-        className="self-end pb-6 text-xl text-colorAqua hover:text-colorWhite animate"
+        className="self-end pb-6 text-xl text-colorAqua hover:text-colorWhite "
         onClick={toggleGallery}
         aria-label="Toggle gallery view"
       >
@@ -52,7 +52,7 @@ const GalleryDetails = memo(() => {
               <img
                 src={images[index + 1].src}
                 loading="lazy"
-                className="w-[280px] h-[280px] object-cover rounded-xl bg-colorWhite opacity-30 hover:opacity-45 animate z-10"
+                className="w-[280px] h-[280px] object-cover rounded-xl bg-colorWhite opacity-30 hover:opacity-45  z-10"
                 alt="More gallery images"
               />
               <h2 className="absolute text-xl -z-8">5+ More Photos</h2>
@@ -61,9 +61,9 @@ const GalleryDetails = memo(() => {
         </div>
       ))}
 
-      {display && <MoreGameGalleries />}
+      {display && <ExploreGameGalleries />}
     </div>
   );
-});
+};
 
 export default GalleryDetails;

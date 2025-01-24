@@ -34,7 +34,7 @@ const HeroSliders = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     speed: 500,
-    waitForAnimate: false,
+    waitFor: false,
   };
   return (
     <div className="slider-container">

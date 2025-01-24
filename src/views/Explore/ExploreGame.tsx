@@ -1,4 +1,4 @@
-// import { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import GameCategories from "../../Components/Dropdown/GameCategory";
 import FilterTags from "../../Components/Dropdown/FilterTag";
 import FilterPrices from "../../Components/Dropdown/FilterPrice";
@@ -10,7 +10,31 @@ import { useEffect, useRef } from "react";
 const ExploreGames = () => {
   const searchBarRef = useRef<HTMLInputElement>(null);
 
-  // Handle Searchbar Keydown
+  // States for pagination
+  const [stepOne, setStepOne] = useState(0);
+  const [stepTwo, setStepTwo] = useState(6);
+  const [expandedIndex, setExpandedIndex] = useState(null);
+  const handleHover = (index: any) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
+  // State for filtered cards
+  const [filteredCards, setFilteredCards] = useState(CardList);
+
+  function handleStep(stepFirst: number, stepSec: number) {
+    setStepOne(stepFirst);
+    setStepTwo(stepSec);
+  }
+
+  // Handle Searchbar Keydown and Search Input
+  const handleSearch = () => {
+    const query = searchBarRef.current?.value.toLowerCase() || "";
+    const filtered = CardList.filter((card) =>
+      card.name.toLowerCase().includes(query)
+    );
+    setFilteredCards(filtered);
+  };
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.altKey && e.key === "/") {
@@ -25,14 +49,6 @@ const ExploreGames = () => {
     };
   }, []);
 
-  const [stepOne, setStepOne] = useState(0);
-  const [stepTwo, setStepTwo] = useState(6);
-
-  function handleStep(stepFirst: number, stepSec: number) {
-    setStepOne(stepFirst);
-    setStepTwo(stepSec);
-  }
-
   return (
     <>
       <section className="flex flex-row items-center justify-start w-full h-full">
@@ -46,7 +62,13 @@ const ExploreGames = () => {
         <div className="container flex flex-col self-start gap-2">
           {/* Title Most Popular */}
           <div className="flex flex-row items-center justify-start w-full h-12 gap-2 ml-2">
-            <form className="bg-colorGrayDark/50 px-5 w-[60%] rounded-xl font-medium text-colorWhite text-base py-2 flex flex-row justify-center gap-4 items-center">
+            <form
+              className="bg-colorGrayDark/50 px-5 w-[60%] rounded-xl font-medium text-colorWhite text-base py-2 flex flex-row justify-center gap-4 items-center"
+              onSubmit={(e) => {
+                e.preventDefault(); // Prevent form submission
+                handleSearch();
+              }}
+            >
               <label htmlFor="exploreSearch">
                 <i className="font-medium ri-search-line text-colorWhiteDark"></i>
               </label>
@@ -57,6 +79,7 @@ const ExploreGames = () => {
                 className="self-center w-full bg-transparent outline-none placeholder:font-medium"
                 placeholder="Search by name"
                 ref={searchBarRef}
+                onChange={handleSearch}
               />
               {/* Toggle Search UI */}
               <span className="flex flex-row w-16 gap-1 px-1 mr-4 text-sm rounded-md cursor-default opacity-20">
@@ -85,7 +108,7 @@ const ExploreGames = () => {
               <button
                 className="w-20 px-5 py-2 text-xl bg-colorPurple rounded-r-xl hover:bg-colorPurple/80"
                 onClick={() =>
-                  stepTwo < CardList.length
+                  stepTwo < filteredCards.length
                     ? handleStep(stepOne + 6, stepTwo + 6)
                     : null
                 }
@@ -95,17 +118,18 @@ const ExploreGames = () => {
             </div>
           </div>
           {/* End Title Most Popular */}
+
           {/* Card Wrapper */}
-          <div className="flex flex-wrap h-full w-[90%]">
+          <div className="grid-cols-3 grid h-full w-[90%] justify-start items-start">
             {/* Card */}
-            {CardList.slice(stepOne, stepTwo).map((content, index) => {
+            {filteredCards.slice(stepOne, stepTwo).map((content, index) => {
               const category = content.category.split(" ");
               const contentId = content.id.replace(/ /g, "-").toLowerCase();
-              const encryptParams = encryptData(encodeURIComponent(contentId));
+              const encryptParams = encryptData(encodeURI(contentId));
 
               return (
                 <div
-                  className="pt-4 cursor-pointer more-game-slide hover:opacity-70 animate"
+                  className="h-[480px] pt-4 cursor-pointer more-game-slide hover:opacity-70 "
                   key={index}
                   onClick={() =>
                     window.location.assign(`/games/${encryptParams}`)
@@ -118,11 +142,19 @@ const ExploreGames = () => {
                   />
                   <div className="z-[10] mx-2 h-[200px] w-[380px] flex justify-start items-start bg-gradient-to-b from-colorWhite/0 to-colorPurple -mt-[12rem] flex-col rounded-b-xl">
                     {/* Title Text */}
-                    <h2 className="pt-6 pl-4 text-3xl font-bold drop-shadow-md">
-                      {content.name}
+                    <h2
+                      className="mt-6 ml-5 text-3xl font-bold cursor-pointer"
+                      onMouseEnter={() => handleHover(index)}
+                    >
+                      {/* Limit Character Games Card Title */}
+                      {expandedIndex === index
+                        ? content.name
+                        : content.name.length > 16
+                        ? `${content.name.slice(0, 17)}...`
+                        : content.name}
                     </h2>
                     {/* ETH Text */}
-                    <ul className="flex flex-row items-center justify-center gap-4 pt-2 pl-5 text-xl font-semibold">
+                    <ul className="flex flex-row items-center justify-center gap-4 pt-1 pl-5 text-xl font-semibold">
                       <li className="flex flex-row gap-2 text-colorAqua">
                         <i className="ri-eth-fill"></i>
                         {content.price}

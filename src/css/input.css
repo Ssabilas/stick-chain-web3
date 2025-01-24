@@ -20,6 +20,10 @@
 
 body {
   overflow-x: hidden;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 
 * {
@@ -90,29 +94,21 @@ li {
   -o-border-radius: 12px;
 }
 
-.animate {
-  transition: all ease-in-out 0.2s;
-  -webkit-transition: all ease-in-out 0.2s;
-  -moz-transition: all ease-in-out 0.2s;
-  -ms-transition: all ease-in-out 0.2s;
-  -o-transition: all ease-in-out 0.2s;
-}
-
 /* End Home Hero Slider */
 
 /* Gallery Slider CSS */
 .slider {
-  background: rgb(19, 19, 19);
+  background: rgba(24, 13, 73, 0.1);
   z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 700px;
-  width: 1300px;
+  height: 80vh;
+  width: 80vw;
   position: fixed;
   padding-top: 320px;
   top: 2%;
-  left: 15%;
+  left: 10%;
   border-radius: 12px;
   margin: 100px auto;
   filter: drop-shadow(0rem 0rem 0.1rem black);
@@ -123,7 +119,10 @@ li {
   -webkit-filter: drop-shadow(0rem 0rem 0.1rem black);
 }
 
-.slider img {
+.slider img.thumb {
+  position: absolute;
+  top: 8%;
+  left: 18%;
   margin-top: 20px;
   -webkit-box-align: center;
   -webkit-box-pack: center;
@@ -204,10 +203,15 @@ li {
   scroll-behavior: smooth;
   white-space: nowrap;
   touch-action: pan-x;
-  --webkit-overflow-scrolling: touch;
-  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
   overflow-y: hidden;
   margin-inline: 20px;
+  scrollbar-width: none;
+}
+
+.more-game-container::-webkit-scrollbar {
+  display: none;
 }
 
 .more-game-slider {
@@ -217,7 +221,7 @@ li {
 
 .more-game-slide {
   flex: 0 0 100px; /* Each slide takes up 100% of the container width */
-  height: 50%;
+  height: 100%;
   scroll-snap-align: center;
   display: flex;
   align-items: center;

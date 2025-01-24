@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "/assets/Logo.png";
 import { FallingLines } from "react-loader-spinner";
+import { ScrollContainer } from "react-nice-scroll";
+import "react-nice-scroll/dist/styles.css";
 
 // Pages
 import NavbarNavs from "./Components/Navbar/NavbarNav";
@@ -16,14 +18,12 @@ const router = createBrowserRouter([
   { path: "/", element: <HomePages /> },
   { path: "/games/:id", element: <DetailPages /> },
   { path: "/games/recommendation", element: <RecommendPages /> },
-  { path: "/games/explore", element: <ExplorePages /> },
+  { path: "explore", element: <ExplorePages /> },
 ]);
 const RouterApps = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+    setIsLoading(false);
   }, []);
 
   if (isLoading) {
@@ -38,8 +38,10 @@ const RouterApps = () => {
   return (
     <>
       <NavbarNavs />
-      <RouterProvider router={router} />
-      <Footers />
+      <ScrollContainer>
+        <RouterProvider router={router} />
+        <Footers />
+      </ScrollContainer>
     </>
   );
 };

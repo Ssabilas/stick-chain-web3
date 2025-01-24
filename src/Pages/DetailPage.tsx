@@ -1,8 +1,8 @@
 import GameDetails from "../Views/Detail/GameDetail";
 import SpecDetails from "../Views/Detail/SpecDetail";
 import GalleryDetails from "../Views/Detail/GalleryDetail";
-// import MoreGameDetails from "../components/Slider/MoreGameDetail";
-import MoreGameSliders from "../Components/Slider/MoreGameSlider";
+// import ExploreGameDetails from "../components/Slider/ExploreGameDetail";
+import ExploreGameSliders from "../Components/Slider/ExploreGameSlider";
 
 const DetailPages = () => {
   return (
@@ -24,7 +24,7 @@ const DetailPages = () => {
             Explore More <i className="ri-arrow-right-line"></i>
           </button>
         </div>
-        <MoreGameSliders Width={80} />
+        <ExploreGameSliders Width={80} />
       </div>
     </>
   );

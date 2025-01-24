@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { memo } from "react";
 
 interface TitleSpecInterface {
   Title: string;
@@ -27,7 +26,7 @@ const DescriptionSpecification = ({
   );
 };
 
-const SpecDetails = memo(() => {
+const SpecDetails = () => {
   const [spec, setSpec] = useState(true);
 
   return (
@@ -37,7 +36,7 @@ const SpecDetails = memo(() => {
           <div className="w-[100%] ml-28">
             <div className="flex flex-row items-center">
               <button
-                className="text-3xl font-semibold cursor-pointer border-colorWhite animate"
+                className="text-3xl font-semibold cursor-pointer border-colorWhite "
                 onClick={() => setSpec(!spec)}
               >
                 {spec === true
@@ -77,6 +76,6 @@ const SpecDetails = memo(() => {
       </section>
     </>
   );
-});
+};
 
 export default SpecDetails;

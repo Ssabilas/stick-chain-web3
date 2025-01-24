@@ -57,12 +57,13 @@ const SearchBars = () => {
           id="searchBar"
           ref={searchBarRef}
           className="w-full bg-transparent outline-none"
-          placeholder="Search items, collections and accounts"
+          placeholder="Search Games"
           aria-label="Search"
           value={searchItem}
           onChange={handleInputChange}
           onFocus={() => setIsSearchActive(true)}
           onBlur={() => setTimeout(() => setIsSearchActive(false), 200)} // Menunda blur
+          autoComplete="off"
         />
 
         {/* Card */}
