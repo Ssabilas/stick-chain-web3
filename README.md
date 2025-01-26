@@ -1,11 +1,9 @@
 
 ![Logo](https://github.com/zackyfachrur/stick-chain-web3/blob/main/public/assets/Logo.png)
 ## About This Project
-**IND** ~ Stick Chain ini dibuat untuk mengubah Toko Game yang biasanya menggunakan Transaksi dengan Mata Uang Negara seperti Rupiah, USD dan lain lain. 
-Sekarang bisa menggunakan Mata Uang Ethereum dengan menggunakan Metamask sebagai Dompet Digital
+**IND** ~ Stick Chain dirancang untuk memudahkan pengguna dalam melakukan transaksi menggunakan mata uang kripto secara langsung, tanpa perlu mengonversinya ke mata uang negara seperti Rupiah, USD, dan lainnya.
 
-**ENG** ~ Stick Chain was created to change game stores that usually use transactions with national currencies such as Rupiah, USD and others. 
-Now you can use Ethereum Currency by using Metamask as a Digital Wallet.
+**ENG** ~ Stick Chain is designed to make it easier for users to make transactions using cryptocurrencies directly, without the need to convert them to national currencies such as Rupiah, USD, and others.
 
 
 
