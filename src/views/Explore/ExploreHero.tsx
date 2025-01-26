@@ -1,4 +1,4 @@
-import Hero from "/assets/HeroSlider/Hero-1.png";
+import ExploreHeroSliders from "../../Components/Slider/ExploreHeroSlider";
 
 const ExploreHeros = () => {
   return (
@@ -12,7 +12,7 @@ const ExploreHeros = () => {
             Explore More Games That You Like
           </p>
         </div>
-        <img src={Hero} alt="Hero Images" className="mt-12 w-[80vw]" />
+        <ExploreHeroSliders />
       </section>
     </>
   );

@@ -23,7 +23,9 @@ const router = createBrowserRouter([
 const RouterApps = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
   }, []);
 
   if (isLoading) {

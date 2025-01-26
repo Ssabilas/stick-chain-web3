@@ -80,7 +80,10 @@ const NavbarNavs = (): ReactElement => {
           <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
             <i className="ri-import-line"></i> Install Apps
           </button>
-          <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
+          <button
+            className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark"
+            onClick={() => setCard(!card)}
+          >
             <i className="text-xl ri-user-fill"></i>
           </button>
         </div>

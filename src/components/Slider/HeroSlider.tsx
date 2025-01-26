@@ -1,12 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Slider from "react-slick";
-import HeroOne from "/assets/HeroSlider/Hero-1.png";
+import HeroOne from "/assets/HeroSlider/hero-1.png";
+import HeroTwo from "/assets/HeroSlider/hero-2.png";
+import HeroThree from "/assets/HeroSlider/hero-3.png";
+import HeroFour from "/assets/HeroSlider/hero-4.png";
+import HeroFive from "/assets/HeroSlider/hero-5.png";
 
 const NextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <i
-      className="absolute z-20 text-6xl top-[45%] cursor-pointer flex -right-16 ri-arrow-right-s-line"
+      className="absolute -right-[5rem] z-20 text-[4rem] bg-colorPurple translate-x-2 cursor-pointer flex h-[30%] justify-center items-center top-[45%] ri-arrow-right-s-line rounded-full text-colorWhite hover:bg-colorWhite/5"
       onClick={onClick}
     ></i>
   );
@@ -16,7 +20,7 @@ const PrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <i
-      className="absolute -left-16 z-20 text-6xl cursor-pointer flex top-[45%] ri-arrow-left-s-line"
+      className="absolute -left-[5rem] z-20 text-[4rem] cursor-pointer flex h-[30%] justify-center items-center top-[45%] ri-arrow-left-s-line text-colorWhite bg-colorPurple  hover:bg-colorWhite/5 rounded-[3rem]"
       onClick={onClick}
     ></i>
   );
@@ -24,38 +28,57 @@ const PrevArrow = (props: any) => {
 
 const HeroSliders = () => {
   const settings = {
-    className: "w-[1500px] center flex justify-center items-center pt-20",
+    className: "w-[70vw] pt-32 flex justify-center items-center",
     infinite: true,
     centerMode: true,
     dots: true,
     slidesToShow: 1,
     fade: false,
-    slideToScroll: 3,
+    slideToScroll: 1.4,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    speed: 500,
-    waitFor: false,
+    speed: 1500,
+    autoplaySpeed: 0,
+    pauseOnHover: false,
+    cssLinear: "linear",
   };
   return (
-    <div className="slider-container">
+    <div className="flex items-center justify-center slider-container">
       <Slider {...settings}>
-        <div>
-          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
+        <div className="flex items-center justify-center w-full">
+          <img
+            src={HeroOne}
+            className="object-cover w-[65vw] p-4 -z-10 drop-shadow-md"
+            alt=""
+          />
         </div>
-        <div>
-          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
+        <div className="self-center justify-center w-full m-auto ">
+          <img
+            src={HeroTwo}
+            className="object-cover w-[65vw] p-4 -z-10 drop-shadow-md"
+            alt=""
+          />
         </div>
-        <div>
-          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
+        <div className="self-center justify-center w-full m-auto ">
+          <img
+            src={HeroThree}
+            className="object-cover w-[65vw] p-4 -z-10 drop-shadow-md"
+            alt=""
+          />
         </div>
-        <div>
-          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
+        <div className="self-center justify-center w-full m-auto ">
+          <img
+            src={HeroFour}
+            className="object-cover w-[65vw] p-4 -z-10 drop-shadow-md"
+            alt=""
+          />
         </div>
-        <div>
-          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
-        </div>
-        <div>
-          <img src={HeroOne} className="p-4 -z-10 w-full" alt="" />
+        <div className="self-center justify-center w-full m-auto ">
+          <img
+            src={HeroFive}
+            className="object-cover w-[65vw] p-4 -z-10 drop-shadow-md"
+            alt=""
+          />
         </div>
       </Slider>
     </div>

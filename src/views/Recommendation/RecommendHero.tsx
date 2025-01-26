@@ -1,4 +1,4 @@
-import Hero from "/assets/HeroSlider/Hero-1.png";
+import Hero from "/assets/HeroSlider/hero-2.png";
 
 const RecommendHeros = () => {
   return (

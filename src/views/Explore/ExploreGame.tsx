@@ -21,10 +21,10 @@ const ExploreGames = () => {
   // State for filtered cards
   const [filteredCards, setFilteredCards] = useState(CardList);
 
-  function handleStep(stepFirst: number, stepSec: number) {
+  const handleStep = (stepFirst: number, stepSec: number) => {
     setStepOne(stepFirst);
     setStepTwo(stepSec);
-  }
+  };
 
   // Handle Searchbar Keydown and Search Input
   const handleSearch = () => {

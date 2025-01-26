@@ -16,7 +16,7 @@ const ListGameCards = () => {
           </div>
           <div className="flex flex-wrap">
             {/* Sorting Limited Index */}
-            {CardList.filter((card) => card.popular === false)
+            {CardList.filter((card) => card.type)
               .slice(0, 6)
               .map((content, index) => {
                 const category = content.category.split(" ");

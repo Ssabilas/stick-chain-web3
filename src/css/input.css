@@ -230,4 +230,13 @@ li {
   margin: auto;
 }
 
+@-webkit-keyframes cssAnimation {
+  from {
+    -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(100px);
+  }
+  to {
+    -webkit-transform: rotate(0deg) scale(2) skew(0deg) translate(100px);
+  }
+}
+
 /* End More Game Slider */

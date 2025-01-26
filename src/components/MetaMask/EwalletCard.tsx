@@ -36,7 +36,7 @@ const EwalletCards = (): ReactElement => {
       return (
         <>
           <div className="flex flex-col gap-1 z-[999]">
-            <h2 className="flex flex-col justify-start items-center text-xl font-bold uppercase">
+            <h2 className="flex flex-col items-center justify-start text-xl font-bold uppercase">
               Connect to
             </h2>
             <img src={LogoBrand} alt="Logo Brand" className="w-auto h-[40px]" />

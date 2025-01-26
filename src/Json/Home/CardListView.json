@@ -6,7 +6,7 @@
     "thumbnail": "/assets/CardList/The-Witcher-Card.jpeg",
     "category": "RPG Single-Player",
     "price": "0,00926",
-    "popular": true
+    "type": "popular"
   },
   {
     "id": "RDR2",
@@ -15,7 +15,7 @@
     "thumbnail": "/assets/CardList/Red-Dead-Card.jpg",
     "category": "Action Adventure Single-Player",
     "price": "0,01296",
-    "popular": true
+    "type": "popular"
   },
   {
     "id": "GTAV",
@@ -24,7 +24,7 @@
     "thumbnail": "/assets/CardList/GTA-Card.jpg",
     "category": "Action Adventure Single-Player Multi-Player",
     "price": "0,00555",
-    "popular": true
+    "type": "popular"
   },
   {
     "id": "Celeste",
@@ -33,7 +33,7 @@
     "thumbnail": "/assets/CardList/Celeste-Card.png",
     "category": "Platformer Single-Player",
     "price": "0,00370",
-    "popular": false
+    "type": "lowSpec"
   },
   {
     "id": "Stardrew",
@@ -42,7 +42,7 @@
     "thumbnail": "/assets/CardList/Stardrew-Card.png",
     "category": "Simulation RPG Single-Player",
     "price": "0,00278",
-    "popular": false
+    "type": "lowSpec"
   },
   {
     "id": "Dark Souls 3",
@@ -51,7 +51,7 @@
     "thumbnail": "/assets/CardList/Darksoul-Card.jpg",
     "category": "Action RPG Single-Player",
     "price": "0,00741",
-    "popular": true
+    "type": "bestSeller"
   },
   {
     "id": "Nier Automata",
@@ -60,7 +60,7 @@
     "thumbnail": "/assets/CardList/Automata-Card.jpg",
     "category": "Action RPG Single-Player",
     "price": "0,00694",
-    "popular": false
+    "type": "bestSeller"
   },
   {
     "id": "DOOM Eternal",
@@ -69,7 +69,7 @@
     "thumbnail": "/assets/CardList/DOOM-Card.jpg",
     "category": "First-Person Shooter Single-Player",
     "price": "0,00833",
-    "popular": true
+    "type": "bestSeller"
   },
   {
     "id": "FIFA 23",
@@ -78,7 +78,7 @@
     "thumbnail": "/assets/CardList/FIFA23-Card.jpg",
     "category": "Sports Single-Player Multi-Player",
     "price": "0,01120",
-    "popular": true
+    "type": "popular"
   },
   {
     "id": "Fortnite",
@@ -87,7 +87,7 @@
     "thumbnail": "/assets/CardList/Fortnite-Card.jpg",
     "category": "Battle Royale Multi-Player",
     "price": "0,00000",
-    "popular": true
+    "type": "popular"
   },
   {
     "id": "Elden Ring",
@@ -96,7 +96,7 @@
     "thumbnail": "/assets/CardList/Elden-Ring-Card.jpg",
     "category": "Action RPG",
     "price": "0.01500 ETH",
-    "popular": true
+    "type": "popular"
   },
   {
     "id": "Cyberpunk 2077",
@@ -105,7 +105,7 @@
     "thumbnail": "/assets/CardList/Cyberpunk-Card.jpg",
     "category": "Action RPG Single-Player",
     "price": "0.01200 ETH",
-    "popular": true
+    "type": "bestSeller"
   },
   {
     "id": "Minecraft",
@@ -114,7 +114,7 @@
     "thumbnail": "/assets/CardList/Minecraft-Card.png",
     "category": "Sandbox Single-Player Multi-Player",
     "price": "0.00450 ETH",
-    "popular": true
+    "type": "lowSpec"
   },
   {
     "id": "Call Of Duty Warzone",
@@ -123,7 +123,7 @@
     "thumbnail": "/assets/CardList/Warzone-Card.jpg",
     "category": "First-Person Shooter Multi-Player",
     "price": "0.01075 ETH",
-    "popular": true
+    "type": "popular"
   },
   {
     "id": "Graveyard Keeper",
@@ -132,7 +132,7 @@
     "thumbnail": "/assets/CardList/Graveyard-Keeper-Card.jpg",
     "category": "Simulation Single-Player",
     "price": "0,00350",
-    "popular": false
+    "type": "lowSpec"
   },
   {
     "id": "Pathologic 2",
@@ -141,7 +141,7 @@
     "thumbnail": "/assets/CardList/Pathologic-2-Card.jpg",
     "category": "Survival Single-Player",
     "price": "0,00520",
-    "popular": false
+    "type": "bestSeller"
   },
   {
     "id": "Sunless Sea",
@@ -150,7 +150,7 @@
     "thumbnail": "/assets/CardList/Sunless-Sea-Card.jpg",
     "category": "Adventure Single-Player",
     "price": "0,00475",
-    "popular": false
+    "type": "lowSpec"
   },
   {
     "id": "Rain World",
@@ -159,7 +159,7 @@
     "thumbnail": "/assets/CardList/Rain-World-Card.jpg",
     "category": "Platformer Single-Player",
     "price": "0,00640",
-    "popular": false
+    "type": "lowSpec"
   },
   {
     "id": "ATOM RPG",
@@ -168,7 +168,7 @@
     "thumbnail": "/assets/CardList/ATOM-RPG-Card.jpg",
     "category": "RPG Single-Player",
     "price": "0,00710",
-    "popular": false
+    "type": "bestSeller"
   },
   {
     "id": "Tower Unite",
@@ -177,7 +177,7 @@
     "thumbnail": "/assets/CardList/Tower-Unite-Card.jpg",
     "category": "Multiplayer Single-Player",
     "price": "0,00825",
-    "popular": false
+    "type": "lowSpec"
   },
   {
     "id": "Tangledeep",
@@ -186,7 +186,7 @@
     "thumbnail": "/assets/CardList/Tangledeep-Card.jpg",
     "category": "RPG Single-Player",
     "price": "0,00410",
-    "popular": false
+    "type": "lowSpec"
   },
   {
     "id": "Book of Demons",
@@ -195,6 +195,6 @@
     "thumbnail": "/assets/CardList/Book-of-Demons-Card.jpg",
     "category": "Action Single-Player",
     "price": "0,00560",
-    "popular": false
+    "type": "lowSpec"
   }
 ]
