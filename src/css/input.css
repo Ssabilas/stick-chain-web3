@@ -107,7 +107,7 @@ li {
   width: 80vw;
   position: fixed;
   padding-top: 320px;
-  top: 2%;
+  top: 15%;
   left: 10%;
   border-radius: 12px;
   margin: 100px auto;
@@ -228,6 +228,10 @@ li {
   justify-content: center;
   flex-direction: column;
   margin: auto;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @-webkit-keyframes cssAnimation {

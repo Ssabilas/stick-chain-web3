@@ -9,7 +9,6 @@ interface GameItem {
   thumbnail: string;
   category: string;
   price: string;
-  popular: boolean;
 }
 
 const SearchBars = () => {
@@ -47,7 +46,6 @@ const SearchBars = () => {
     },
     []
   );
-
   return (
     <form action="#" className="w-[500px] mr-2">
       <div className="flex w-full gap-4 px-5 py-2 border-2 border-colorGrayDark/50 bg-colorGrayDark/50 rounded-xl">

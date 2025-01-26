@@ -1,4 +1,4 @@
-import ExploreHeroSliders from "../../Components/Slider/ExploreHeroSlider";
+import HeroSliders from "../../Components/Slider/HeroSlider";
 
 const ExploreHeros = () => {
   return (
@@ -12,7 +12,7 @@ const ExploreHeros = () => {
             Explore More Games That You Like
           </p>
         </div>
-        <ExploreHeroSliders />
+        <HeroSliders />
       </section>
     </>
   );
