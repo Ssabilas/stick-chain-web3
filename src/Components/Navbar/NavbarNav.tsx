@@ -23,6 +23,9 @@ const NavbarNavs = (): ReactElement => {
               >
                 <i className="text-xl ri-wallet-line"></i> Login
               </button>
+              <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark ml-2">
+                <i className="ri-import-line"></i> Install Apps
+              </button>
             </div>
           </>
         );
@@ -37,6 +40,14 @@ const NavbarNavs = (): ReactElement => {
               <button className="flex items-center justify-center px-5 py-2 text-gray-300 rounded-r-xl bg-colorGrayDark/50 hover:bg-colorGrayDark text-colorWhite ">
                 <i className="text-xl ri-shopping-cart-2-fill"></i>
               </button>
+              <div className="flex flex-row gap-2 mx-2">
+                <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
+                  <i className="ri-import-line"></i> Install Apps
+                </button>
+                <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
+                  <i className="text-xl ri-user-fill"></i>
+                </button>
+              </div>
             </div>
           </>
         );
@@ -77,15 +88,6 @@ const NavbarNavs = (): ReactElement => {
             <Connect />
             <div className="fixed">{card && <EwalletCards />}</div>
           </div>
-          <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
-            <i className="ri-import-line"></i> Install Apps
-          </button>
-          <button
-            className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark"
-            onClick={() => setCard(!card)}
-          >
-            <i className="text-xl ri-user-fill"></i>
-          </button>
         </div>
       </nav>
     </>

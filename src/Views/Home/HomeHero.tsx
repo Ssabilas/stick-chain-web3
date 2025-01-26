@@ -1,5 +1,5 @@
 // import GradientMest from "/assets/Hero-Gradient.png";
-import HeroSliders from "../../Components/Slider/HeroSlider";
+import HomeHeroSliders from "../../Components/Slider/HomeHeroSlider";
 
 const HomeHeros = () => {
   return (
@@ -7,7 +7,7 @@ const HomeHeros = () => {
       <section
         className={`bg-[url('/assets/Hero-Gradient.png')] bg-center bg-cover w-[100vw] flex justify-center items-start p-20 h-[80vh] -z-0`}
       >
-        <HeroSliders />
+        <HomeHeroSliders />
       </section>
     </>
   );

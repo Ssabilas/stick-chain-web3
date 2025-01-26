@@ -40,7 +40,12 @@ const RouterApps = () => {
   return (
     <>
       <NavbarNavs />
-      <ScrollContainer>
+      <ScrollContainer
+        continuousScrolling={true}
+        activeSmoothScrollOnTouchDevice={true}
+        renderByPixels={true}
+        damping={0.2}
+      >
         <RouterProvider router={router} />
         <Footers />
       </ScrollContainer>

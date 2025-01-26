@@ -1,11 +1,11 @@
 import RecommendHeros from "../Views/Recommendation/RecommendHero";
-import TrendingSliders from "../Views/Recommendation/TrendingSlider";
+import RecommendSliders from "../Views/Recommendation/RecommendSlider";
 
 const RecommendPages = () => {
   return (
     <>
       <RecommendHeros />
-      <TrendingSliders />
+      <RecommendSliders />
     </>
   );
 };

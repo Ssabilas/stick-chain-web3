@@ -31,7 +31,7 @@
     "name": "Celeste",
     "rate": 8.3,
     "thumbnail": "/assets/CardList/Celeste-Card.png",
-    "category": "Platformer Single-Player",
+    "category": "Platformer Multi-Player",
     "price": "0,00370",
     "type": "lowSpec"
   },
@@ -76,7 +76,7 @@
     "name": "FIFA 23",
     "rate": 9.5,
     "thumbnail": "/assets/CardList/FIFA23-Card.jpg",
-    "category": "Sports Single-Player Multi-Player",
+    "category": "Sports Multi-Player Single-Player",
     "price": "0,01120",
     "type": "popular"
   },
@@ -85,7 +85,7 @@
     "name": "Fortnite",
     "rate": 8.8,
     "thumbnail": "/assets/CardList/Fortnite-Card.jpg",
-    "category": "Battle Royale Multi-Player",
+    "category": "Battle-Royale Multi-Player",
     "price": "0,00000",
     "type": "popular"
   },
@@ -95,7 +95,7 @@
     "rate": 9.5,
     "thumbnail": "/assets/CardList/Elden-Ring-Card.jpg",
     "category": "Action RPG",
-    "price": "0.01500 ETH",
+    "price": "0.01500",
     "type": "popular"
   },
   {
@@ -104,7 +104,7 @@
     "rate": 7.8,
     "thumbnail": "/assets/CardList/Cyberpunk-Card.jpg",
     "category": "Action RPG Single-Player",
-    "price": "0.01200 ETH",
+    "price": "0.01200",
     "type": "bestSeller"
   },
   {
@@ -112,8 +112,8 @@
     "name": "Minecraft",
     "rate": 9.5,
     "thumbnail": "/assets/CardList/Minecraft-Card.png",
-    "category": "Sandbox Single-Player Multi-Player",
-    "price": "0.00450 ETH",
+    "category": "Sandbox Multi-Player Single-Player",
+    "price": "0.00450",
     "type": "lowSpec"
   },
   {
@@ -122,7 +122,7 @@
     "rate": 8.8,
     "thumbnail": "/assets/CardList/Warzone-Card.jpg",
     "category": "First-Person Shooter Multi-Player",
-    "price": "0.01075 ETH",
+    "price": "0.01075",
     "type": "popular"
   },
   {

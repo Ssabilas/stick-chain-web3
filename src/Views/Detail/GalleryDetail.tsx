@@ -1,5 +1,5 @@
 // import GalleryImg from "/assets/HeroSlider/Hero-1.png";
-import ExploreGameGalleries from "../../Components/Slider/ExploreGameGallery";
+import DetailGameGalleries from "../../Components/Slider/DetailGameGallery";
 import { useState, useCallback } from "react";
 import imagesData from "../../Json/Detail/ExploreGameGallery.json";
 import { useParams } from "react-router-dom";
@@ -61,7 +61,7 @@ const GalleryDetails = () => {
         </div>
       ))}
 
-      {display && <ExploreGameGalleries />}
+      {display && <DetailGameGalleries />}
     </div>
   );
 };

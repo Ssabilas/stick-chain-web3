@@ -1,19 +1,21 @@
-import { useState } from "react";
+import { MouseEventHandler } from "react";
 
 interface CategoriesProps {
-  onClick: () => void;
+  onClick: MouseEventHandler;
   categoryName: string;
   totalItem: number;
+  changeColor: string;
 }
 
-const CategoriesEvent = ({
+const CategoriesEvent: React.FC<CategoriesProps> = ({
   onClick,
   categoryName,
   totalItem,
-}: CategoriesProps) => {
+  changeColor,
+}) => {
   return (
     <li
-      className="flex flex-row justify-between px-12 py-2 font-semibold rounded-full cursor-pointer hover:bg-colorPurple"
+      className={`flex flex-row justify-between px-12 py-2 font-semibold rounded-full cursor-pointer hover:bg-colorGrayDark ${changeColor}`}
       onClick={onClick}
     >
       <p>{categoryName}</p>
@@ -22,59 +24,98 @@ const CategoriesEvent = ({
   );
 };
 
-const ListCategories = () => {
+interface ListCategories {
+  clickCategoryAll: MouseEventHandler;
+  categoryAll: string;
+  totalItemAll: number;
+  changeColorAll: string;
+  clickCategoryOne: MouseEventHandler;
+  categoryOne: string;
+  totalItemOne: number;
+  changeColorOne: string;
+  clickCategoryTwo: MouseEventHandler;
+  categoryTwo: string;
+  totalItemTwo: number;
+  changeColorTwo: string;
+  clickCategoryThree: MouseEventHandler;
+  categoryThree: string;
+  totalItemThree: number;
+  changeColorThree: string;
+  clickCategoryFour: MouseEventHandler;
+  categoryFour: string;
+  totalItemFour: number;
+  changeColorFour: string;
+  clickCategoryFive: MouseEventHandler;
+  categoryFive: string;
+  totalItemFive: number;
+  changeColorFive: string;
+}
+
+const GameCategories: React.FC<ListCategories> = ({
+  clickCategoryAll,
+  categoryAll,
+  totalItemAll,
+  changeColorAll,
+  clickCategoryOne,
+  categoryOne,
+  totalItemOne,
+  changeColorOne,
+  clickCategoryTwo,
+  categoryTwo,
+  totalItemTwo,
+  changeColorTwo,
+  clickCategoryThree,
+  categoryThree,
+  totalItemThree,
+  changeColorThree,
+  clickCategoryFour,
+  categoryFour,
+  totalItemFour,
+  changeColorFour,
+  clickCategoryFive,
+  categoryFive,
+  totalItemFive,
+  changeColorFive,
+}) => {
   return (
     <ul className="flex text-xl gap-2 flex-col pt-12 w-[400px]">
       <CategoriesEvent
-        onClick={() => window.location.assign("/")}
-        categoryName={"All Categories"}
-        totalItem={18}
+        onClick={clickCategoryAll}
+        categoryName={categoryAll}
+        totalItem={totalItemAll}
+        changeColor={changeColorAll}
       />
       <CategoriesEvent
-        onClick={() => window.location.assign("/")}
-        categoryName={"First Person"}
-        totalItem={12}
+        onClick={clickCategoryOne}
+        categoryName={categoryOne}
+        totalItem={totalItemOne}
+        changeColor={changeColorOne}
       />
       <CategoriesEvent
-        onClick={() => window.location.assign("/")}
-        categoryName={"Single Player"}
-        totalItem={24}
+        onClick={clickCategoryTwo}
+        categoryName={categoryTwo}
+        totalItem={totalItemTwo}
+        changeColor={changeColorTwo}
       />
       <CategoriesEvent
-        onClick={() => window.location.assign("/")}
-        categoryName={"Multiplayer"}
-        totalItem={12}
+        onClick={clickCategoryThree}
+        categoryName={categoryThree}
+        totalItem={totalItemThree}
+        changeColor={changeColorThree}
       />
       <CategoriesEvent
-        onClick={() => window.location.assign("/")}
-        categoryName={"Action"}
-        totalItem={8}
+        onClick={clickCategoryFour}
+        categoryName={categoryFour}
+        totalItem={totalItemFour}
+        changeColor={changeColorFour}
       />
       <CategoriesEvent
-        onClick={() => window.location.assign("/")}
-        categoryName={"Adventure"}
-        totalItem={30}
+        onClick={clickCategoryFive}
+        categoryName={categoryFive}
+        totalItem={totalItemFive}
+        changeColor={changeColorFive}
       />
     </ul>
-  );
-};
-
-const GameCategories = () => {
-  const [categories, setCategories] = useState(true);
-
-  return (
-    <div className="flex flex-col items-center mt-40 mb-12">
-      <h3
-        className="flex flex-row gap-12 text-3xl font-semibold cursor-pointer"
-        onClick={() => setCategories(!categories)}
-      >
-        Game Category
-        <i
-          className={categories ? `ri-arrow-down-s-line` : `ri-arrow-up-s-line`}
-        ></i>
-      </h3>
-      {categories && <ListCategories />}
-    </div>
   );
 };
 
