@@ -1,6 +1,6 @@
 // import Hero from "/assets/HeroSlider/hero-6.png";
 // import { ParallaxImage } from "react-nice-scroll";
-import HeroSliders from "../../Components/Slider/HeroSlider";
+import RecommendHeroSliders from "../../Components/Slider/RecommendHeroSlider";
 
 const RecommendHeros = () => {
   return (
@@ -15,7 +15,7 @@ const RecommendHeros = () => {
           </p>
         </div>
         <div className="w-[100vw] mt-12">
-          <HeroSliders />
+          <RecommendHeroSliders />
         </div>
       </section>
     </>
