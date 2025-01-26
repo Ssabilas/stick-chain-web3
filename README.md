@@ -1,9 +1,9 @@
 
 ![Logo](https://github.com/zackyfachrur/stick-chain-web3/blob/main/public/assets/Logo.png)
 ## About This Project
-**IND** ~ Stick Chain dirancang untuk memudahkan pengguna dalam melakukan transaksi menggunakan mata uang kripto secara langsung, tanpa perlu mengonversinya ke mata uang negara seperti Rupiah, USD, dan lainnya.
+**IND** ~ Stick Chain dirancang untuk memudahkan pengguna dalam melakukan pembelian game menggunakan mata uang kripto secara langsung, tanpa perlu mengonversinya ke mata uang negara seperti Rupiah, USD, dan lainnya.
 
-**ENG** ~ Stick Chain is designed to make it easier for users to make transactions using cryptocurrencies directly, without the need to convert them to national currencies such as Rupiah, USD, and others.
+**ENG** ~ Stick Chain is designed to make it easier for users to buying a games using cryptocurrencies directly, without the need to convert them to national currencies such as Rupiah, USD, and others.
 
 
 
