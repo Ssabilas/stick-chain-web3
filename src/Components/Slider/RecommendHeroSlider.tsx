@@ -4,6 +4,7 @@ import HeroTwo from "/assets/HeroSlider/hero-2.png";
 import HeroThree from "/assets/HeroSlider/hero-3.png";
 import HeroFour from "/assets/HeroSlider/hero-4.png";
 import HeroFive from "/assets/HeroSlider/hero-5.png";
+import { memo } from "react";
 
 const NextArrow = () => {
   // const { onClick } = props;
@@ -22,7 +23,7 @@ const PrevArrow = () => {
   // ></i>
 };
 
-const ExploreHeroSliders = () => {
+const RecommendHeroSliders = memo(() => {
   const settings = {
     dots: false,
     className: "outline-none",
@@ -78,6 +79,6 @@ const ExploreHeroSliders = () => {
       </Slider>
     </div>
   );
-};
+});
 
-export default ExploreHeroSliders;
+export default RecommendHeroSliders;
