@@ -1,50 +1,96 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Stick Chain
 
-Currently, two official plugins are available:
+**IND** ~ Stick Chain ini dibuat untuk mengubah Toko Game yang biasanya menggunakan Transaksi dengan Mata Uang Negara seperti Rupiah, USD dan lain lain. 
+Sekarang bisa menggunakan Mata Uang Ethereum dengan menggunakan Metamask sebagai Dompet Digital
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**ENG** ~ Stick Chain was created to change game stores that usually use transactions with national currencies such as Rupiah, USD and others. 
+Now you can use Ethereum Currency by using Metamask as a Digital Wallet.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Optimizations
+
+src/main.tsx *as a Metamask Provider*
+
+src/RouterApp.tsx *as a Router*
+
+
+src/View/* *as a splitting code for easy maintenance*
+
+src/Utils/* *as a Encrypt and Decrypt URL*
+
+src/Pages/* *as a wrapper pages of code splitting*
+
+src/JSON/* *as a code splitting support*
+
+src/CSS/* *for Tailwind CSS File
+
+
+
+## Installation
+
+#### 1. Clone this repo
+```bash
+ git clone https://github.com/zackyfachrur/stick-chain-web3.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### 2. Install stick-chain-web3
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+ cd stick-chain-web3
+ npm install 
 ```
+#### 3. API Setup
+https://docs.metamask.io/services/get-started/infura/
+```js
+createRoot(document.getElementById("root")!).render(
+  <MetaMaskProvider
+    sdkOptions={{
+      dappMetadata: {
+        name: "Example React Dapp",
+        url: window.location.href,
+      },
+      // Your API Key from Metamask Infura
+      infuraAPIKey: import.meta.env.YOUR_API_KEY,
+    }}
+  >
+    <StrictMode>
+      <RouterApps />
+    </StrictMode>
+  </MetaMaskProvider>
+);
+```
+
+#### 4. Crypto JS Setup
+```js
+// Your Secret KEY (Create in ENV File)
+const SECRET_KEY = import.meta.env.REACT_APP_WEB_URL_KEY;
+
+export const encryptData = (data: string): string => {
+  return CryptoJS.AES.encrypt(data, SECRET_KEY).toString();
+};
+
+export const decryptData = (cipherText: string): string => {
+  try {
+    const bytes = CryptoJS.AES.decrypt(cipherText, SECRET_KEY);
+    return bytes.toString(CryptoJS.enc.Utf8);
+  } catch (error) {
+    console.error("Decryption failed:", error);
+    return "";
+  }
+};
+```
+## Tech Stack
+
+**Client:** React, Typescript, TailwindCSS
+
+**Server:** Node JS
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at mochzackyfa@gmail.com
+
