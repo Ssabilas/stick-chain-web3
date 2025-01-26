@@ -1,6 +1,6 @@
 
 ![Logo](https://github.com/zackyfachrur/stick-chain-web3/blob/main/public/assets/Logo.png)
-#
+## About
 **IND** ~ Stick Chain ini dibuat untuk mengubah Toko Game yang biasanya menggunakan Transaksi dengan Mata Uang Negara seperti Rupiah, USD dan lain lain. 
 Sekarang bisa menggunakan Mata Uang Ethereum dengan menggunakan Metamask sebagai Dompet Digital
 
