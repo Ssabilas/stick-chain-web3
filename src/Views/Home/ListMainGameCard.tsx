@@ -3,7 +3,9 @@ import GameCategories from "../../Components/Dropdown/GameCategory";
 import FilterTags from "../../Components/Dropdown/FilterTag";
 import FilterPrices from "../../Components/Dropdown/FilterPrice";
 import { encryptData } from "../../Utils/parseURL";
-import React, { MouseEventHandler, useState, useMemo } from "react";
+import React, { MouseEventHandler, useState, useMemo, useRef } from "react";
+import Hero from "/assets/HeroSlider/hero-6.png";
+import { ParallaxImage } from "react-nice-scroll";
 
 interface LiInterface {
   content: string;
@@ -46,6 +48,20 @@ const ListMainGameCards = () => {
     ).slice(0, 6);
   }, [category, categories]);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const handleSlide = () => {
+    if (!containerRef.current) return; // Check if ref is valid
+
+    containerRef.current.style.animation = "none";
+
+    setTimeout(() => {
+      if (containerRef.current) {
+        containerRef.current.style.animation =
+          "slide-out 0.5s ease-in-out forwards";
+      }
+    }, 0);
+  };
+
   return (
     <>
       <section className="flex flex-row items-center justify-start w-full h-full">
@@ -65,33 +81,51 @@ const ListMainGameCards = () => {
             </h3>
             {listItem && (
               <GameCategories
-                clickCategoryAll={() => setCategories("")}
+                clickCategoryAll={() => {
+                  setCategories("");
+                  handleSlide();
+                }}
                 categoryAll="All Categories"
                 totalItemAll={100}
                 changeColorAll={categories === "" ? `bg-colorPurple` : ""}
-                clickCategoryOne={() => setCategories("single-player")}
+                clickCategoryOne={() => {
+                  setCategories("single-player");
+                  handleSlide();
+                }}
                 categoryOne="Single Player"
                 totalItemOne={18}
                 changeColorOne={
                   categories === "single-player" ? `bg-colorPurple` : ""
                 }
-                clickCategoryTwo={() => setCategories("multi-player")}
+                clickCategoryTwo={() => {
+                  setCategories("multi-player");
+                  handleSlide();
+                }}
                 categoryTwo="Multi Player"
                 totalItemTwo={30}
                 changeColorTwo={
                   categories === "multi-player" ? `bg-colorPurple` : ""
                 }
-                clickCategoryThree={() => setCategories("rpg")}
+                clickCategoryThree={() => {
+                  setCategories("rpg");
+                  handleSlide();
+                }}
                 categoryThree="RPG"
                 totalItemThree={19}
                 changeColorThree={categories === "rpg" ? `bg-colorPurple` : ""}
-                clickCategoryFour={() => setCategories("sandbox")}
+                clickCategoryFour={() => {
+                  setCategories("sandbox");
+                  handleSlide();
+                }}
                 categoryFour="Sandbox"
                 totalItemFour={18}
                 changeColorFour={
                   categories === "sandbox" ? `bg-colorPurple` : ""
                 }
-                clickCategoryFive={() => setCategories("adventure")}
+                clickCategoryFive={() => {
+                  setCategories("adventure");
+                  handleSlide();
+                }}
                 categoryFive="Adventure"
                 totalItemFive={30}
                 changeColorFive={
@@ -102,6 +136,17 @@ const ListMainGameCards = () => {
           </div>
           <FilterTags />
           <FilterPrices />
+          <div className="w-[40vw]  -mr-[8vw]">
+            <ParallaxImage
+              src={Hero}
+              axis="y"
+              fromPercent={-40}
+              toPercent={80}
+              containerHeight="180vh"
+              imageObjectPosition="center"
+              imageScale={0.4}
+            />
+          </div>
         </div>
         {/* End Nav Component */}
 
@@ -114,6 +159,7 @@ const ListMainGameCards = () => {
                 onClick={() => {
                   setCategory("");
                   setCategories(""); // Set keduanya kosong untuk menampilkan semua
+                  handleSlide();
                 }}
               />
               <Li
@@ -122,6 +168,7 @@ const ListMainGameCards = () => {
                 onClick={() => {
                   setCategory("lowSpec");
                   setCategories(""); // Pastikan categories kosong
+                  handleSlide();
                 }}
               />
               <Li
@@ -130,6 +177,7 @@ const ListMainGameCards = () => {
                 onClick={() => {
                   setCategory("popular");
                   setCategories("");
+                  handleSlide();
                 }}
               />
               <Li
@@ -138,6 +186,7 @@ const ListMainGameCards = () => {
                 onClick={() => {
                   setCategory("bestSeller");
                   setCategories("");
+                  handleSlide();
                 }}
               />
             </ul>
@@ -151,7 +200,10 @@ const ListMainGameCards = () => {
               </div>
             </button>
           </div>
-          <div className="grid-cols-3 grid h-[100vh] w-[90%] justify-start items-start">
+          <div
+            className="grid-cols-3 grid h-[100vh] w-[90%] justify-start items-start"
+            ref={containerRef}
+          >
             {/* Sorting Limited Index */}
 
             {filteredCards.map((content, index) => {

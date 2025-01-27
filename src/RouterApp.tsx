@@ -44,7 +44,7 @@ const RouterApps = () => {
         continuousScrolling={true}
         activeSmoothScrollOnTouchDevice={true}
         renderByPixels={true}
-        damping={0.2}
+        // damping={0.2}
       >
         <RouterProvider router={router} />
         <Footers />

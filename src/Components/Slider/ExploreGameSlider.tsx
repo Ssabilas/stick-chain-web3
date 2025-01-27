@@ -12,12 +12,26 @@ const ExploreGameSliders = ({ Width }: ExploreGameInterface) => {
   const handleNext = () => {
     if (containerRef.current) {
       containerRef.current.scrollLeft += 600;
+
+      // Terapkan animasi dengan reset agar bisa diputar kembali
+      containerRef.current.style.animation = "none";
+      setTimeout(() => {
+        containerRef.current!.style.animation =
+          "slide-in 0.5s ease-in-out forwards";
+      }, 0);
     }
   };
 
   const handlePrev = () => {
     if (containerRef.current) {
       containerRef.current.scrollLeft -= 600;
+
+      // Terapkan animasi dengan reset agar bisa diputar kembali
+      containerRef.current.style.animation = "none";
+      setTimeout(() => {
+        containerRef.current!.style.animation =
+          "slide-out 0.8s ease-in-out forwards";
+      }, 0);
     }
   };
 
@@ -29,7 +43,10 @@ const ExploreGameSliders = ({ Width }: ExploreGameInterface) => {
       >
         <i className="ri-arrow-left-s-line"></i>
       </button>
-      <div className={`more-game-container w-[${Width}%]`} ref={containerRef}>
+      <div
+        className={`more-game-container max-w-[${Width}vw]`}
+        ref={containerRef}
+      >
         <div className="more-game-slider">
           {Image.map((content, index) => {
             const gameCategory = content.category.split(" ");
