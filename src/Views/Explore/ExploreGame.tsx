@@ -11,13 +11,28 @@ const ExploreGames = () => {
   const [listItem, setListItem] = useState(true);
   const [categories, setCategories] = useState("");
   const [filteredCards, setFilteredCards] = useState(CardList); // Cards that are filtered
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const [stepOne, setStepOne] = useState(0);
   const [stepTwo, setStepTwo] = useState(6);
 
+  // containerRef.current.style.animation = "none";
   const handleStep = (stepFirst: number, stepSec: number) => {
     setStepOne(stepFirst);
     setStepTwo(stepSec);
+  };
+
+  const handleSlide = () => {
+    if (!containerRef.current) return; // Check if ref is valid
+
+    containerRef.current.style.animation = "none";
+
+    setTimeout(() => {
+      if (containerRef.current) {
+        containerRef.current.style.animation =
+          "slide-out 0.5s ease-in-out forwards";
+      }
+    }, 0);
   };
 
   useEffect(() => {
@@ -84,6 +99,7 @@ const ExploreGames = () => {
                   setCategories("");
                   setStepOne(0);
                   setStepTwo(6);
+                  handleSlide();
                 }}
                 categoryAll="All Categories"
                 totalItemAll={100}
@@ -92,6 +108,7 @@ const ExploreGames = () => {
                   setCategories("single-player");
                   setStepOne(0);
                   setStepTwo(6);
+                  handleSlide();
                 }}
                 categoryOne="Single Player"
                 totalItemOne={18}
@@ -102,6 +119,7 @@ const ExploreGames = () => {
                   setCategories("multi-player");
                   setStepOne(0);
                   setStepTwo(6);
+                  handleSlide();
                 }}
                 categoryTwo="Multi Player"
                 totalItemTwo={30}
@@ -112,6 +130,7 @@ const ExploreGames = () => {
                   setCategories("rpg");
                   setStepOne(0);
                   setStepTwo(6);
+                  handleSlide();
                 }}
                 categoryThree="RPG"
                 totalItemThree={19}
@@ -120,6 +139,7 @@ const ExploreGames = () => {
                   setCategories("sandbox");
                   setStepOne(0);
                   setStepTwo(6);
+                  handleSlide();
                 }}
                 categoryFour="Sandbox"
                 totalItemFour={18}
@@ -130,6 +150,7 @@ const ExploreGames = () => {
                   setCategories("adventure");
                   setStepOne(0);
                   setStepTwo(6);
+                  handleSlide();
                 }}
                 categoryFive="Adventure"
                 totalItemFive={30}
@@ -182,19 +203,23 @@ const ExploreGames = () => {
               </button>
               <button
                 className="w-20 px-5 py-2 ml-2 text-xl bg-colorPurple rounded-l-xl hover:bg-colorPurple/80"
-                onClick={() =>
-                  stepOne < 6 ? null : handleStep(stepOne - 6, stepTwo - 6)
-                }
+                onClick={() => {
+                  if (stepOne >= 6) {
+                    handleStep(stepOne - 6, stepTwo - 6);
+                    handleSlide();
+                  }
+                }}
               >
                 <i className="ri-arrow-left-s-line"></i>
               </button>
               <button
                 className="w-20 px-5 py-2 text-xl bg-colorPurple rounded-r-xl hover:bg-colorPurple/80"
-                onClick={() =>
-                  stepTwo < filteredCards.length
-                    ? handleStep(stepOne + 6, stepTwo + 6)
-                    : null
-                }
+                onClick={() => {
+                  if (stepTwo < filteredCards.length) {
+                    handleStep(stepOne + 6, stepTwo + 6);
+                    handleSlide();
+                  }
+                }}
               >
                 <i className="ri-arrow-right-s-line"></i>
               </button>
@@ -203,7 +228,10 @@ const ExploreGames = () => {
           {/* End Title Most Popular */}
 
           {/* Card Wrapper */}
-          <div className="grid-cols-3 grid h-full w-[90%] justify-start items-start">
+          <div
+            className="grid-cols-3 grid h-full w-[90%] justify-start items-start"
+            ref={containerRef}
+          >
             {/* Card */}
             {filteredCards.slice(stepOne, stepTwo).map((content, index) => {
               const category = content?.category.split(" ");
@@ -213,9 +241,6 @@ const ExploreGames = () => {
               return (
                 <div
                   className="h-[480px] pt-4 cursor-pointer more-game-slide hover:opacity-70"
-                  data-aos="zoom-in"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="500"
                   key={index}
                   onClick={() =>
                     window.location.assign(`/games/${encryptParams}`)

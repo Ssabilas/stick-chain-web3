@@ -1,9 +1,11 @@
 import ExploreGameSliders from "../../Components/Slider/ExploreGameSlider";
+import Hero from "/assets/HeroSlider/hero-6.png";
+import { ParallaxImage } from "react-nice-scroll";
 
 const RecommendSliders = () => {
   return (
     <>
-      <section className="flex flex-col items-center justify-center w-full">
+      <section className="flex flex-col items-center justify-center w-full -mt-[24vh]">
         <section className="w-[100%] flex justify-start items-center h-[80vh] flex-col">
           <div className="container flex flex-row items-center justify-center">
             <h2 className="pl-2 text-5xl font-bold">Trending This Year</h2>
@@ -36,6 +38,15 @@ const RecommendSliders = () => {
           </div>
           <div className="w-[95%]">
             <ExploreGameSliders Width={100} />
+          </div>
+          <div className="w-[80vw] mr-[-16vw]">
+            <ParallaxImage
+              src={Hero}
+              axis="x"
+              containerHeight="30vh"
+              imageObjectPosition="center"
+              imageScale={1}
+            />
           </div>
         </section>
       </section>
