@@ -32,7 +32,7 @@ const EwalletCards = (): ReactElement => {
   };
 
   const IsAccountConnect = () => {
-    if (!connected) {
+    if (connected) {
       return (
         <>
           <div className="flex flex-col gap-1 z-[999]">
