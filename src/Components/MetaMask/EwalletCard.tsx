@@ -22,6 +22,15 @@ const EwalletCards = (): ReactElement => {
     };
   }, [card]);
 
+  useEffect(() => {
+    if (connected) {
+      const timer = setTimeout(() => {
+        setCard(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [connected]);
+
   const connect = async () => {
     try {
       const account = await sdk?.connect();
@@ -32,7 +41,7 @@ const EwalletCards = (): ReactElement => {
   };
 
   const IsAccountConnect = () => {
-    if (connected) {
+    if (!connected) {
       return (
         <>
           <div className="flex flex-col gap-1 z-[999]">

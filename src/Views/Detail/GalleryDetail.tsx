@@ -1,9 +1,12 @@
 // import GalleryImg from "/assets/HeroSlider/Hero-1.png";
-import DetailGameGalleries from "../../Components/Slider/DetailGameGallery";
-import { useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import imagesData from "../../Json/Detail/ExploreGameGallery.json";
 import { useParams } from "react-router-dom";
 import { decryptData } from "../../Utils/parseURL";
+
+const DetailGameGalleries = React.lazy(
+  () => import("../../Components/Slider/DetailGameGallery")
+);
 
 const GalleryDetails = () => {
   const [display, setDisplay] = useState(false);

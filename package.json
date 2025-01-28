@@ -21,7 +21,8 @@
     "react-nice-scroll": "^1.0.0",
     "react-slick": "^0.30.3",
     "remixicon": "^4.6.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "vite-plugin-bundlesize": "^0.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

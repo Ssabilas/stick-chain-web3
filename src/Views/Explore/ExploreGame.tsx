@@ -1,9 +1,18 @@
-import GameCategories from "../../Components/Dropdown/GameCategory";
-import FilterTags from "../../Components/Dropdown/FilterTag";
-import FilterPrices from "../../Components/Dropdown/FilterPrice";
 import CardList from "../../Json/Home/CardListView.json";
-import { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { encryptData } from "../../Utils/parseURL";
+
+const GameCategories = React.lazy(
+  () => import("../../Components/Dropdown/GameCategory")
+);
+
+const FilterTags = React.lazy(
+  () => import("../../Components/Dropdown/FilterTag")
+);
+
+const FilterPrices = React.lazy(
+  () => import("../../Components/Dropdown/FilterPrice")
+);
 
 const ExploreGames = () => {
   const searchBarRef = useRef<HTMLInputElement>(null);
