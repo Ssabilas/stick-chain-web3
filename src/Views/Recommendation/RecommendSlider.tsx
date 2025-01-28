@@ -1,10 +1,6 @@
-import React from "react";
+import ExploreGameSliders from "../../Components/Slider/ExploreGameSlider";
 import Hero from "/assets/HeroSlider/hero-6.png";
 import { ParallaxImage } from "react-nice-scroll";
-
-const ExploreGameSliders = React.lazy(
-  () => import("../../Components/Slider/ExploreGameSlider")
-);
 
 const RecommendSliders = () => {
   return (

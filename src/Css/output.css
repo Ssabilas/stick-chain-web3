@@ -1934,12 +1934,12 @@ li {
 
 @keyframes slide-in {
   from {
-    transform: scale3d(0.9, 0.5, 1);
+    /* transform: scale3d(0.9, 0.5, 1); */
     opacity: 0;
   }
 
   to {
-    transform: scale3d(1, 1, 1);
+    /* transform: scale3d(1, 1, 1); */
     opacity: 1;
   }
 }
@@ -1948,13 +1948,13 @@ li {
 
 @keyframes slide-out {
   from {
-    transform: scale3d(0.9, 0.5, 1);
+    /* transform: scale3d(0.9, 0.5, 1); */
     opacity: 0;
   }
 
   to {
-    transform: scale(1);
-    transform: scale3d(1, 1, 1);
+    /* transform: scale(1);
+    transform: scale3d(1, 1, 1); */
     opacity: 1;
   }
 }

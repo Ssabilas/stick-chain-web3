@@ -1,10 +1,7 @@
 import Hero from "/assets/HeroSlider/hero-6.png";
 import { ParallaxImage } from "react-nice-scroll";
-import React from "react";
-
-const RecommendHeroSliders = React.lazy(
-  () => import("../../Components/Slider/RecommendHeroSlider")
-);
+// import { ParallaxImage } from "react-nice-scroll";
+import RecommendHeroSliders from "../../Components/Slider/RecommendHeroSlider";
 
 const RecommendHeros = () => {
   return (

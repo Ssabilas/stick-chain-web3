@@ -1,20 +1,11 @@
 import CardList from "../../Json/Home/CardListView.json";
+import GameCategories from "../../Components/Dropdown/GameCategory";
+import FilterTags from "../../Components/Dropdown/FilterTag";
+import FilterPrices from "../../Components/Dropdown/FilterPrice";
 import { encryptData } from "../../Utils/parseURL";
 import React, { MouseEventHandler, useState, useMemo, useRef } from "react";
 import Hero from "/assets/HeroSlider/hero-6.png";
 import { ParallaxImage } from "react-nice-scroll";
-
-const GameCategories = React.lazy(
-  () => import("../../Components/Dropdown/GameCategory")
-);
-
-const FilterPrices = React.lazy(
-  () => import("../../Components/Dropdown/FilterPrice")
-);
-
-const FilterTags = React.lazy(
-  () => import("../../Components/Dropdown/FilterTag")
-);
 
 interface LiInterface {
   content: string;
@@ -33,6 +24,14 @@ const Li: React.FC<LiInterface> = React.memo(
     );
   }
 );
+
+// const saveToLocalStorage = (data) => {
+//   localStorage.setItem("ID", data.id);
+//   localStorage.setItem("Name", data.name);
+//   localStorage.setItem("Thumbnail", data.thumbnail);
+//   localStorage.setItem("Rate", data.rate);
+//   localStorage.setItem("Price", data.price);
+// };
 
 const ListMainGameCards = () => {
   const [category, setCategory] = useState("");
