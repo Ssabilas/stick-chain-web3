@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavLogo from "/assets/Logo.png";
 import EwalletCards from "../MetaMask/EwalletCard";
 import { useSDK } from "@metamask/sdk-react";
@@ -7,11 +7,26 @@ import SearchBars from "./SearchBar";
 const NavbarNavs: React.FC = () => {
   const [card, setCard] = useState<boolean>(false);
   const { connecting, connected } = useSDK();
+  const [loading, setLoading] = useState(true); // Tambahkan state loading untuk mengontrol transisi
+
+  useEffect(() => {
+    if (!connecting) {
+      setLoading(false); // Matikan loading setelah connecting selesai
+    }
+  }, [connecting]);
 
   // Button Group Component
   const Connect: React.FC = () => {
-    if (connecting) {
-      return null;
+    if (loading || connecting) {
+      // Render skeleton/loading UI saat connecting
+      return (
+        <div className="flex justify-center items-center flex-row h-[45px]">
+          <SearchBars />
+          <button className="flex items-center justify-center px-5 py-2 text-gray-400 rounded-xl bg-colorGrayDark/50 animate-pulse">
+            Connecting...
+          </button>
+        </div>
+      );
     }
 
     if (connected) {
