@@ -1,5 +1,12 @@
-import RecommendHeros from "../Views/Recommendation/RecommendHero";
-import RecommendSliders from "../Views/Recommendation/RecommendSlider";
+import React from "react";
+
+const RecommendHeros = React.lazy(
+  () => import("../Views/Recommendation/RecommendHero")
+);
+
+const RecommendSliders = React.lazy(
+  () => import("../Views/Recommendation/RecommendSlider")
+);
 
 const RecommendPages = () => {
   return (

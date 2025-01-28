@@ -1,9 +1,14 @@
-import { ReactElement } from "react";
-import HomeHeros from "../Views/Home/HomeHero";
-import ListMainGameCards from "../Views/Home/ListMainGameCard";
-import ListSecondGameCards from "../Views/Home/ListSecondGameCard";
+import React from "react";
+const HomeHeros = React.lazy(() => import("../Views/Home/HomeHero"));
+const ListMainGameCards = React.lazy(
+  () => import("../Views/Home/ListMainGameCard")
+);
 
-const HomePages = (): ReactElement => {
+const ListSecondGameCards = React.lazy(
+  () => import("../Views/Home/ListSecondGameCard")
+);
+
+const HomePages = () => {
   return (
     <>
       <HomeHeros />

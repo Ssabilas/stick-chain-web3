@@ -12,7 +12,7 @@ const NavbarNavs = (): ReactElement => {
   // Button Group
   const Connect = () => {
     try {
-      if (connected) {
+      if (!connected) {
         return (
           <>
             <div className="flex justify-center items-center flex-row h-[45px]">

@@ -1,5 +1,6 @@
-import { useState } from "react";
-import EwalletCards from "./EwalletCard";
+import React, { useState } from "react";
+
+const EwalletCards = React.lazy(() => import("./EwalletCard"));
 
 const LoginButtons = () => {
   const [card, setCard] = useState(false);

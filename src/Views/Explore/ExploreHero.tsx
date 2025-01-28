@@ -1,4 +1,8 @@
-import HeroSliders from "../../Components/Slider/HeroSlider";
+import React from "react";
+
+const HeroSliders = React.lazy(
+  () => import("../../Components/Slider/HeroSlider")
+);
 
 const ExploreHeros = () => {
   return (

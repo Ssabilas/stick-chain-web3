@@ -1,8 +1,16 @@
-import GameDetails from "../Views/Detail/GameDetail";
-import SpecDetails from "../Views/Detail/SpecDetail";
-import GalleryDetails from "../Views/Detail/GalleryDetail";
-// import ExploreGameDetails from "../components/Slider/ExploreGameDetail";
-import ExploreGameSliders from "../Components/Slider/ExploreGameSlider";
+import React from "react";
+
+const ExploreGameSliders = React.lazy(
+  () => import("../Components/Slider/ExploreGameSlider")
+);
+
+const GameDetails = React.lazy(() => import("../Views/Detail/GameDetail"));
+
+const SpecDetails = React.lazy(() => import("../Views/Detail/SpecDetail"));
+
+const GalleryDetails = React.lazy(
+  () => import("../Views/Detail/GalleryDetail")
+);
 
 const DetailPages = () => {
   return (
