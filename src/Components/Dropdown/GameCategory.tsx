@@ -15,7 +15,7 @@ const CategoriesEvent: React.FC<CategoriesProps> = ({
 }) => {
   return (
     <li
-      className={`flex flex-row justify-between px-12 py-2 font-semibold rounded-full cursor-pointer hover:bg-colorGrayDark ${changeColor}`}
+      className={`flex flex-row justify-between px-12 py-2 font-medium rounded-full cursor-pointer hover:bg-colorGrayDark ${changeColor}`}
       onClick={onClick}
     >
       <p>{categoryName}</p>
