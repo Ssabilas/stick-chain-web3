@@ -4,23 +4,49 @@ import EwalletCards from "../MetaMask/EwalletCard";
 import { useSDK } from "@metamask/sdk-react";
 import SearchBars from "./SearchBar";
 import CartBars from "./CartBar";
+import { CartCounts } from "./CartCount";
 
 const NavbarNavs: React.FC = () => {
   const [card, setCard] = useState<boolean>(false);
   const { connecting, connected } = useSDK();
-  const [loading, setLoading] = useState(true); // Tambahkan state loading untuk mengontrol transisi
+  const [loading, setLoading] = useState(true); // State for loading animation
   const [showCart, setShowCart] = useState(false);
+  const [cartItems, setCartItems] = useState<string[]>([]);
 
+  // Load cartItems from localStorage on component mount
+  useEffect(() => {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  }, []);
+
+  // Listen for changes to localStorage from other tabs/windows
+  useEffect(() => {
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === "cartItems") {
+        const storedCartItems = localStorage.getItem("cartItems");
+        setCartItems(storedCartItems ? JSON.parse(storedCartItems) : []);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  // Update loading state based on connecting status
   useEffect(() => {
     if (!connecting) {
-      setLoading(false); // Matikan loading setelah connecting selesai
+      setLoading(false);
     }
   }, [connecting]);
 
   // Button Group Component
   const Connect: React.FC = () => {
     if (loading || connecting) {
-      // Render skeleton/loading UI saat connecting
       return (
         <div className="flex justify-center items-center flex-row h-[45px]">
           <SearchBars />
@@ -34,39 +60,37 @@ const NavbarNavs: React.FC = () => {
     return (
       <div className="flex justify-center items-center flex-row h-[45px]">
         <SearchBars />
-        {connecting || connected ? (
+        {connected ? (
           <>
             <div className="flex flex-row gap-2 mx-2">
-              <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
+              <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
                 <i className="ri-import-line"></i> Install Apps
               </button>
-              <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
+              <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
                 <i className="text-xl ri-user-fill"></i>
               </button>
             </div>
-            <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-l-xl bg-colorGrayDark/50 hover:bg-colorGrayDark animate text-colorWhite text-md">
+            <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-l-xl text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
               <i className="text-xl ri-eth-fill"></i> 0
             </button>
             <button
-              className="flex items-center justify-center px-5 py-2 text-gray-300 rounded-r-xl bg-colorGrayDark/50 hover:bg-colorGrayDark text-colorWhite"
+              className="flex items-center justify-center px-5 py-2 text-gray-300 rounded-r-xl bg-colorGrayDark/50 hover:bg-colorGrayDark"
               onClick={() => setShowCart(!showCart)}
             >
               <i className="text-xl ri-shopping-cart-2-fill"></i>
-              {/* <span className="absolute top-0 right-0 px-2 text-sm font-bold rounded-full bg-colorPurple">
-                1
-              </span> */}
+              {cartItems.length > 0 && <CartCounts />}
             </button>
             {showCart && <CartBars />}
           </>
         ) : (
           <>
             <button
-              className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl bg-colorGrayDark/50 hover:bg-colorGrayDark animate text-colorWhite text-md"
+              className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark"
               onClick={() => setCard(!card)}
             >
               <i className="text-xl ri-wallet-line"></i> Login
             </button>
-            <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark ml-2">
+            <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark ml-2">
               <i className="ri-import-line"></i> Install Apps
             </button>
           </>
@@ -86,7 +110,7 @@ const NavbarNavs: React.FC = () => {
         Home
       </button>
       <button
-        className="flex items-center justify-center px-5 py-2 font-semibold text-gray-300 text-md rounded-r-xl hover:bg-colorGrayDark hover:text-gray-200 bg-colorGrayDark/50"
+        className="flex items-center justify-center px-5 py-2 font-semibold text-gray-300 text-md rounded-r-xl bg-colorGrayDark/50 hover:bg-colorGrayDark hover:text-gray-200"
         onClick={() => window.location.assign("/explore")}
       >
         Explore

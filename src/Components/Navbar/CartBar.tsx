@@ -4,7 +4,6 @@ const CartBars = () => {
   // Ambil data dari localStorage
   const storedCartItems = localStorage.getItem("cartItems");
   const cartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
-
   // Filter CardView berdasarkan item yang ada di cartItems
   const filteredItems = CardView.filter((content) => {
     const contentId = content.id.replace(/ /g, "-").toLowerCase();
@@ -12,7 +11,7 @@ const CartBars = () => {
   }).slice(0, 3); // Batasi hanya 3 item
 
   return (
-    <div className="absolute right-0 flex flex-col items-center justify-start w-auto h-auto gap-2 px-5 py-2 border-2 top-20 bg-colorGray/50 rounded-2xl border-colorGrayDark">
+    <div className="absolute right-0 flex flex-col items-center justify-start w-[18vw] h-auto px-5 py-2 border-2 top-20 bg-colorGray/50 rounded-2xl border-colorGrayDark">
       {/* Tampilkan item yang difilter */}
       {filteredItems.length > 0 ? (
         filteredItems.map((content, index) => (
@@ -37,13 +36,21 @@ const CartBars = () => {
         <p className="py-2 text-colorWhite">No items</p>
       )}
 
-      {/* Garis pemisah */}
-      <hr className="w-full border-b border-colorGrayDark" />
-
-      {/* Tombol View Cart */}
-      <button className="w-full px-5 py-2 my-2 border-2 rounded-xl border-colorGray/30 hover:bg-colorGrayDark bg-colorGrayDark/30">
-        <i className="ri-shopping-cart-2-fill"></i> View Cart
-      </button>
+      {/* Tombol Cart */}
+      <div className="flex flex-row w-full gap-2">
+        <button className="w-full px-5 py-2 my-2 border-2 rounded-xl border-colorPurple/30 hover:bg-colorPurple bg-colorPurple/30">
+          <i className="ri-shopping-cart-2-fill"></i> View
+        </button>
+        <button
+          className="w-full px-5 py-2 my-2 border-2 rounded-xl border-colorRed/30 hover:bg-colorRed/50 bg-colorRed/30"
+          onClick={() => {
+            localStorage.removeItem("cartItems");
+            window.location.assign("/");
+          }}
+        >
+          <i className="ri-shopping-cart-2-line"></i> Remove
+        </button>
+      </div>
     </div>
   );
 };

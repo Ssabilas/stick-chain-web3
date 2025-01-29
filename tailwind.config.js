@@ -14,6 +14,7 @@ export default {
       'colorPurple': '#372973',
       'colorGrayDark': '#303030',
       'colorGray': '#424242',
+      'colorRed': '#cc1d1d',
 
     },
     extend: {},

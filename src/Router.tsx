@@ -13,14 +13,16 @@ import HomePages from "./Pages/HomePage";
 import DetailPages from "./Pages/DetailPage";
 import RecommendPages from "./Pages/RecommendPage";
 import ExplorePages from "./Pages/ExplorePage";
+import CartPages from "./Pages/CartPage";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePages /> },
   { path: "/games/:id", element: <DetailPages /> },
   { path: "/games/recommendation", element: <RecommendPages /> },
   { path: "explore", element: <ExplorePages /> },
+  { path: "/games/cart", element: <CartPages /> },
 ]);
-const RouterApps = () => {
+const Routers = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -53,4 +55,4 @@ const RouterApps = () => {
   );
 };
 
-export default RouterApps;
+export default Routers;

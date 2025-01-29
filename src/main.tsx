@@ -7,7 +7,7 @@ import "./css/input.css";
 import "./css/output.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import RouterApps from "./RouterApp";
+import Routers from "./Router";
 
 createRoot(document.getElementById("root")!).render(
   <MetaMaskProvider
@@ -20,7 +20,7 @@ createRoot(document.getElementById("root")!).render(
     }}
   >
     <StrictMode>
-      <RouterApps />
+      <Routers />
     </StrictMode>
   </MetaMaskProvider>
 );

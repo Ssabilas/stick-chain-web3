@@ -5,6 +5,15 @@ import { decryptData } from "../../Utils/parseURL";
 const GameDetails = () => {
   const { id } = useParams<{ id: string }>();
   const decryptedData = decryptData(decodeURI(id as string));
+  const saveToLocalStorage = (item: string) => {
+    const normalizedItem = item.replace(/ /g, "-").toLowerCase(); // Normalisasi item ID
+    const existingItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+
+    if (!existingItems.includes(normalizedItem)) {
+      existingItems.push(normalizedItem);
+      localStorage.setItem("cartItems", JSON.stringify(existingItems));
+    }
+  };
 
   return (
     <>
@@ -12,6 +21,7 @@ const GameDetails = () => {
         (detail) => detail.id.replace(/ /g, "-").toLowerCase() === decryptedData
       ).map((detail, index) => {
         const category = detail.category.split(" ");
+        const detailId = detail.id.replace(/ /g, "-").toLowerCase();
         return (
           <>
             <section
@@ -62,7 +72,10 @@ const GameDetails = () => {
                       <button className="px-12 py-1 h-[40px]  uppercase border-2 rounded-l-full outline-none bg-colorAqua text-colorViolet border-colorAqua hover:text-colorAqua hover:bg-transparent ">
                         buy now
                       </button>
-                      <button className="px-12 py-1 h-[40px] uppercase border-2 rounded-r-full outline-none hover:bg-transparent bg-colorPurple hover:border-colorWhite border-colorPurple text-colorWhite ">
+                      <button
+                        className="px-12 py-1 h-[40px] uppercase border-2 rounded-r-full outline-none hover:bg-transparent bg-colorPurple hover:border-colorWhite border-colorPurple text-colorWhite "
+                        onClick={() => saveToLocalStorage(detailId)}
+                      >
                         <i className="ri-shopping-cart-fill"></i>
                       </button>
                     </div>
