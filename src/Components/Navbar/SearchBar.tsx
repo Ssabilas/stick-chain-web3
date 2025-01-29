@@ -8,7 +8,7 @@ interface GameItem {
   rate: number;
   thumbnail: string;
   category: string;
-  price: string;
+  price: number;
 }
 
 const SearchBars = () => {

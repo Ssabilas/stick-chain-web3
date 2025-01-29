@@ -25,40 +25,54 @@ const Li: React.FC<LiInterface> = React.memo(
   }
 );
 
-// const saveToLocalStorage = (data) => {
-//   localStorage.setItem("ID", data.id);
-//   localStorage.setItem("Name", data.name);
-//   localStorage.setItem("Thumbnail", data.thumbnail);
-//   localStorage.setItem("Rate", data.rate);
-//   localStorage.setItem("Price", data.price);
-// };
-
 const ListMainGameCards = () => {
   const [category, setCategory] = useState("");
   const [listItem, setListItem] = useState(true);
   const [categories, setCategories] = useState("");
+  const [filterTags, setFilterTags] = useState("");
+  const [filterPriceFrom, setFilterPriceFrom] = useState<number | null>(null);
+  const [filterPriceTo, setFilterPriceTo] = useState<number | null>(null);
 
   const filteredCards = useMemo(() => {
-    return CardList.filter(
-      (card) =>
-        (category === "" && categories === "") ||
-        (category === "" &&
-          card.category
-            .toLowerCase()
-            .split(" ")
-            .includes(categories.toLowerCase())) ||
-        (card.type === category && categories === "") ||
-        (card.type === category &&
-          card.category
-            .toLowerCase()
-            .split(" ")
-            .includes(categories.toLowerCase()))
-    ).slice(0, 6);
-  }, [category, categories]);
+    return CardList.filter((card) => {
+      // Filter berdasarkan kategori utama
+      const isCategoryMatch = category === "" || card.type === category;
+
+      // Filter berdasarkan sub-kategori (categories)
+      const isCategoriesMatch =
+        categories === "" ||
+        card.category
+          .toLowerCase()
+          .split(" ")
+          .includes(categories.toLowerCase());
+
+      // Filter berdasarkan rentang harga dari pengguna
+      const isCustomPriceMatch =
+        (filterPriceFrom === null || card.price >= filterPriceFrom) &&
+        (filterPriceTo === null || card.price <= filterPriceTo);
+
+      // Filter berdasarkan tag harga (lowPrice, normalPrice, highPrice)
+      const isPriceMatch =
+        filterTags === "lowPrice"
+          ? card.price <= 0.008
+          : filterTags === "normalPrice"
+          ? card.price >= 0.005 && card.price <= 0.008
+          : filterTags === "highPrice"
+          ? card.price >= 0.008
+          : true;
+
+      return (
+        isCategoryMatch &&
+        isCategoriesMatch &&
+        isCustomPriceMatch &&
+        isPriceMatch
+      );
+    }).slice(0, 6);
+  }, [category, categories, filterTags, filterPriceFrom, filterPriceTo]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const handleSlide = () => {
-    if (!containerRef.current) return; // Check if ref is valid
+    if (!containerRef.current) return;
 
     containerRef.current.style.animation = "none";
 
@@ -69,6 +83,10 @@ const ListMainGameCards = () => {
       }
     }, 0);
   };
+
+  // console.table(
+  //   filteredCards.map((item) => (item.price >= 0.008 ? item.price : null))
+  // );
 
   return (
     <>
@@ -142,8 +160,46 @@ const ListMainGameCards = () => {
               />
             )}
           </div>
-          <FilterTags />
-          <FilterPrices />
+          <FilterTags
+            clickCategoryNone={() => {
+              setFilterTags("");
+              handleSlide();
+            }}
+            categoryNone="None"
+            changeColorNone={filterTags === "" ? `bg-colorPurple` : ""}
+            clickCategoryLowPrice={() => {
+              setFilterTags("lowPrice");
+              handleSlide();
+            }}
+            categoryLowPrice="Low Price"
+            changeColorLowPrice={
+              filterTags === "lowPrice" ? `bg-colorPurple` : ""
+            }
+            clickCategoryNormalPrice={() => {
+              setFilterTags("normalPrice");
+              handleSlide();
+            }}
+            categoryNormalPrice="Normal Price"
+            changeColorNormalPrice={
+              filterTags === "normalPrice" ? `bg-colorPurple` : ""
+            }
+            clickCategoryHighPrice={() => {
+              setFilterTags("highPrice");
+              handleSlide();
+            }}
+            categoryHighPrice="High Price"
+            changeColorHighPrice={
+              filterTags === "highPrice" ? `bg-colorPurple` : ""
+            }
+          />
+          <FilterPrices
+            inputPlaceHolderFrom="From"
+            inputValueFrom={filterPriceFrom}
+            setInputValueFrom={setFilterPriceFrom}
+            inputPlaceHolderTo="To"
+            inputValueTo={filterPriceTo}
+            setInputValueTo={setFilterPriceTo}
+          />
           <div className="w-[40vw]  -mr-[8vw]">
             <ParallaxImage
               src={Hero}
@@ -218,6 +274,20 @@ const ListMainGameCards = () => {
               const category = content.category.split(" ");
               const contentID = content.id.replace(/ /g, "-").toLowerCase();
               const encryptParams = encryptData(encodeURI(contentID));
+              const saveToLocalStorage = (item: string) => {
+                const existingItems = JSON.parse(
+                  localStorage.getItem("cartItems") || "[]"
+                );
+
+                if (!existingItems.includes(item)) {
+                  existingItems.push(item.replace(/ /g, "-").toLowerCase());
+
+                  localStorage.setItem(
+                    "cartItems",
+                    JSON.stringify(existingItems)
+                  );
+                }
+              };
 
               return (
                 <div
@@ -257,7 +327,10 @@ const ListMainGameCards = () => {
                     </ul>
                   </div>
                   <div className="flex flex-col items-center justify-center w-full gap-4 my-8">
-                    <button className="w-[85%] px-4 py-2 uppercase border-2 rounded-full outline-none  hover:bg-colorAqua hover:text-colorViolet border-colorAqua text-colorAqua">
+                    <button
+                      className="w-[85%] px-4 py-2 uppercase border-2 rounded-full outline-none  hover:bg-colorAqua hover:text-colorViolet border-colorAqua text-colorAqua"
+                      onClick={() => saveToLocalStorage(content.id)}
+                    >
                       Add to cart <i className="ri-shopping-cart-2-fill"></i>
                     </button>
                     <button

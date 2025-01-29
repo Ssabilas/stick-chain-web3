@@ -3,11 +3,13 @@ import NavLogo from "/assets/Logo.png";
 import EwalletCards from "../MetaMask/EwalletCard";
 import { useSDK } from "@metamask/sdk-react";
 import SearchBars from "./SearchBar";
+import CartBars from "./CartBar";
 
 const NavbarNavs: React.FC = () => {
   const [card, setCard] = useState<boolean>(false);
   const { connecting, connected } = useSDK();
   const [loading, setLoading] = useState(true); // Tambahkan state loading untuk mengontrol transisi
+  const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
     if (!connecting) {
@@ -29,40 +31,46 @@ const NavbarNavs: React.FC = () => {
       );
     }
 
-    if (connected) {
-      return (
-        <div className="flex justify-center items-center flex-row h-[43px]">
-          <SearchBars />
-          <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-l-xl bg-colorGrayDark/50 hover:bg-colorGrayDark animate text-colorWhite text-md">
-            <i className="text-xl ri-eth-fill"></i> 0
-          </button>
-          <button className="flex items-center justify-center px-5 py-2 text-gray-300 rounded-r-xl bg-colorGrayDark/50 hover:bg-colorGrayDark text-colorWhite">
-            <i className="text-xl ri-shopping-cart-2-fill"></i>
-          </button>
-          <div className="flex flex-row gap-2 mx-2">
-            <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
-              <i className="ri-import-line"></i> Install Apps
-            </button>
-            <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
-              <i className="text-xl ri-user-fill"></i>
-            </button>
-          </div>
-        </div>
-      );
-    }
-
     return (
       <div className="flex justify-center items-center flex-row h-[45px]">
         <SearchBars />
-        <button
-          className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl bg-colorGrayDark/50 hover:bg-colorGrayDark animate text-colorWhite text-md"
-          onClick={() => setCard(!card)}
-        >
-          <i className="text-xl ri-wallet-line"></i> Login
-        </button>
-        <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark ml-2">
-          <i className="ri-import-line"></i> Install Apps
-        </button>
+        {connecting || connected ? (
+          <>
+            <div className="flex flex-row gap-2 mx-2">
+              <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
+                <i className="ri-import-line"></i> Install Apps
+              </button>
+              <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark">
+                <i className="text-xl ri-user-fill"></i>
+              </button>
+            </div>
+            <button className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-l-xl bg-colorGrayDark/50 hover:bg-colorGrayDark animate text-colorWhite text-md">
+              <i className="text-xl ri-eth-fill"></i> 0
+            </button>
+            <button
+              className="flex items-center justify-center px-5 py-2 text-gray-300 rounded-r-xl bg-colorGrayDark/50 hover:bg-colorGrayDark text-colorWhite"
+              onClick={() => setShowCart(!showCart)}
+            >
+              <i className="text-xl ri-shopping-cart-2-fill"></i>
+              {/* <span className="absolute top-0 right-0 px-2 text-sm font-bold rounded-full bg-colorPurple">
+                1
+              </span> */}
+            </button>
+            {showCart && <CartBars />}
+          </>
+        ) : (
+          <>
+            <button
+              className="flex items-center justify-center gap-1 px-5 py-2 font-semibold rounded-xl bg-colorGrayDark/50 hover:bg-colorGrayDark animate text-colorWhite text-md"
+              onClick={() => setCard(!card)}
+            >
+              <i className="text-xl ri-wallet-line"></i> Login
+            </button>
+            <button className="flex items-center justify-center gap-1 px-5 py-[10px] font-semibold rounded-xl animate text-colorWhite text-md bg-colorGrayDark/50 hover:bg-colorGrayDark ml-2">
+              <i className="ri-import-line"></i> Install Apps
+            </button>
+          </>
+        )}
       </div>
     );
   };

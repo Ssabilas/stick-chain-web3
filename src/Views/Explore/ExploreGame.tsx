@@ -10,8 +10,12 @@ const ExploreGames = () => {
 
   const [listItem, setListItem] = useState(true);
   const [categories, setCategories] = useState("");
-  const [filteredCards, setFilteredCards] = useState(CardList); // Cards that are filtered
+  const [filteredCards, setFilteredCards] = useState(CardList);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const [filterTags, setFilterTags] = useState("");
+  const [filterPriceFrom, setFilterPriceFrom] = useState<number | null>(null);
+  const [filterPriceTo, setFilterPriceTo] = useState<number | null>(null);
 
   const [stepOne, setStepOne] = useState(0);
   const [stepTwo, setStepTwo] = useState(6);
@@ -37,13 +41,35 @@ const ExploreGames = () => {
 
   useEffect(() => {
     const filtered = CardList.filter((card) => {
-      const matchesCategory =
+      // Filter berdasarkan sub-kategori (categories)
+      const isCategoriesMatch =
         categories === "" ||
-        card.category.toLowerCase().includes(categories.toLowerCase());
-      return matchesCategory;
+        card.category
+          .toLowerCase()
+          .split(" ")
+          .includes(categories.toLowerCase());
+
+      // Filter berdasarkan rentang harga dari pengguna
+      const isCustomPriceMatch =
+        (filterPriceFrom === null || card.price >= filterPriceFrom) &&
+        (filterPriceTo === null || card.price <= filterPriceTo);
+
+      // Filter berdasarkan tag harga (lowPrice, normalPrice, highPrice)
+      const isPriceMatch =
+        filterTags === "lowPrice"
+          ? card.price <= 0.008
+          : filterTags === "normalPrice"
+          ? card.price >= 0.005 && card.price <= 0.008
+          : filterTags === "highPrice"
+          ? card.price >= 0.008
+          : true; // Perbaikan indentasi di sini ✅
+
+      return isCategoriesMatch && isCustomPriceMatch && isPriceMatch;
     });
+
+    // Set hasil filter ke state
     setFilteredCards(filtered);
-  }, [categories]);
+  }, [categories, filterTags, filterPriceFrom, filterPriceTo]);
 
   const handleSearch = useCallback(() => {
     const query = searchBarRef.current?.value.toLowerCase() || "";
@@ -55,6 +81,7 @@ const ExploreGames = () => {
           card.category.toLowerCase().includes(categories.toLowerCase()))
     );
     setFilteredCards(filtered);
+    handleSlide();
   }, [categories]);
 
   // Update filteredCards whenever categories change or search input changes
@@ -160,8 +187,46 @@ const ExploreGames = () => {
               />
             )}
           </div>
-          <FilterTags />
-          <FilterPrices />
+          <FilterTags
+            clickCategoryNone={() => {
+              setFilterTags("");
+              handleSlide();
+            }}
+            categoryNone="None"
+            changeColorNone={filterTags === "" ? `bg-colorPurple` : ""}
+            clickCategoryLowPrice={() => {
+              setFilterTags("lowPrice");
+              handleSlide();
+            }}
+            categoryLowPrice="Low Price"
+            changeColorLowPrice={
+              filterTags === "lowPrice" ? `bg-colorPurple` : ""
+            }
+            clickCategoryNormalPrice={() => {
+              setFilterTags("normalPrice");
+              handleSlide();
+            }}
+            categoryNormalPrice="Normal Price"
+            changeColorNormalPrice={
+              filterTags === "normalPrice" ? `bg-colorPurple` : ""
+            }
+            clickCategoryHighPrice={() => {
+              setFilterTags("highPrice");
+              handleSlide();
+            }}
+            categoryHighPrice="High Price"
+            changeColorHighPrice={
+              filterTags === "highPrice" ? `bg-colorPurple` : ""
+            }
+          />
+          <FilterPrices
+            inputPlaceHolderFrom="From"
+            inputValueFrom={filterPriceFrom}
+            setInputValueFrom={setFilterPriceFrom}
+            inputPlaceHolderTo="To"
+            inputValueTo={filterPriceTo}
+            setInputValueTo={setFilterPriceTo}
+          />
         </div>
         {/* End Nav Component */}
 

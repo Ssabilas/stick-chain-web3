@@ -13,7 +13,7 @@ createRoot(document.getElementById("root")!).render(
   <MetaMaskProvider
     sdkOptions={{
       dappMetadata: {
-        name: "Example React Dapp",
+        name: "Stick Chain",
         url: window.location.href,
       },
       infuraAPIKey: import.meta.env.REACT_APP_INFURA_KEY,
