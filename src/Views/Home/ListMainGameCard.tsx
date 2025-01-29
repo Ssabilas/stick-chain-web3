@@ -33,6 +33,17 @@ const ListMainGameCards = () => {
   const [filterPriceFrom, setFilterPriceFrom] = useState<number | null>(null);
   const [filterPriceTo, setFilterPriceTo] = useState<number | null>(null);
 
+  const saveToLocalStorage = (item: string) => {
+    const normalizedItem = item.replace(/ /g, "-").toLowerCase(); // Normalisasi item ID
+    const existingItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+
+    if (!existingItems.includes(normalizedItem)) {
+      existingItems.push(normalizedItem);
+      localStorage.setItem("cartItems", JSON.stringify(existingItems));
+    }
+  };
+
+  // Filter CardView berdasarkan item yang ada di cartItems
   const filteredCards = useMemo(() => {
     return CardList.filter((card) => {
       // Filter berdasarkan kategori utama
@@ -274,20 +285,6 @@ const ListMainGameCards = () => {
               const category = content.category.split(" ");
               const contentID = content.id.replace(/ /g, "-").toLowerCase();
               const encryptParams = encryptData(encodeURI(contentID));
-              const saveToLocalStorage = (item: string) => {
-                const existingItems = JSON.parse(
-                  localStorage.getItem("cartItems") || "[]"
-                );
-
-                if (!existingItems.includes(item)) {
-                  existingItems.push(item.replace(/ /g, "-").toLowerCase());
-
-                  localStorage.setItem(
-                    "cartItems",
-                    JSON.stringify(existingItems)
-                  );
-                }
-              };
 
               return (
                 <div
@@ -329,7 +326,9 @@ const ListMainGameCards = () => {
                   <div className="flex flex-col items-center justify-center w-full gap-4 my-8">
                     <button
                       className="w-[85%] px-4 py-2 uppercase border-2 rounded-full outline-none  hover:bg-colorAqua hover:text-colorViolet border-colorAqua text-colorAqua"
-                      onClick={() => saveToLocalStorage(content.id)}
+                      onClick={() => {
+                        saveToLocalStorage(contentID);
+                      }}
                     >
                       Add to cart <i className="ri-shopping-cart-2-fill"></i>
                     </button>
