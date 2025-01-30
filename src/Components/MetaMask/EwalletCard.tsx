@@ -1,13 +1,46 @@
 import { ReactElement, useState, useEffect } from "react";
 import MetamaskLogo from "/assets/Metamask-Logo.png";
+import CoinbaseLogo from "/assets/Coinbase-Logo.png";
 import LogoBrand from "/assets/Logo.png";
-import { useSDK } from "@metamask/sdk-react";
-import GradientMest from "/assets/Hero-Gradient.png";
-// import WebLogo from "/assets/Web-Logo.png";
+import { useConnect, useAccount } from "wagmi";
+
+const MetamaskConnect = () => {
+  const { connectors, connect } = useConnect();
+
+  return (
+    <>
+      {connectors[0] && (
+        <button
+          className="flex w-[300px] gap-8 px-12 py-2 bg-colorGray rounded-xl hover:bg-colorGrayDark justify-center items-center h-[80px]"
+          key={connectors[0].uid}
+          onClick={() => connect({ connector: connectors[0] })}
+        >
+          <img src={MetamaskLogo} alt="Metamask Logo" className="w-[60px]" />
+          <span className="text-2xl font-semibold uppercase">Metamask</span>
+        </button>
+      )}
+
+      {connectors[1] && (
+        <button
+          className="flex w-[300px] gap-8 px-12 py-2 bg-colorGray rounded-xl hover:bg-colorGrayDark justify-center items-center h-[80px]"
+          key={connectors[1].uid}
+          onClick={() => connect({ connector: connectors[1] })}
+        >
+          <img
+            src={CoinbaseLogo}
+            alt="Metamask Logo"
+            className="mr-2 w-[50px] object-cover"
+          />
+          <span className="text-2xl font-semibold uppercase">Coinbase</span>
+        </button>
+      )}
+    </>
+  );
+};
 
 const EwalletCards = (): ReactElement => {
-  const [account, setAccount] = useState<string>();
-  const { sdk, connected, chainId } = useSDK();
+  const { isConnected } = useAccount();
+  // const [account, setAccount] = useState<string>();
   const [card, setCard] = useState(true);
 
   useEffect(() => {
@@ -22,26 +55,17 @@ const EwalletCards = (): ReactElement => {
     };
   }, [card]);
 
-  useEffect(() => {
-    if (connected) {
-      const timer = setTimeout(() => {
-        setCard(false);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [connected]);
-
-  const connect = async () => {
-    try {
-      const account = await sdk?.connect();
-      setAccount(account?.[0]);
-    } catch (err) {
-      console.warn("Failed to Connect", err);
-    }
-  };
+  // useEffect(() => {
+  //   if (connected) {
+  //     const timer = setTimeout(() => {
+  //       setCard(false);
+  //     }, 2000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [connected]);
 
   const IsAccountConnect = () => {
-    if (!connected) {
+    if (!isConnected) {
       return (
         <>
           <div className="flex flex-col gap-1 z-[999]">
@@ -50,15 +74,10 @@ const EwalletCards = (): ReactElement => {
             </h2>
             <img src={LogoBrand} alt="Logo Brand" className="w-auto h-[40px]" />
           </div>
-          <div className="flex gap-8 px-12 py-2 bg-colorAqua rounded-xl hover:bg-colorAqua/85">
-            <img src={MetamaskLogo} alt="Metamask Logo" />
-            <button
-              className="text-2xl font-extrabold text-colorViolet"
-              onClick={connect}
-            >
-              METAMASK
-            </button>
-          </div>
+          {/* <div className="flex gap-8 px-12 py-2 bg-colorAqua rounded-xl hover:bg-colorAqua/85">
+          <img src={MetamaskLogo} alt="Metamask Logo" /> */}
+          <MetamaskConnect />
+          {/* </div> */}
         </>
       );
     } else {
@@ -73,8 +92,6 @@ const EwalletCards = (): ReactElement => {
             </h2>
           </div>
           <div className="flex flex-row items-center justify-center px-12 py-2">
-            <img src={MetamaskLogo} alt="Metamask Logo" />
-            <hr className="text-xl font-extrabold w-52" />
             <i className="text-6xl ri-check-double-line text-colorGreen"></i>
           </div>
         </>
@@ -85,19 +102,14 @@ const EwalletCards = (): ReactElement => {
   return (
     <>
       {card && (
-        <section className="left-0 top-0 fixed bg-colorBlack/80 flex justify-center items-center h-[100vh] w-[100vw]">
-          <div className="bg-colorViolet w-[600px] h-[600px] flex justify-center items-center flex-col rounded-3xl drop-shadow-md backdrop-blur-2xl gap-8">
+        <section className="left-0 top-0 fixed bg-colorBlack/80 flex justify-center items-center h-[100vh] w-[100vw] flex-row">
+          <div className="bg-colorGrayDark/50 w-[450px] h-[450px] flex justify-center items-center flex-col rounded-3xl drop-shadow-md backdrop-blur-2xl gap-8">
             <i
               className="absolute z-20 text-4xl cursor-pointer rounded-xl hover:text-colorWhite/50 right-8 top-6 ri-close-line"
               onClick={() => setCard(!card)}
             ></i>
-            <img
-              src={GradientMest}
-              className="fixed top-0 w-full rounded-t-3xl backdrop-blur-xl"
-              alt="Gradient Card"
-            />
             <IsAccountConnect />
-            {connected && account && chainId && !card}
+            {/* {connected && account && chainId && !card} */}
           </div>
         </section>
       )}
