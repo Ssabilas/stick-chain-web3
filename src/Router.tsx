@@ -5,6 +5,11 @@ import Logo from "/assets/Logo.png";
 import { FallingLines } from "react-loader-spinner";
 import { ScrollContainer } from "react-nice-scroll";
 import "react-nice-scroll/dist/styles.css";
+// import LoginButtons from "./Components/MetaMask/LoginButton";
+// Ewallet
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+import { config } from "./walletConfig";
 
 // Pages
 import NavbarNavs from "./Components/Navbar/NavbarNav";
@@ -19,9 +24,17 @@ const router = createBrowserRouter([
   { path: "/", element: <HomePages /> },
   { path: "/games/:id", element: <DetailPages /> },
   { path: "/games/recommendation", element: <RecommendPages /> },
-  { path: "explore", element: <ExplorePages /> },
+  { path: "/explore", element: <ExplorePages /> },
   { path: "/games/cart", element: <CartPages /> },
 ]);
+
+const queryClient = new QueryClient();
+
+// function ConnectWallet() {
+//   const { isConnected } = useAccount();
+//   if (isConnected) return <Account />;
+// }
+
 const Routers = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -41,16 +54,20 @@ const Routers = () => {
 
   return (
     <>
-      <NavbarNavs />
-      <ScrollContainer
-        continuousScrolling={true}
-        activeSmoothScrollOnTouchDevice={true}
-        renderByPixels={true}
-        // damping={0.2}
-      >
-        <RouterProvider router={router} />
-        <Footers />
-      </ScrollContainer>
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={queryClient}>
+          <NavbarNavs />
+          <ScrollContainer
+            continuousScrolling={true}
+            activeSmoothScrollOnTouchDevice={true}
+            renderByPixels={true}
+            // damping={0.2}
+          >
+            <RouterProvider router={router} />
+            <Footers />
+          </ScrollContainer>
+        </QueryClientProvider>
+      </WagmiProvider>
     </>
   );
 };

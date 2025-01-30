@@ -38,7 +38,7 @@ const CartBars = () => {
 
       {/* Tombol Cart */}
       <div className="flex flex-row w-full gap-2">
-        <button className="w-full px-5 py-2 my-2 border-2 rounded-xl border-colorPurple/30 hover:bg-colorPurple bg-colorPurple/30">
+        <button className="w-full px-5 py-2 my-2 border-2 rounded-xl border-colorPurple/30 hover:bg-colorPurple bg-colorPurple/30" onClick={() => window.location.assign("/games/cart")}>
           <i className="ri-shopping-cart-2-fill"></i> View
         </button>
         <button
