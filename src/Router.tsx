@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "/assets/Logo.png";
-import { FallingLines } from "react-loader-spinner";
+import { ThreeCircles } from "react-loader-spinner";
 import { ScrollContainer } from "react-nice-scroll";
 import "react-nice-scroll/dist/styles.css";
 // import LoginButtons from "./Components/MetaMask/LoginButton";
@@ -30,23 +30,16 @@ const router = createBrowserRouter([
 
 const queryClient = new QueryClient();
 
-// function ConnectWallet() {
-//   const { isConnected } = useAccount();
-//   if (isConnected) return <Account />;
-// }
-
 const Routers = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
+    setIsLoading(false);
   }, []);
 
   if (isLoading) {
     return (
       <div className="flex items-center justify-center w-full h-screen ">
-        <FallingLines visible={true} height="100" width="100" color="#00E5FF" />
+        <ThreeCircles visible={true} height="100" width="100" color="#00E5FF" />
         <img src={Logo} alt="Logo Images" />
       </div>
     );
@@ -61,7 +54,7 @@ const Routers = () => {
             continuousScrolling={true}
             activeSmoothScrollOnTouchDevice={true}
             renderByPixels={true}
-            // damping={0.2}
+            damping={0.2}
           >
             <RouterProvider router={router} />
             <Footers />

@@ -1,18 +1,23 @@
 import { useParams } from "react-router-dom";
 import GameDetail from "../../Json/Detail/GameDetail.json";
 import { decryptData } from "../../Utils/parseURL";
+import { addToCart } from "../../Store/cartSlice";
+import { useDispatch } from "react-redux";
+import EwalletCards from "../../Components/MetaMask/EwalletCard";
+import { useAccount } from "wagmi";
+import { useState } from "react";
 
 const GameDetails = () => {
+  const [card, setCard] = useState(false);
+  const { isConnected } = useAccount();
   const { id } = useParams<{ id: string }>();
   const decryptedData = decryptData(decodeURI(id as string));
-  const saveToLocalStorage = (item: string) => {
-    const normalizedItem = item.replace(/ /g, "-").toLowerCase(); // Normalisasi item ID
-    const existingItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
 
-    if (!existingItems.includes(normalizedItem)) {
-      existingItems.push(normalizedItem);
-      localStorage.setItem("cartItems", JSON.stringify(existingItems));
-    }
+  const dispatch = useDispatch();
+
+  const addItem = (item: string) => {
+    const normalizedId = item.replace(/ /g, "-").toLowerCase();
+    dispatch(addToCart(normalizedId));
   };
 
   return (
@@ -72,13 +77,23 @@ const GameDetails = () => {
                       <button className="px-12 py-1 h-[40px]  uppercase border-2 rounded-l-full outline-none bg-colorAqua text-colorViolet border-colorAqua hover:text-colorAqua hover:bg-transparent ">
                         buy now
                       </button>
-                      <button
-                        className="px-12 py-1 h-[40px] uppercase border-2 rounded-r-full outline-none hover:bg-transparent bg-colorPurple hover:border-colorWhite border-colorPurple text-colorWhite "
-                        onClick={() => saveToLocalStorage(detailId)}
-                      >
-                        <i className="ri-shopping-cart-fill"></i>
-                      </button>
+                      {isConnected ? (
+                        <button
+                          className="px-12 py-1 h-[40px] uppercase border-2 rounded-r-full outline-none hover:bg-transparent bg-colorPurple hover:border-colorWhite border-colorPurple text-colorWhite "
+                          onClick={() => addItem(detailId)}
+                        >
+                          <i className="ri-shopping-cart-fill"></i>
+                        </button>
+                      ) : (
+                        <button
+                          className="px-12 py-1 h-[40px] uppercase border-2 rounded-r-full outline-none hover:bg-transparent bg-colorPurple hover:border-colorWhite border-colorPurple text-colorWhite "
+                          onClick={() => setCard(!card)}
+                        >
+                          <i className="ri-shopping-cart-fill"></i>
+                        </button>
+                      )}
                     </div>
+                    {card && <EwalletCards />}
                   </div>
                 </div>
               </div>

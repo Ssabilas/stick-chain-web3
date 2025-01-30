@@ -6,6 +6,8 @@ import { encryptData } from "../../Utils/parseURL";
 import React, { MouseEventHandler, useState, useMemo, useRef } from "react";
 import Hero from "/assets/HeroSlider/hero-6.png";
 import { ParallaxImage } from "react-nice-scroll";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Store/cartSlice";
 
 interface LiInterface {
   content: string;
@@ -33,14 +35,11 @@ const ListMainGameCards = () => {
   const [filterPriceFrom, setFilterPriceFrom] = useState<number | null>(null);
   const [filterPriceTo, setFilterPriceTo] = useState<number | null>(null);
 
-  const saveToLocalStorage = (item: string) => {
-    const normalizedItem = item.replace(/ /g, "-").toLowerCase(); // Normalisasi item ID
-    const existingItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+  const dispatch = useDispatch();
 
-    if (!existingItems.includes(normalizedItem)) {
-      existingItems.push(normalizedItem);
-      localStorage.setItem("cartItems", JSON.stringify(existingItems));
-    }
+  const addItem = (item: string) => {
+    const normalizedId = item.replace(/ /g, "-").toLowerCase();
+    dispatch(addToCart(normalizedId));
   };
 
   // Filter CardView berdasarkan item yang ada di cartItems
@@ -327,7 +326,7 @@ const ListMainGameCards = () => {
                     <button
                       className="w-[85%] px-4 py-2 uppercase border-2 rounded-full outline-none  hover:bg-colorAqua hover:text-colorViolet border-colorAqua text-colorAqua"
                       onClick={() => {
-                        saveToLocalStorage(contentID);
+                        addItem(contentID);
                       }}
                     >
                       Add to cart <i className="ri-shopping-cart-2-fill"></i>

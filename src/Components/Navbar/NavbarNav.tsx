@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import NavLogo from "/assets/Logo.png";
 import EwalletCards from "../MetaMask/EwalletCard";
 import { useAccount } from "wagmi";
@@ -6,38 +6,24 @@ import SearchBars from "./SearchBar";
 import CartBars from "./CartBar";
 import { CartCounts } from "./CartCount";
 import { Account } from "../MetaMask/Account";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Store/store";
+import { useEffect } from "react";
 
 const NavbarNavs: React.FC = () => {
   const [card, setCard] = useState<boolean>(false);
   const [accountCard, setAccountCard] = useState<boolean>(false);
   const { isConnected } = useAccount();
-  // const [loading, setLoading] = useState(true);
   const [showCart, setShowCart] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<string[]>([]);
 
-  // Load cartItems from localStorage on component mount
+  const cartItemsFromStore = useSelector(
+    (state: RootState) => state.cart.itemList
+  );
+
   useEffect(() => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }, []);
-
-  // Listen for changes to localStorage from other tabs/windows
-  useEffect(() => {
-    const handleStorageChange = (event: StorageEvent) => {
-      if (event.key === "cartItems") {
-        const storedCartItems = localStorage.getItem("cartItems");
-        setCartItems(storedCartItems ? JSON.parse(storedCartItems) : []);
-      }
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
+    setCartItems(cartItemsFromStore);
+  }, [cartItemsFromStore]);
 
   // Button Group Component
   const Connect: React.FC = () => {

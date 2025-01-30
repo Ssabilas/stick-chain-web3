@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Store/store";
 import CardList from "../../Json/Home/CardListView.json";
 
 interface CartCountsInterface {
@@ -16,35 +17,8 @@ export const CartCountsComponent: React.FC<CartCountsInterface> = ({
 };
 
 export const CartCounts = () => {
-  const [cartItems, setCartItems] = useState<string[]>([]);
+  const cartItems = useSelector((state: RootState) => state.cart.itemList);
 
-  // Function to update cartItems from localStorage
-  const updateCartItems = () => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    setCartItems(storedCartItems ? JSON.parse(storedCartItems) : []);
-  };
-
-  // Load cartItems on component mount
-  useEffect(() => {
-    updateCartItems();
-  }, []);
-
-  // Listen for changes to localStorage from other tabs/windows
-  useEffect(() => {
-    const handleStorageChange = (event: StorageEvent) => {
-      if (event.key === "cartItems") {
-        updateCartItems();
-      }
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
-  // Filter CardList based on items in cartItems
   const filteredItems = CardList.filter((content) => {
     const contentId = content.id.replace(/ /g, "-").toLowerCase();
     return cartItems.includes(contentId);
