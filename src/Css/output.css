@@ -640,6 +640,10 @@ video {
   right: 0px;
 }
 
+.right-64 {
+  right: 16rem;
+}
+
 .right-8 {
   right: 2rem;
 }
@@ -666,22 +670,6 @@ video {
 
 .top-\[45\%\] {
   top: 45%;
-}
-
-.top-24 {
-  top: 6rem;
-}
-
-.right-32 {
-  right: 8rem;
-}
-
-.right-72 {
-  right: 18rem;
-}
-
-.right-64 {
-  right: 16rem;
 }
 
 .-z-0 {
@@ -831,14 +819,6 @@ video {
   margin-top: 2rem;
 }
 
-.-ml-5 {
-  margin-left: -1.25rem;
-}
-
-.-ml-2 {
-  margin-left: -0.5rem;
-}
-
 .flex {
   display: flex;
 }
@@ -915,6 +895,10 @@ video {
   height: 40px;
 }
 
+.h-\[450px\] {
+  height: 450px;
+}
+
 .h-\[45px\] {
   height: 45px;
 }
@@ -927,20 +911,12 @@ video {
   height: 500px;
 }
 
-.h-\[50px\] {
-  height: 50px;
-}
-
 .h-\[50vh\] {
   height: 50vh;
 }
 
 .h-\[580px\] {
   height: 580px;
-}
-
-.h-\[600px\] {
-  height: 600px;
 }
 
 .h-\[60px\] {
@@ -979,22 +955,6 @@ video {
   height: 100vh;
 }
 
-.h-\[300px\] {
-  height: 300px;
-}
-
-.h-\[100px\] {
-  height: 100px;
-}
-
-.h-\[450px\] {
-  height: 450px;
-}
-
-.h-\[150px\] {
-  height: 150px;
-}
-
 .w-16 {
   width: 4rem;
 }
@@ -1005,10 +965,6 @@ video {
 
 .w-4 {
   width: 1rem;
-}
-
-.w-52 {
-  width: 13rem;
 }
 
 .w-8 {
@@ -1029,10 +985,6 @@ video {
 
 .w-\[18vw\] {
   width: 18vw;
-}
-
-.w-\[200px\] {
-  width: 200px;
 }
 
 .w-\[22vw\] {
@@ -1079,6 +1031,10 @@ video {
   width: 40vw;
 }
 
+.w-\[450px\] {
+  width: 450px;
+}
+
 .w-\[500px\] {
   width: 500px;
 }
@@ -1093,10 +1049,6 @@ video {
 
 .w-\[60\%\] {
   width: 60%;
-}
-
-.w-\[600px\] {
-  width: 600px;
 }
 
 .w-\[60px\] {
@@ -1153,14 +1105,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[45px\] {
-  width: 45px;
-}
-
-.w-\[450px\] {
-  width: 450px;
 }
 
 .translate-x-2 {
@@ -1330,11 +1274,6 @@ video {
   border-bottom-right-radius: 0.75rem;
 }
 
-.rounded-t-3xl {
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
-}
-
 .rounded-t-xl {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
@@ -1463,10 +1402,6 @@ video {
   background-color: transparent;
 }
 
-.bg-colorRed\/50 {
-  background-color: rgb(204 29 29 / 0.5);
-}
-
 .bg-\[url\(\'\/assets\/Hero-Gradient\.png\'\)\] {
   background-image: url('/assets/Hero-Gradient.png');
 }
@@ -1572,6 +1507,11 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -1580,11 +1520,6 @@ video {
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 
 .pb-2 {
@@ -1704,10 +1639,6 @@ video {
   font-weight: 700;
 }
 
-.font-extrabold {
-  font-weight: 800;
-}
-
 .font-medium {
   font-weight: 500;
 }
@@ -1760,14 +1691,6 @@ video {
 
 .opacity-75 {
   opacity: 0.75;
-}
-
-.opacity-35 {
-  opacity: 0.35;
-}
-
-.opacity-5 {
-  opacity: 0.05;
 }
 
 .shadow-colorYellow {

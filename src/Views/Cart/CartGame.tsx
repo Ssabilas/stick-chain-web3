@@ -1,19 +1,21 @@
-import CardList from "../../Json/Home/CardListView.json";
+import CardView from "../../Json/Home/CardListView.json";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Store/store";
+import Decimal from "decimal.js";
 
 const CartGames = () => {
-  const storedCartItems = localStorage.getItem("cartItems");
-  const cartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
+  const cartItems = useSelector((state: RootState) => state.cart.itemList);
+
   // Filter CardView berdasarkan item yang ada di cartItems
-  const filteredItems = CardList.filter((content) => {
+  const filteredItems = CardView.filter((content) => {
     const contentId = content.id.replace(/ /g, "-").toLowerCase();
     return cartItems.includes(contentId);
-  }).slice(0, 3); // Batasi hanya 3 item
-
+  });
   const priceItems = filteredItems.map((item) => item.price);
 
   const sum = priceItems.reduce(
-    (calculate, currentValue) => calculate + currentValue,
-    0
+    (calculate, currentValue) => new Decimal(calculate).plus(currentValue || 0),
+    new Decimal(0)
   );
 
   return (
@@ -54,7 +56,7 @@ const CartGames = () => {
               <div className="flex items-center">
                 <h3 className="self-start w-full text-4xl font-bold">Total</h3>
                 <p className="flex items-end justify-end w-full text-2xl font-medium text-colorAqua">
-                  <i className="ri-eth-fill"></i> {sum}
+                  <i className="ri-eth-fill"></i> {sum.toFixed(5)}
                 </p>
               </div>
               <div className="flex flex-row w-full gap-2">

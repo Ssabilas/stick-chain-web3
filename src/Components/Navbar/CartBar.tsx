@@ -1,14 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../Store/store"; // Sesuaikan dengan path RootState
 import CardView from "../../Json/Home/CardListView.json";
+import { removeFromCart } from "../../Store/cartSlice";
 
 const CartBars = () => {
-  // Ambil data dari localStorage
-  const storedCartItems = localStorage.getItem("cartItems");
-  const cartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
+  // Ambil data cartItems dari Redux store
+  const cartItems = useSelector((state: RootState) => state.cart.itemList);
+
   // Filter CardView berdasarkan item yang ada di cartItems
   const filteredItems = CardView.filter((content) => {
     const contentId = content.id.replace(/ /g, "-").toLowerCase();
     return cartItems.includes(contentId);
-  }).slice(0, 3); // Batasi hanya 3 item
+  }).slice(0, 3);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="absolute right-0 flex flex-col items-center justify-start w-[18vw] h-auto px-5 py-2 border-2 top-20 bg-colorGray/50 rounded-2xl border-colorGrayDark">
@@ -38,14 +43,17 @@ const CartBars = () => {
 
       {/* Tombol Cart */}
       <div className="flex flex-row w-full gap-2">
-        <button className="w-full px-5 py-2 my-2 border-2 rounded-xl border-colorPurple/30 hover:bg-colorPurple bg-colorPurple/30" onClick={() => window.location.assign("/games/cart")}>
+        <button
+          className="w-full px-5 py-2 my-2 border-2 rounded-xl border-colorPurple/30 hover:bg-colorPurple bg-colorPurple/30"
+          onClick={() => window.location.assign("/games/cart")}
+        >
           <i className="ri-shopping-cart-2-fill"></i> View
         </button>
         <button
           className="w-full px-5 py-2 my-2 border-2 rounded-xl border-colorRed/30 hover:bg-colorRed/50 bg-colorRed/30"
           onClick={() => {
-            localStorage.removeItem("cartItems");
-            window.location.assign("/");
+            // Remove all items from cart in Redux
+            cartItems.forEach((itemId) => dispatch(removeFromCart(itemId)));
           }}
         >
           <i className="ri-shopping-cart-2-line"></i> Remove
