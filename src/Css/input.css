@@ -98,7 +98,7 @@ li {
 
 /* Gallery Slider CSS */
 .slider {
-  background: rgba(24, 13, 73, 0.1);
+  background: rgba(24, 13, 73, 0.5);
   z-index: 999;
   display: flex;
   justify-content: center;
@@ -107,21 +107,20 @@ li {
   width: 80vw;
   position: fixed;
   padding-top: 320px;
-  top: 15%;
+  top: 5%;
   left: 10%;
+  backdrop-filter: blur(20px);
   border-radius: 12px;
   margin: 100px auto;
-  filter: drop-shadow(0rem 0rem 0.1rem black);
   -webkit-border-radius: 12px;
   -moz-border-radius: 12px;
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
-  -webkit-filter: drop-shadow(0rem 0rem 0.1rem black);
 }
 
 .slider img.thumb {
   position: absolute;
-  top: 8%;
+  top: 10%;
   left: 18%;
   margin-top: 20px;
   -webkit-box-align: center;

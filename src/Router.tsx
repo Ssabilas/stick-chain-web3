@@ -3,9 +3,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "/assets/Logo.png";
 import { ThreeCircles } from "react-loader-spinner";
-import { ScrollContainer } from "react-nice-scroll";
-import "react-nice-scroll/dist/styles.css";
-// import LoginButtons from "./Components/MetaMask/LoginButton";
 // Ewallet
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
@@ -52,15 +49,8 @@ const Routers = () => {
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <NavbarNavs />
-          <ScrollContainer
-            continuousScrolling={true}
-            activeSmoothScrollOnTouchDevice={true}
-            renderByPixels={true}
-            damping={0.2}
-          >
-            <RouterProvider router={router} />
-            <Footers />
-          </ScrollContainer>
+          <RouterProvider router={router} />
+          <Footers />
         </QueryClientProvider>
       </WagmiProvider>
     </>

@@ -53,7 +53,7 @@ const Footers = () => {
                 </li>
               </ul>
             </div>
-            <div className="flex flex-col items-center justify-center w-full gap-4 h-52">
+            <div className="flex flex-col items-center justify-center w-full gap-4 h-28">
               <ul className="flex flex-row self-start gap-2">
                 <li className="px-3 py-2 rounded-full cursor-pointer bg-colorGray hover:bg-colorGrayDark">
                   <i className="ri-facebook-fill"></i>
@@ -81,8 +81,8 @@ const Footers = () => {
                   }
                 ></i>
               </button>
-              {language && (
-                <ul className="relative bottom-0 flex flex-col items-center justify-center rounded-xl bg-colorGray">
+              {/* {language && (
+                <ul className="absolute top-0 bottom-0 flex flex-col items-center justify-center rounded-xl bg-colorGray">
                   <li className="px-[3rem] pt-2 pb-2 cursor-pointer hover:bg-colorGrayDark rounded-t-xl w-full">
                     English
                   </li>
@@ -90,7 +90,7 @@ const Footers = () => {
                     Indonesia
                   </li>
                 </ul>
-              )}
+              )} */}
             </div>
           </div>
         </div>

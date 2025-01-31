@@ -5,12 +5,12 @@ const ListSecondGameCards = () => {
   return (
     <>
       <section className="flex flex-row items-center justify-start w-full h-full">
-        <div className="container flex flex-wrap self-center gap-2 ml-[560px]">
-          <div className="h-32 flex flex-row justify-start w-full items-center ml-[2vw]">
+        <div className="container flex flex-wrap self-center gap-2 ml-[570px]">
+          <div className="h-32 mt-2 -mb-4 flex flex-row justify-start w-full items-center ml-[2.5vw]">
             <h2 className="text-3xl font-bold rounded-full">
               Let's accept the challenge
             </h2>
-            <hr className="border-b-2 border-colorPurple w-[22vw]" />
+            <hr className="border-b-2 border-colorPurple w-[20vw]" />
             <button
               className="px-5 py-2 text-xl font-semibold rounded-full text-colorWhite bg-colorGrayDark/30"
               onClick={() => window.location.assign("/explore")}
@@ -20,7 +20,7 @@ const ListSecondGameCards = () => {
               </div>
             </button>
           </div>
-          <div className="grid-cols-2 grid h-[120vh] w-[90%] justify-start items-start gap-12">
+          <div className="grid-cols-2 grid h-[120vh] w-[88%] justify-start items-start gap-2">
             {/* Sorting Limited Index */}
             {CardList.filter((card) => card.type)
               .slice(12, 16)
@@ -40,9 +40,9 @@ const ListSecondGameCards = () => {
                     <img
                       src={content.thumbnail}
                       alt="Image Thumbnail"
-                      className="h-[580px] w-[580px] object-cover rounded-3xl opacity-75"
+                      className="h-[550px] w-[550px] object-cover rounded-3xl opacity-75"
                     />
-                    <div className="z-[10] mx-2 h-[200px] w-[580px] flex justify-start items-start bg-gradient-to-b from-colorWhite/0 to-colorPurple -mt-[12rem] flex-col rounded-b-xl">
+                    <div className="z-[10] h-[200px] w-[550px] flex justify-start items-start bg-gradient-to-b from-colorWhite/0 to-colorPurple -mt-[12rem] flex-col rounded-b-xl">
                       {/* Title Text */}
                       <h2 className="pt-6 pl-4 text-3xl font-bold drop-shadow-md">
                         {content.name}

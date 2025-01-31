@@ -73,7 +73,13 @@ const GameDetails = () => {
                       </p>
                     </div>
                     <div className="flex items-center justify-center w-full font-semibold">
-                      <button className="px-12 py-1 h-[40px]  uppercase border-2 rounded-l-full outline-none bg-colorAqua text-colorViolet border-colorAqua hover:text-colorAqua hover:bg-transparent ">
+                      <button
+                        className="px-12 py-1 h-[40px]  uppercase border-2 rounded-l-full outline-none bg-colorAqua text-colorViolet border-colorAqua hover:text-colorAqua hover:bg-transparent"
+                        onClick={() => {
+                          window.location.assign("/games/cart");
+                          addItem(detailId);
+                        }}
+                      >
                         buy now
                       </button>
                       {isConnected ? (

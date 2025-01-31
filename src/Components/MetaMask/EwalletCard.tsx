@@ -55,15 +55,6 @@ const EwalletCards = (): ReactElement => {
     };
   }, [card]);
 
-  // useEffect(() => {
-  //   if (connected) {
-  //     const timer = setTimeout(() => {
-  //       setCard(false);
-  //     }, 2000);
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [connected]);
-
   const IsAccountConnect = () => {
     if (!isConnected) {
       return (

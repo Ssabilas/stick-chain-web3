@@ -4,10 +4,10 @@ import FilterTags from "../../Components/Dropdown/FilterTag";
 import FilterPrices from "../../Components/Dropdown/FilterPrice";
 import { encryptData } from "../../Utils/parseURL";
 import React, { MouseEventHandler, useState, useMemo, useRef } from "react";
-import Hero from "/assets/HeroSlider/hero-6.png";
-import { ParallaxImage } from "react-nice-scroll";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../Store/cartSlice";
+import EwalletCards from "../../Components/MetaMask/EwalletCard";
+import { useAccount } from "wagmi";
 
 interface LiInterface {
   content: string;
@@ -34,6 +34,8 @@ const ListMainGameCards = () => {
   const [filterTags, setFilterTags] = useState("");
   const [filterPriceFrom, setFilterPriceFrom] = useState<number | null>(null);
   const [filterPriceTo, setFilterPriceTo] = useState<number | null>(null);
+  const [card, setCard] = useState<boolean>(false);
+  const { isConnected } = useAccount();
 
   const dispatch = useDispatch();
 
@@ -94,12 +96,9 @@ const ListMainGameCards = () => {
     }, 0);
   };
 
-  // console.table(
-  //   filteredCards.map((item) => (item.price >= 0.008 ? item.price : null))
-  // );
-
   return (
     <>
+      {card && <EwalletCards />}
       <section className="flex flex-row items-center justify-start w-full h-full">
         {/* Nav Component */}
         <div className="flex flex-col items-center justify-start w-[800px] h-[1300px]">
@@ -210,17 +209,6 @@ const ListMainGameCards = () => {
             inputValueTo={filterPriceTo}
             setInputValueTo={setFilterPriceTo}
           />
-          <div className="w-[40vw]  -mr-[8vw]">
-            <ParallaxImage
-              src={Hero}
-              axis="y"
-              fromPercent={-40}
-              toPercent={80}
-              containerHeight="180vh"
-              imageObjectPosition="center"
-              imageScale={0.4}
-            />
-          </div>
         </div>
         {/* End Nav Component */}
 
@@ -275,7 +263,7 @@ const ListMainGameCards = () => {
             </button>
           </div>
           <div
-            className="grid-cols-3 grid h-[100vh] w-[90%] justify-start items-start"
+            className="grid-cols-3 grid h-[100vh] w-[88%] justify-start items-start"
             ref={containerRef}
           >
             {/* Sorting Limited Index */}
@@ -323,14 +311,23 @@ const ListMainGameCards = () => {
                     </ul>
                   </div>
                   <div className="flex flex-col items-center justify-center w-full gap-4 my-8">
-                    <button
-                      className="w-[85%] px-4 py-2 uppercase border-2 rounded-full outline-none  hover:bg-colorAqua hover:text-colorViolet border-colorAqua text-colorAqua"
-                      onClick={() => {
-                        addItem(contentID);
-                      }}
-                    >
-                      Add to cart <i className="ri-shopping-cart-2-fill"></i>
-                    </button>
+                    {isConnected ? (
+                      <button
+                        className="w-[85%] px-4 py-2 uppercase border-2 rounded-full outline-none  hover:bg-colorAqua hover:text-colorViolet border-colorAqua text-colorAqua"
+                        onClick={() => {
+                          addItem(contentID);
+                        }}
+                      >
+                        Add to cart <i className="ri-shopping-cart-2-fill"></i>
+                      </button>
+                    ) : (
+                      <button
+                        className="w-[85%] px-4 py-2 uppercase border-2 rounded-full outline-none  hover:bg-colorAqua hover:text-colorViolet border-colorAqua text-colorAqua"
+                        onClick={() => setCard(!card)}
+                      >
+                        Add to cart <i className="ri-shopping-cart-2-fill"></i>
+                      </button>
+                    )}
                     <button
                       className="w-[85%] px-4 py-2 bg-transparent hover:bg-colorWhite hover:text-colorViolet border-colorWhite uppercase border-2 rounded-full hover:border-colorWhite bg-colorPurple text-colorWhite outline-none"
                       onClick={() =>
