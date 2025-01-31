@@ -12,7 +12,6 @@ const GameDetails = () => {
   const { isConnected } = useAccount();
   const { id } = useParams<{ id: string }>();
   const decryptedData = decryptData(decodeURI(id as string));
-
   const dispatch = useDispatch();
 
   const addItem = (item: string) => {

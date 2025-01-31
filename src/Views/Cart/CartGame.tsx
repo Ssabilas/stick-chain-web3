@@ -6,7 +6,6 @@ import Decimal from "decimal.js";
 const CartGames = () => {
   const cartItems = useSelector((state: RootState) => state.cart.itemList);
 
-  // Filter CardView berdasarkan item yang ada di cartItems
   const filteredItems = CardView.filter((content) => {
     const contentId = content.id.replace(/ /g, "-").toLowerCase();
     return cartItems.includes(contentId);

@@ -19,6 +19,7 @@ import DetailPages from "./Pages/DetailPage";
 import RecommendPages from "./Pages/RecommendPage";
 import ExplorePages from "./Pages/ExplorePage";
 import CartPages from "./Pages/CartPage";
+import NotFound from "./404";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePages /> },
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   { path: "/games/recommendation", element: <RecommendPages /> },
   { path: "/explore", element: <ExplorePages /> },
   { path: "/games/cart", element: <CartPages /> },
+  { path: "*", element: <NotFound /> },
 ]);
 
 const queryClient = new QueryClient();
