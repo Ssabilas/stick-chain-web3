@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Logo from "/assets/Logo.png";
-import { ThreeCircles } from "react-loader-spinner";
+import { ColorRing } from "react-loader-spinner";
 // Ewallet
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
@@ -38,7 +38,12 @@ const Routers = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center w-full h-screen ">
-        <ThreeCircles visible={true} height="100" width="100" color="#00E5FF" />
+        <ColorRing
+          visible={true}
+          height="100"
+          width="100"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
         <img src={Logo} alt="Logo Images" />
       </div>
     );

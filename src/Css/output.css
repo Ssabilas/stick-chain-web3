@@ -1645,6 +1645,11 @@ video {
   color: rgb(0 204 0 / var(--tw-text-opacity, 1));
 }
 
+.text-colorRed {
+  --tw-text-opacity: 1;
+  color: rgb(204 29 29 / var(--tw-text-opacity, 1));
+}
+
 .text-colorViolet {
   --tw-text-opacity: 1;
   color: rgb(24 13 73 / var(--tw-text-opacity, 1));
@@ -1663,11 +1668,6 @@ video {
 .text-colorYellow {
   --tw-text-opacity: 1;
   color: rgb(255 163 26 / var(--tw-text-opacity, 1));
-}
-
-.text-colorRed {
-  --tw-text-opacity: 1;
-  color: rgb(204 29 29 / var(--tw-text-opacity, 1));
 }
 
 .opacity-20 {
