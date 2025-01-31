@@ -8,6 +8,8 @@ import Hero from "/assets/HeroSlider/hero-6.png";
 import { ParallaxImage } from "react-nice-scroll";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../Store/cartSlice";
+import { useAccount } from "wagmi";
+import EwalletCards from "../../Components/MetaMask/EwalletCard";
 
 interface LiInterface {
   content: string;
@@ -34,6 +36,8 @@ const ListMainGameCards = () => {
   const [filterTags, setFilterTags] = useState("");
   const [filterPriceFrom, setFilterPriceFrom] = useState<number | null>(null);
   const [filterPriceTo, setFilterPriceTo] = useState<number | null>(null);
+  const { isConnected } = useAccount();
+  const [card, setCard] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
