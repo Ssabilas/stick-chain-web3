@@ -31,8 +31,11 @@ const queryClient = new QueryClient();
 
 const Routers = () => {
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
   }, []);
 
   if (isLoading) {
@@ -42,7 +45,7 @@ const Routers = () => {
           visible={true}
           height="100"
           width="100"
-          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+          colors={["#424242", "#303030", "#372973", "#00E5FF", "#00E5FF"]}
         />
         <img src={Logo} alt="Logo Images" />
       </div>
