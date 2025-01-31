@@ -234,7 +234,7 @@ const ExploreGames = () => {
           {/* Title Most Popular */}
           <div className="flex flex-row items-center justify-start w-full h-12 gap-2 ml-2">
             <form
-              className="bg-colorGrayDark/50 px-5 w-[60%] rounded-xl font-medium text-colorWhite text-base py-2 flex flex-row justify-center gap-4 items-center"
+              className="bg-colorGrayDark/50 px-5 w-[70%] rounded-xl font-medium text-colorWhite text-base py-2 flex flex-row justify-center gap-4 items-center"
               onSubmit={(e) => {
                 e?.preventDefault(); // Prevent form submission
                 handleSearch();
@@ -263,11 +263,11 @@ const ExploreGames = () => {
               </span>
             </form>
             <div className="flex flex-row items-center justify-center font-medium">
-              <button className="px-5 py-2 text-xl bg-colorPurple rounded-xl">
-                Price to Low <i className="ri-arrow-down-s-line"></i>
-              </button>
+              {/* <button className="px-5 py-2 text-xl w-[200px] flex flex-row bg-colorPurple rounded-xl">
+                <span>None</span> <i className="ri-arrow-down-s-line"></i>
+              </button> */}
               <button
-                className="w-20 px-5 py-2 ml-2 text-xl bg-colorPurple rounded-l-xl hover:bg-colorPurple/80"
+                className="w-full px-5 py-2 ml-2 text-xl bg-colorPurple rounded-l-xl hover:bg-colorPurple/80"
                 onClick={() => {
                   if (stepOne >= 6) {
                     handleStep(stepOne - 6, stepTwo - 6);
@@ -276,9 +276,10 @@ const ExploreGames = () => {
                 }}
               >
                 <i className="ri-arrow-left-s-line"></i>
+                Prev
               </button>
               <button
-                className="w-20 px-5 py-2 text-xl bg-colorPurple rounded-r-xl hover:bg-colorPurple/80"
+                className="w-full px-5 py-2 text-xl bg-colorPurple rounded-r-xl hover:bg-colorPurple/80"
                 onClick={() => {
                   if (stepTwo < filteredCards.length) {
                     handleStep(stepOne + 6, stepTwo + 6);
@@ -286,6 +287,7 @@ const ExploreGames = () => {
                   }
                 }}
               >
+                Next
                 <i className="ri-arrow-right-s-line"></i>
               </button>
             </div>

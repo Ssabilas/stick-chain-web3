@@ -1,24 +1,11 @@
-import Hero from "/assets/HeroSlider/hero-6.png";
-import { ParallaxImage } from "react-nice-scroll";
-// import { ParallaxImage } from "react-nice-scroll";
 import RecommendHeroSliders from "../../Components/Slider/RecommendHeroSlider";
 
 const RecommendHeros = () => {
   return (
     <>
       <section
-        className={`bg-[url('/assets/Hero-Gradient.png')] bg-center bg-cover w-[100vw] flex justify-center items-center p-20 h-[150vh] -z-0 flex-col pt-32`}
+        className={`bg-[url('/assets/Hero-Gradient.png')] bg-center bg-cover w-[100vw] flex justify-center items-center h-[100vh] -z-0 flex-col`}
       >
-        <div className="w-[80vw] -mt-[40vh] -ml-[20vw]">
-          <ParallaxImage
-            src={Hero}
-            axis="x"
-            fromPercent={-60}
-            containerHeight="30vh"
-            imageObjectPosition="center"
-            imageScale={1}
-          />
-        </div>
         <div className="flex flex-col items-center justify-center gap-4 mt-12">
           <h2 className="text-6xl font-bold">More Than A Games</h2>
           <p className="text-xl uppercase text-colorAqua">

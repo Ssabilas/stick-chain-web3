@@ -3,6 +3,7 @@ import { useState } from "react";
 import imagesData from "../../Json/Detail/ExploreGameGallery.json";
 import { useParams } from "react-router-dom";
 import { decryptData } from "../../Utils/parseURL";
+import { useEffect } from "react";
 
 const ExploreGameGalleries = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,49 +21,65 @@ const ExploreGameGalleries = () => {
         src: group.url[index],
       }))
     );
+  useEffect(() => {
+    if (display) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+
+    return () => {
+      document.body.style.overflowY = "auto";
+    };
+  }, [display]);
 
   return (
     <>
       {display && (
-        <div className="slider">
-          {/* <img
+        <section className="bg-colorBlack/50 w-[100vw] h-[100vh] top-0 left-0 z-[30] fixed">
+          <div className="slider">
+            {/* <img
             src={MeshGradient}
             className="absolute w-full -top-6"
             alt="Gradient"
           /> */}
-          <button
-            className="absolute text-2xl px-4 py-2 top-6 right-8 text-colorWhite z-[999] bg-colorViolet hover:bg-colorGrayDark rounded-full "
-            onClick={() => setDisplay(!display)}
-          >
-            <i className="ri-close-line"></i>
-          </button>
-          {images.map((image) => (
-            <div key={image.id} className="slide">
-              <input
-                type="radio"
-                name="slide_switch"
-                id={image.id}
-                checked={selectedId === image.id}
-                onChange={() => setSelectedId(image.id)}
-              />
-              <label htmlFor={image.id} onClick={() => setSelectedId(image.id)}>
-                <img
-                  src={image.src}
-                  width="100"
-                  alt="thumbnail"
-                  className="pagination"
+            <button
+              className="absolute text-2xl px-4 py-2 top-6 right-8 text-colorWhite z-[999] bg-colorViolet hover:bg-colorGrayDark rounded-full "
+              onClick={() => setDisplay(!display)}
+            >
+              <i className="ri-close-line"></i>
+            </button>
+            {images.map((image) => (
+              <div key={image.id} className="slide">
+                <input
+                  type="radio"
+                  name="slide_switch"
+                  id={image.id}
+                  checked={selectedId === image.id}
+                  onChange={() => setSelectedId(image.id)}
                 />
-              </label>
-              {selectedId === image.id && (
-                <img
-                  src={image.src}
-                  className="thumb absolute top-12 w-[1000px] h-[500px] left-32 right-0"
-                  alt="slide"
-                />
-              )}
-            </div>
-          ))}
-        </div>
+                <label
+                  htmlFor={image.id}
+                  onClick={() => setSelectedId(image.id)}
+                >
+                  <img
+                    src={image.src}
+                    width="100"
+                    alt="thumbnail"
+                    className="pagination"
+                  />
+                </label>
+                {selectedId === image.id && (
+                  <img
+                    src={image.src}
+                    className="thumb absolute top-12 w-[1000px] h-[500px] left-32 right-0"
+                    alt="slide"
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
       )}
     </>
   );

@@ -30,7 +30,7 @@ const RecommendHeroSliders = memo(() => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     speed: 9000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
