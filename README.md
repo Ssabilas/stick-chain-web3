@@ -4,7 +4,7 @@
 
 🇦🇺 ~ Stick Chain was developed to provide convenience for users who want to purchase games using cryptocurrency. With this platform, users do not have to go through the hassle of converting their crypto into local currency first, allowing transactions to be completed faster, more practically, and efficiently.
 
-## Optimizations
+### Optimizations
 
 src/main.tsx *as a Metamask Provider*
 
@@ -22,7 +22,7 @@ src/CSS/* *for Tailwind CSS File
 
 
 
-## Installation
+### Installation
 
 #### 1. Requirements
 * Metamask Extension
@@ -39,7 +39,7 @@ src/CSS/* *for Tailwind CSS File
  npm install 
 ```
 
-## Tech Stack
+### Tech Stack
 
 **Client:** React, Typescript, TailwindCSS
 
