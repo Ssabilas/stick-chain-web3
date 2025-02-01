@@ -4,22 +4,12 @@
 
 🇦🇺 ~ Stick Chain was developed to provide convenience for users who want to purchase games using cryptocurrency. With this platform, users do not have to go through the hassle of converting their crypto into local currency first, allowing transactions to be completed faster, more practically, and efficiently.
 
-### Optimizations
-
-src/main.tsx *as a Metamask Provider*
-
-src/Router.tsx *as a Router*
-
-src/View/* *as a splitting code for easy maintenance*
-
-src/Utils/* *as a Encrypt and Decrypt URL*
-
-src/Pages/* *as a wrapper pages of code splitting*
-
-src/JSON/* *as a Resource*
-
-src/CSS/* *for Tailwind CSS File
-
+### Features
+#### * Sorting Game Categories
+#### * Faster Search Bar
+#### * Cart Payments
+#### * Encryption URL Website
+#### * Game Gallery
 
 
 ### Installation
