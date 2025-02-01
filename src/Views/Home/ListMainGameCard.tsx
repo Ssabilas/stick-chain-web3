@@ -252,7 +252,7 @@ const ListMainGameCards = () => {
                 }}
               />
             </ul>
-            <hr className="w-[6vw] border-b-2 border-colorPurple" />
+            <hr className="w-[5vw] border-b-2 border-colorPurple" />
             <button
               className="px-5 py-2 text-xl font-semibold rounded-3xl text-colorWhite bg-colorGrayDark/30"
               onClick={() => window.location.assign("/explore")}

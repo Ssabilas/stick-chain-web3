@@ -807,6 +807,30 @@ video {
   margin-top: 2rem;
 }
 
+.ml-\[568px\] {
+  margin-left: 568px;
+}
+
+.ml-\[565px\] {
+  margin-left: 565px;
+}
+
+.ml-\[560px\] {
+  margin-left: 560px;
+}
+
+.ml-\[100px\] {
+  margin-left: 100px;
+}
+
+.ml-\[555px\] {
+  margin-left: 555px;
+}
+
+.ml-\[557px\] {
+  margin-left: 557px;
+}
+
 .flex {
   display: flex;
 }
@@ -1085,6 +1109,14 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[5vw\] {
+  width: 5vw;
+}
+
+.w-\[19vw\] {
+  width: 19vw;
 }
 
 .translate-x-2 {

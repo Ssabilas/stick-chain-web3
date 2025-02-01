@@ -5,12 +5,12 @@ const ListSecondGameCards = () => {
   return (
     <>
       <section className="flex flex-row items-center justify-start w-full h-full">
-        <div className="container flex flex-wrap self-center gap-2 ml-[570px]">
+        <div className="container flex flex-wrap self-center gap-2 ml-[557px]">
           <div className="h-32 mt-2 -mb-4 flex flex-row justify-start w-full items-center ml-[2.5vw]">
             <h2 className="text-3xl font-bold rounded-full">
               Let's accept the challenge
             </h2>
-            <hr className="border-b-2 border-colorPurple w-[20vw]" />
+            <hr className="border-b-2 border-colorPurple w-[19vw]" />
             <button
               className="px-5 py-2 text-xl font-semibold rounded-full text-colorWhite bg-colorGrayDark/30"
               onClick={() => window.location.assign("/explore")}

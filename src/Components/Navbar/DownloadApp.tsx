@@ -15,7 +15,7 @@ const DownloadApps = () => {
               onClick={() => setDownloadCard(!downloadCard)}
             ></i>
             <button className="px-8 py-4 text-2xl font-bold bg-colorGray rounded-xl hover:bg-colorGrayDark">
-              Download <i className="ri-download-line"></i>
+              Download for <i className="ri-windows-fill"></i>
             </button>
           </div>
         </section>
