@@ -5,11 +5,11 @@
 🇦🇺 ~ Stick Chain was developed to provide convenience for users who want to purchase games using cryptocurrency. With this platform, users do not have to go through the hassle of converting their crypto into local currency first, allowing transactions to be completed faster, more practically, and efficiently.
 
 ### Features
-#### * Sorting Game Categories
-#### * Faster Search Bar
-#### * Cart Payments
-#### * Encryption URL Website
-#### * Game Gallery
+* Sorting Game Categories
+* Faster Search Bar
+* Cart Payments
+* Encryption URL Website
+* Game Gallery
 
 
 ### Installation
