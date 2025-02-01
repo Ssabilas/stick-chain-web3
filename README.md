@@ -1,19 +1,14 @@
-
 ![Logo](https://github.com/zackyfachrur/stick-chain-web3/blob/main/public/assets/Logo.png)
-## About This Project
-**IND** ~ Stick Chain dirancang untuk memudahkan pengguna dalam melakukan pembelian game menggunakan mata uang kripto secara langsung, tanpa perlu mengonversinya ke mata uang negara seperti Rupiah, USD, dan lainnya.
 
-**ENG** ~ Stick Chain is designed to make it easier for users to buying a games using cryptocurrencies directly, without the need to convert them to national currencies such as Rupiah, USD, and others.
+🇮🇩 ~ Stick Chain dikembangkan dengan tujuan memberikan kemudahan bagi pengguna yang ingin membeli game menggunakan mata uang kripto. Dengan platform ini, pengguna tidak perlu repot mengonversi kripto mereka ke mata uang lokal terlebih dahulu, sehingga transaksi dapat dilakukan dengan lebih cepat, praktis, dan efisien.
 
-
-
+🇦🇺 ~ Stick Chain was developed to provide convenience for users who want to purchase games using cryptocurrency. With this platform, users do not have to go through the hassle of converting their crypto into local currency first, allowing transactions to be completed faster, more practically, and efficiently.
 
 ## Optimizations
 
 src/main.tsx *as a Metamask Provider*
 
-src/RouterApp.tsx *as a Router*
-
+src/Router.tsx *as a Router*
 
 src/View/* *as a splitting code for easy maintenance*
 
@@ -21,7 +16,7 @@ src/Utils/* *as a Encrypt and Decrypt URL*
 
 src/Pages/* *as a wrapper pages of code splitting*
 
-src/JSON/* *as a code splitting support*
+src/JSON/* *as a Resource*
 
 src/CSS/* *for Tailwind CSS File
 
@@ -29,57 +24,21 @@ src/CSS/* *for Tailwind CSS File
 
 ## Installation
 
-#### 1. Clone this repo
+#### 1. Requirements
+* Metamask Extension
+* Coinbase Wallet Extension
+
+#### 2. Clone this repo
 ```bash
  git clone https://github.com/zackyfachrur/stick-chain-web3.git
 ```
 
-#### 2. Install stick-chain-web3
-
+#### 3. Install stick-chain-web3
 ```bash
  cd stick-chain-web3
  npm install 
 ```
-#### 3. API Setup
-https://docs.metamask.io/services/get-started/infura/
-```js
-createRoot(document.getElementById("root")!).render(
-  <MetaMaskProvider
-    sdkOptions={{
-      dappMetadata: {
-        name: "Example React Dapp",
-        url: window.location.href,
-      },
-      // Your API Key from Metamask Infura
-      infuraAPIKey: import.meta.env.YOUR_API_KEY,
-    }}
-  >
-    <StrictMode>
-      <RouterApps />
-    </StrictMode>
-  </MetaMaskProvider>
-);
-```
 
-#### 4. Crypto JS Setup
-```js
-// Your Secret KEY (Create in ENV File)
-const SECRET_KEY = import.meta.env.REACT_APP_WEB_URL_KEY;
-
-export const encryptData = (data: string): string => {
-  return CryptoJS.AES.encrypt(data, SECRET_KEY).toString();
-};
-
-export const decryptData = (cipherText: string): string => {
-  try {
-    const bytes = CryptoJS.AES.decrypt(cipherText, SECRET_KEY);
-    return bytes.toString(CryptoJS.enc.Utf8);
-  } catch (error) {
-    console.error("Decryption failed:", error);
-    return "";
-  }
-};
-```
 ## Tech Stack
 
 **Client:** React, Typescript, TailwindCSS
