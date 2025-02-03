@@ -38,5 +38,9 @@
 
 ## Feedback
 
-If you have any feedback, please reach out to us at mochzackyfa@gmail.com
+If you have any feedback, please reach out to us at 
+mochzackyfa@gmail.com
+sabilassbl@gmail.com
+mirza.m.ahsan811@gmail.com
+
 
